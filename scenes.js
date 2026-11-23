@@ -71,6 +71,7 @@
   const HUI = { robe: '#8a7a5c', band: '#b5a37c', fold: '#4f4430', staff: false, beard: false };
   const HON = { robe: '#d98a2b', band: '#ecc766', fold: '#8a5a18', staff: false, beard: true };
   const DAO = { robe: '#6e5a46', band: '#8a7a5c', fold: '#3a2d20', staff: true, beard: true };
+  const HK = { robe: '#6f7f6a', band: '#98a890', fold: '#3a4636', staff: false, beard: false };
   const SCENES = {
     xiangzhi: function () {
       return '<svg viewBox="0 0 400 240" role="img" aria-label="香至國">' +
@@ -488,6 +489,75 @@
         FIG(96, 196, 0.95, false, { robe: '#6b7a8a', band: '#98a6b4', fold: '#3b4650', staff: false, beard: true }) + FIG(304, 196, 0.95, true, HUI) +
         '<g font-size="13">' + bi('北宗・神秀', 'Northern · Shenxiu', 96, 211, 'text-anchor="middle" fill="' + INK + '" font-weight="900"') + bi('南宗・惠能', 'Southern · Huineng', 304, 211, 'text-anchor="middle" fill="' + RED + '" font-weight="900"') + '</g>' +
         '<g class="say s1" font-size="16">' + bi('「能者得之」', '“Let the one who can, receive it.”', 200, 26, 'text-anchor="middle" fill="' + INK + '"') + '</g>' +
+        '</svg>';
+    },
+
+
+    /* ===== 二祖慧可篇（Huike chapter） ===== */
+    luoyang: function () {
+      let books = '';
+      [[250, 190, '#8c5a2b'], [262, 178, '#6b7a8a'], [246, 166, '#a38a52']].forEach(function (b) { books += '<rect x="' + b[0] + '" y="' + b[1] + '" width="56" height="12" rx="2" fill="' + b[2] + '" stroke="' + INK + '" stroke-width="1"/>'; });
+      return '<svg viewBox="0 0 400 240" role="img" aria-label="洛陽讀書">' +
+        '<circle cx="330" cy="54" r="22" fill="#f6efdc" stroke="' + INK + '" stroke-width=".8" opacity=".9"/>' + hills(150, 0.1, 6) +
+        '<path d="M0 214 Q120 204 240 212 T400 208 V240 H0 Z" fill="#d8ccad" stroke="' + INK + '" stroke-width="1.2"/>' +
+        '<path d="M232 214 V196 H320 V214" fill="#8c7a5a" stroke="' + INK + '" stroke-width="1.2"/>' + books +
+        '<path d="M20 120 Q50 112 76 98 L150 98 Q176 112 204 120 L196 128 L28 128 Z" fill="#3b3029" stroke="' + INK + '" stroke-width="1"/><rect x="34" y="128" width="150" height="86" fill="#efe5cc" stroke="' + INK + '" stroke-width="1.2"/>' +
+        FIG(210, 214, 1.1, true, HK) +
+        '<g class="say s1" font-size="16">' + bi('「莊易之書，未盡妙理」', '“Zhuangzi and the Yi leave the subtle truth unfinished”', 200, 34, 'text-anchor="middle" fill="' + INK + '"') + '</g>' +
+        '</svg>';
+    },
+
+    marrow: function () {
+      return '<svg viewBox="0 0 400 240" role="img" aria-label="得髓">' +
+        '<rect width="400" height="240" fill="#6b6a66" opacity=".08"/>' +
+        '<path d="M0 240 L0 160 L80 100 L150 140 L230 70 L300 130 L400 110 L400 240 Z" fill="#2d241c" opacity=".55"/>' +
+        '<path d="M0 214 Q120 204 240 212 T400 208 V240 H0 Z" fill="#cbbf9f" stroke="' + INK + '" stroke-width="1.2"/>' +
+        FIG(130, 212, 1.2, false, { robe: '#b3261e', band: '#d9573f', fold: '#7a1713', staff: false, beard: true }) + FIG(270, 212, 1.1, true, HK) +
+        '<rect x="186" y="190" width="28" height="18" rx="2" fill="#c9573f" stroke="' + INK + '" stroke-width="1.1"/>' +
+        '<g class="say s1" font-size="22">' + bi('「汝得吾髓」', '“You have my marrow.”', 200, 34, 'text-anchor="middle" fill="' + RED + '"') + '</g>' +
+        '<g class="say s2" font-size="14">' + bi('皮・肉・骨・髓', 'skin · flesh · bone · marrow', 200, 100, 'text-anchor="middle" fill="' + INK + '"') + '</g>' +
+        '</svg>';
+    },
+
+    lanka: function () {
+      let heads = '';
+      for (let i = 0; i < 12; i++) heads += '<g transform="translate(' + (24 + (i % 6) * 30) + ' ' + (214 - Math.floor(i / 6) * 14) + ')"><path d="M-8 0 Q-7 -11 0 -13 Q7 -11 8 0Z" fill="' + (i % 3 ? '#cfc6b3' : '#8a7a5c') + '" stroke="' + INK + '" stroke-width="1"/><circle cx="0" cy="-17" r="5" fill="' + SKIN + '" stroke="' + INK + '" stroke-width="1"/></g>';
+      return '<svg viewBox="0 0 400 240" role="img" aria-label="鄴都弘法">' +
+        hills(130, 0.1, 6) +
+        '<path d="M0 150 H400 V214 H0 Z" fill="#cdbf9a" stroke="' + INK + '" stroke-width="1.2"/>' +
+        '<path d="M0 150 h400" stroke="' + INK + '" stroke-width="2"/><path d="M0 150 v-12 h14 v12 M40 150 v-12 h14 v12 M80 150 v-12 h14 v12 M120 150 v-12 h14 v12 M160 150 v-12 h14 v12 M200 150 v-12 h14 v12 M240 150 v-12 h14 v12 M280 150 v-12 h14 v12 M320 150 v-12 h14 v12 M360 150 v-12 h14 v12" stroke="' + INK + '" stroke-width="1.4" fill="none"/>' +
+        '<path d="M250 214 V160 Q250 148 270 148 Q290 148 290 160 V214" fill="#241c15" opacity=".7"/>' +
+        heads +
+        FIG(300, 214, 1.15, true, HK) +
+        '<rect x="214" y="180" width="26" height="16" rx="2" fill="#efe5cc" stroke="' + INK + '" stroke-width="1.2"/><path d="M219 186 h16 M219 191 h16" stroke="' + INK + '" stroke-width=".8"/>' +
+        '<g class="say s1" font-size="17">' + bi('《楞伽經》四卷', 'Four scrolls of the Lankavatara', 200, 30, 'text-anchor="middle" fill="' + INK + '"') + '</g>' +
+        '</svg>';
+    },
+
+    tavern: function () {
+      return '<svg viewBox="0 0 400 240" role="img" aria-label="混跡市井">' +
+        hills(150, 0.1, 6) +
+        '<path d="M0 214 Q120 204 240 212 T400 208 V240 H0 Z" fill="#cbbf9f" stroke="' + INK + '" stroke-width="1.2"/>' +
+        '<rect x="24" y="108" width="130" height="106" fill="#efe5cc" stroke="' + INK + '" stroke-width="1.3"/><path d="M14 108 L89 80 L164 108 Z" fill="#3b3029"/>' +
+        '<path d="M170 100 V52" stroke="' + INK + '" stroke-width="3"/><g class="drift" style="animation-duration:3s"><path d="M172 54 h34 v50 h-34 Z" fill="#c9573f" stroke="' + INK + '" stroke-width="1.2"/><text x="189" y="88" text-anchor="middle" font-size="26" font-weight="900" fill="#f6efdc">酒</text></g>' +
+        '<g transform="translate(80 214)"><ellipse cx="0" cy="-10" rx="14" ry="12" fill="#7a5a3a" stroke="' + INK + '" stroke-width="1.2"/><path d="M-10 -18 h20" stroke="#f6efdc" stroke-width="3"/></g>' +
+        FIG(240, 214, 1.1, false, HK) +
+        '<g transform="translate(330 206)"><path d="M-14 0 Q-12 -20 0 -24 Q12 -20 14 0Z" fill="#7a5a3a" stroke="' + INK + '" stroke-width="1.1"/><circle cx="0" cy="-32" r="7.5" fill="' + SKIN + '" stroke="' + INK + '" stroke-width="1.1"/></g>' +
+        '<g class="say s1" font-size="16">' + bi('「我自調心，何關汝事？」', '“I am tuning my own mind — what is it to you?”', 200, 30, 'text-anchor="middle" fill="' + INK + '"') + '</g>' +
+        '</svg>';
+    },
+
+    sin: function () {
+      let dots = '';
+      [[0, -30], [6, -22], [-6, -14], [4, -6]].forEach(function (d) { dots += '<circle cx="' + d[0] + '" cy="' + d[1] + '" r="1.6" fill="#8c2a1f" opacity=".75"/>'; });
+      return '<svg viewBox="0 0 400 240" role="img" aria-label="覓罪不可得">' +
+        '<rect width="400" height="240" fill="#6b6a66" opacity=".08"/>' +
+        '<path d="M0 240 L0 150 L70 80 L130 130 L210 40 L290 120 L350 80 L400 130 L400 240 Z" fill="#2d241c" opacity=".6"/>' +
+        '<path d="M0 214 Q120 204 240 212 T400 208 V240 H0 Z" fill="#cbbf9f" stroke="' + INK + '" stroke-width="1.2"/>' +
+        FIG(120, 214, 1.2, false, HK) +
+        '<g transform="translate(278 214)"><path d="M-16 0 Q-14 -24 0 -28 Q14 -24 16 0Z" fill="#a38a52" stroke="' + INK + '" stroke-width="1.2"/><circle cx="0" cy="-38" r="9" fill="' + SKIN + '" stroke="' + INK + '" stroke-width="1.2"/><path d="M-9 -42 q9 -9 18 0" stroke="' + INK + '" stroke-width="2.4" fill="none"/>' + dots + '</g>' +
+        '<g class="say s1" font-size="20">' + bi('「覓罪不可得」', '“The sin cannot be found.”', 200, 34, 'text-anchor="middle" fill="' + RED + '"') + '</g>' +
+        '<g class="say s2" font-size="16">' + bi('「是心是佛，是心是法」', '“This mind is Buddha; this mind is Dharma.”', 200, 94, 'text-anchor="middle" fill="' + INK + '"') + '</g>' +
         '</svg>';
     },
 

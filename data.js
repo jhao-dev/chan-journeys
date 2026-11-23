@@ -21,7 +21,8 @@ window.CHAPTERS = [
     },
     finale: { zh: '達摩傳法慧可，禪宗一脈自此在中國生根。', en: 'Bodhidharma passed the teaching to Huike, and Chan took root in China.' },
     zenChannel: { name: '悟覺妙天師父【印心佛法】', url: 'https://www.youtube.com/@thebuddhachan' },
-    nextHint: { zh: '下一篇：二祖慧可（即將推出）', en: 'Next: Huike, the Second Patriarch (coming soon)' },
+    nextChapter: { id: 'huike', label: { zh: '接續下一篇：二祖慧可', en: 'Next chapter: Huike, the Second Patriarch' } },
+    nextHint: { zh: '下一篇：二祖慧可，向達摩求安心的人', en: 'Next: Huike, who asked Bodhidharma to pacify his mind' },
     stations: [
       {
         id: 'xiangzhi', short: { zh: '香至國', en: 'Gandha' }, num: '一', at: [79.70, 12.83], zoom: 3.0, scene: 'xiangzhi',
