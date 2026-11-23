@@ -213,7 +213,7 @@ body[data-lang="bi"] .card .title .en { font-size: 17px; color: var(--ink-2); ma
 .scene .sway { animation: sway 5s ease-in-out infinite alternate; transform-origin: 236px 200px; }
 .scene .say { opacity: 0; animation: say 1.4s ease forwards; font-weight: 900; }
 .scene .say.s1 { animation-delay: 1s; }
-.scene .say.s2 { animation-delay: 3.2s; }
+.scene .say.s2, .scene .say.s3 { animation-delay: 3.2s; }
 .scene .drift { animation: drift 6s linear infinite; }
 .scene .float { animation: float 3s ease-in-out infinite alternate; }
 .scene .ripple ellipse { transform-origin: 200px 186px; animation: ripple 3.6s ease-out infinite; }

@@ -68,6 +68,7 @@
   }
 
   const BUD = { robe: '#d9a441', band: '#ecc766', fold: '#8a6618', staff: false, beard: false };
+  const HUI = { robe: '#8a7a5c', band: '#b5a37c', fold: '#4f4430', staff: false, beard: false };
   const SCENES = {
     xiangzhi: function () {
       return '<svg viewBox="0 0 400 240" role="img" aria-label="香至國">' +
@@ -306,6 +307,115 @@
         '<g transform="translate(320 206)"><path d="M-12 0 Q-10 -16 0 -20 Q10 -16 12 0Z" fill="#cfc6b3" stroke="' + INK + '" stroke-width="1"/><circle cx="0" cy="-27" r="6.5" fill="' + SKIN + '" stroke="' + INK + '" stroke-width="1"/></g>' +
         '<g transform="translate(200 160)"><path class="pulse" d="M0 0 q-9 -14 0 -28 q9 14 0 28Z" fill="#f0a830" stroke="' + RED + '" stroke-width="1" style="transform-origin:200px 160px"/><path d="M-8 2 h16" stroke="' + INK + '" stroke-width="2"/></g>' +
         '<g class="say s1" font-size="20">' + bi('「自燃燈，法燃燈」', '“Be a lamp unto yourselves”', 200, 30, 'text-anchor="middle" fill="' + INK + '"') + '</g>' +
+        '</svg>';
+    },
+
+    /* ===== 六祖惠能篇（Huineng chapter） ===== */
+    firewood: function () {
+      return '<svg viewBox="0 0 400 240" role="img" aria-label="賣柴聞經">' +
+        '<circle cx="320" cy="58" r="22" fill="#f6efdc" stroke="' + INK + '" stroke-width=".8" opacity=".9"/>' + hills(150, 0.12, 6) +
+        '<path d="M0 214 Q120 204 240 212 T400 208 V240 H0 Z" fill="#d8ccad" stroke="' + INK + '" stroke-width="1.2"/>' +
+        '<g class="walker" style="animation-duration:1.2s">' + FIG(110, 214, 1.2, false, HUI).replace('<ellipse', '<ellipse opacity="0"') + '</g>' +
+        '<path d="M64 150 L168 120" stroke="#4a3526" stroke-width="3" stroke-linecap="round"/>' +
+        '<g fill="#8c5a2b" stroke="' + INK + '" stroke-width="1"><rect x="56" y="150" width="30" height="34" rx="3" transform="rotate(-10 71 167)"/><rect x="150" y="116" width="30" height="34" rx="3" transform="rotate(-10 165 133)"/></g>' +
+        '<rect x="250" y="120" width="110" height="86" fill="#efe5cc" stroke="' + INK + '" stroke-width="1.4"/><path d="M240 120 L305 92 L370 120 Z" fill="#3b3029"/>' +
+        '<g transform="translate(300 206)"><path d="M-14 0 Q-12 -20 0 -24 Q12 -20 14 0Z" fill="#6b7a8a" stroke="' + INK + '" stroke-width="1.1"/><circle cx="0" cy="-32" r="7.5" fill="' + SKIN + '" stroke="' + INK + '" stroke-width="1.1"/><path d="M-14 -14 h28" stroke="#f6efdc" stroke-width="5" opacity=".8"/></g>' +
+        '<g class="say s1" font-size="17">' + bi('「應無所住而生其心」', '“Let the mind arise without dwelling on anything”', 220, 34, 'text-anchor="middle" fill="' + INK + '"') + '</g>' +
+        '</svg>';
+    },
+
+    walls: function () {
+      function wall(x, label) {
+        return '<rect x="' + x + '" y="30" width="176" height="176" fill="#e9dfc3" stroke="' + INK + '" stroke-width="1.6"/>' +
+          '<path d="M' + x + ' 30 h176" stroke="#8c2a1f" stroke-width="6"/>' +
+          '<path d="M' + (x + 14) + ' 188 q30 -6 60 0 t60 0" stroke="' + INK + '" stroke-width=".8" fill="none" opacity=".25"/>';
+      }
+      function ln(zh, en, x, y, cls) { return '<g class="' + cls + '" font-size="12.5">' + bi(zh, en, x, y, 'text-anchor="middle" fill="' + INK + '"') + '</g>'; }
+      const L = 108, R = 292;
+      return '<svg viewBox="0 0 400 240" role="img" aria-label="兩首偈">' +
+        '<rect width="400" height="240" fill="#2b2a33" opacity=".08"/>' +
+        wall(20) + wall(204) +
+        '<g transform="translate(20 212)"><text class="zh" x="88" y="14" text-anchor="middle" font-size="12" fill="' + INK + '" font-weight="900">神秀</text><text class="en" x="88" y="14" text-anchor="middle" font-size="10" fill="' + INK + '">Shenxiu</text></g>' +
+        '<g transform="translate(204 212)"><text class="zh" x="88" y="14" text-anchor="middle" font-size="12" fill="' + RED + '" font-weight="900">惠能</text><text class="en" x="88" y="14" text-anchor="middle" font-size="10" fill="' + RED + '">Huineng</text></g>' +
+        ln('身是菩提樹', 'The body is a bodhi tree,', L, 66, 'say s1') + ln('心如明鏡臺', 'the mind a bright mirror stand;', L, 98, 'say s1') +
+        ln('時時勤拂拭', 'wipe it diligently, always,', L, 130, 'say s1') + ln('勿使惹塵埃', 'let no dust alight.', L, 162, 'say s1') +
+        ln('菩提本無樹', 'Bodhi has no tree at all,', R, 66, 'say s3') + ln('明鏡亦非臺', 'nor has the mirror a stand;', R, 98, 'say s3') +
+        ln('本來無一物', 'originally, not a single thing —', R, 130, 'say s3') + ln('何處惹塵埃', 'where could dust alight?', R, 162, 'say s3') +
+        '</svg>';
+    },
+
+    robe: function () {
+      return '<svg viewBox="0 0 400 240" role="img" aria-label="夜渡傳衣">' +
+        '<rect width="400" height="240" fill="#2b2a33" opacity=".2"/>' +
+        '<circle class="pulse" cx="320" cy="54" r="24" fill="#f6efdc" stroke="' + INK + '" stroke-width=".8" style="transform-origin:320px 54px"/>' + hills(120, 0.12, 6) +
+        '<rect x="0" y="124" width="400" height="116" fill="#c9cfc2" opacity=".4"/>' + waves(142, 7, 'waves drift') +
+        '<g class="float">' +
+        '<path d="M96 164 Q200 190 304 164 L286 184 Q200 204 114 184 Z" fill="#5a4334" stroke="' + INK + '" stroke-width="1.3"/>' +
+        '<path d="M290 168 L346 130" stroke="#4a3526" stroke-width="3"/>' +
+        FIG(160, 172, 0.95, false, HUI) + FIG(236, 172, 0.95, true, { robe: '#d98a2b', band: '#ecc766', fold: '#8a5a18', staff: false, beard: true }) +
+        '<rect x="150" y="150" width="22" height="16" rx="2" fill="#c9573f" stroke="' + INK + '" stroke-width="1"/>' +
+        '</g>' +
+        '<g class="say s1" font-size="19">' + bi('「迷時師度，悟了自度」', '“Deluded, a teacher ferries you; awakened, you ferry yourself”', 200, 34, 'text-anchor="middle" fill="' + INK + '"') + '</g>' +
+        '</svg>';
+    },
+
+    ridge: function () {
+      return '<svg viewBox="0 0 400 240" role="img" aria-label="大庾嶺">' +
+        '<rect width="400" height="240" fill="#6b6a66" opacity=".1"/>' +
+        '<path d="M0 240 L0 140 L70 60 L130 110 L210 30 L280 100 L340 70 L400 130 L400 240 Z" fill="#2d241c" opacity=".78"/>' +
+        '<path d="M0 240 L0 180 L90 120 L170 170 L250 110 L330 160 L400 140 L400 240 Z" fill="#7c6e5c" opacity=".7"/>' +
+        '<path d="M120 240 Q160 190 200 190 Q240 190 280 240 Z" fill="#9a8c78" stroke="' + INK + '" stroke-width="1.2"/>' +
+        '<rect x="176" y="176" width="48" height="16" rx="3" fill="#c9573f" stroke="' + INK + '" stroke-width="1.2"/>' +
+        '<path d="M16 210 Q80 200 120 220" stroke="' + INK + '" stroke-width="2" fill="none" opacity=".5"/>' +
+        '<g class="walker" style="animation-duration:.5s">' + FIG(60, 214, 1.1, false, { robe: '#5a4a3a', band: '#7a6a58', fold: '#2d241c', staff: false, beard: true }) + '</g>' +
+        FIG(336, 214, 1.15, true, HUI) +
+        '<g class="say s1" font-size="16">' + bi('「不思善，不思惡」', '“Think neither good nor evil”', 200, 34, 'text-anchor="middle" fill="' + INK + '"') + '</g>' +
+        '<g class="say s2" font-size="15">' + bi('「那箇是明上座本來面目？」', '“What is your original face?”', 200, 74, 'text-anchor="middle" fill="' + RED + '"') + '</g>' +
+        '</svg>';
+    },
+
+    hunters: function () {
+      function hunter(x, c) { return '<g transform="translate(' + x + ' 206)"><path d="M-14 0 Q-12 -20 0 -24 Q12 -20 14 0Z" fill="' + c + '" stroke="' + INK + '" stroke-width="1.1"/><circle cx="0" cy="-32" r="7.5" fill="' + SKIN + '" stroke="' + INK + '" stroke-width="1.1"/><path d="M-9 -36 q9 -9 18 0" stroke="' + INK + '" stroke-width="2.4" fill="none"/></g>'; }
+      let trees = '';
+      [30, 90, 330, 380].forEach(function (x, i) { trees += '<path d="M' + x + ' 214 L' + x + ' ' + (70 + i * 10) + '" stroke="' + INK + '" stroke-width="5"/><ellipse cx="' + x + '" cy="' + (66 + i * 10) + '" rx="38" ry="24" fill="' + INK + '" opacity=".6"/>'; });
+      return '<svg viewBox="0 0 400 240" role="img" aria-label="獵人隊">' +
+        hills(140, 0.1, 6) + trees + '<path d="M0 214 Q120 204 240 212 T400 208 V240 H0 Z" fill="#cbbf9f" stroke="' + INK + '" stroke-width="1.2"/>' +
+        '<path d="M140 90 Q200 150 270 90 M150 100 L150 190 M200 130 L200 190 M260 100 L260 190" stroke="#8c7a5a" stroke-width="1" fill="none" opacity=".6"/>' +
+        hunter(90, '#7a5a3a') + hunter(310, '#7a5a3a') +
+        '<g transform="translate(200 206)"><ellipse cx="0" cy="-8" rx="26" ry="12" fill="#3b3029" stroke="' + INK + '" stroke-width="1.3"/><path d="M-20 -12 q6 -10 12 -2 q6 -10 12 -2 q6 -8 12 0" fill="#6e7a3a" stroke="#3d4520" stroke-width="1"/>' +
+        '<path class="pulse" d="M-6 -24 q-4 -8 0 -14 M6 -24 q4 -8 0 -14" stroke="#9a9384" stroke-width="2" fill="none" style="transform-origin:200px 170px"/></g>' +
+        FIG(150, 206, 1.1, false, HUI) +
+        '<g class="seal-stamp"><rect x="350" y="150" width="34" height="40" fill="' + RED + '"/>' + bi('十五年', '15 yrs', 367, 175, 'text-anchor="middle" fill="#f6efdc" font-size="11"') + '</g>' +
+        '</svg>';
+    },
+
+    flag: function () {
+      return '<svg viewBox="0 0 400 240" role="img" aria-label="風動幡動">' +
+        hills(150, 0.1, 6) +
+        '<path d="M232 214 V30" stroke="' + INK + '" stroke-width="4"/>' +
+        '<g class="drift" style="animation-duration:3s"><path d="M236 36 Q290 26 336 44 Q300 58 336 80 Q290 92 236 78 Z" fill="#c9573f" stroke="' + INK + '" stroke-width="1.3"/></g>' +
+        '<path d="M30 214 H370" stroke="' + INK + '" stroke-width="2" opacity=".5"/>' +
+        '<path d="M20 120 Q50 112 76 98 L170 98 Q196 112 224 120 L216 128 L28 128 Z" fill="#3b3029" stroke="' + INK + '" stroke-width="1"/><rect x="34" y="128" width="170" height="86" fill="#efe5cc" stroke="' + INK + '" stroke-width="1.2"/><path d="M60 214 V150 Q60 138 76 138 Q92 138 92 150 V214" fill="#241c15" opacity=".7"/>' +
+        '<g class="walker" style="animation-duration:1.6s">' + FIG(150, 214, 1, false, { robe: '#cfc6b3', band: '#e8e1d0', fold: '#8a8170', staff: false, beard: false }) + '</g>' +
+        FIG(290, 214, 1.1, true, HUI) +
+        '<g class="say s1" font-size="16">' + bi('「不是風動，不是幡動」', '“Not the wind, not the flag”', 150, 22, 'text-anchor="middle" fill="' + INK + '"') + '</g>' +
+        '<g class="say s2" font-size="20">' + bi('「仁者心動」', '“It is your mind that moves.”', 290, 228, 'text-anchor="middle" fill="' + RED + '"') + '</g>' +
+        '</svg>';
+    },
+
+    platform: function () {
+      let heads = '';
+      for (let i = 0; i < 14; i++) heads += '<g transform="translate(' + (28 + (i % 7) * 52) + ' ' + (210 - Math.floor(i / 7) * 16) + ')"><path d="M-9 0 Q-8 -12 0 -14 Q8 -12 9 0Z" fill="' + (i % 3 ? '#cfc6b3' : '#8a7a5c') + '" stroke="' + INK + '" stroke-width="1"/><circle cx="0" cy="-19" r="5.5" fill="' + SKIN + '" stroke="' + INK + '" stroke-width="1"/></g>';
+      return '<svg viewBox="0 0 400 240" role="img" aria-label="曹溪說法">' +
+        hills(130, 0.1, 6) +
+        '<path d="M60 150 Q200 120 340 150 L340 158 Q200 130 60 158 Z" fill="#3b3029" stroke="' + INK + '" stroke-width="1"/>' +
+        '<path d="M120 168 H280 L296 190 H104 Z" fill="#8c2a1f" stroke="' + INK + '" stroke-width="1.2"/>' +
+        '<g transform="translate(200 168)"><circle class="pulse" cx="0" cy="-34" r="34" fill="#e8c867" opacity=".3" style="transform-origin:200px 134px"/>' +
+        '<path d="M-26 0 Q-24 -16 -14 -24 Q-18 -42 0 -48 Q18 -42 14 -24 Q24 -16 26 0Z" fill="#8a7a5c" stroke="' + INK + '" stroke-width="1.3"/>' +
+        '<circle cx="0" cy="-56" r="10" fill="' + SKIN + '" stroke="' + INK + '" stroke-width="1.2"/><path d="M-4 -56 q3 2 6 0" stroke="' + INK + '" stroke-width="1" fill="none"/></g>' +
+        '<rect x="240" y="150" width="30" height="20" rx="2" fill="#efe5cc" stroke="' + INK + '" stroke-width="1.2"/><path d="M246 156 h18 M246 161 h18" stroke="' + INK + '" stroke-width=".8"/>' +
+        heads +
+        '<g class="say s1" font-size="17">' + bi('「菩提自性，本來清淨」', '“Bodhi-nature is originally pure”', 200, 30, 'text-anchor="middle" fill="' + INK + '"') + '</g>' +
         '</svg>';
     },
 
