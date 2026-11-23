@@ -532,6 +532,7 @@
     const g = addFixed(gBloom.append('g'), p);
     g.append('circle').attr('class', 'bloom').attr('r', 14);
     g.append('circle').attr('class', 'bloom b2').attr('r', 14);
+    g.append('circle').attr('class', 'bloom b3').attr('r', 14);
     setTimeout(() => { g.remove(); const k = fixed.findIndex((f) => f.g === g); if (k >= 0) fixed.splice(k, 1); }, 2400);
     bell();
     try { history.replaceState(null, '', '#ch=' + chapter.id + '&stop=' + (i + 1)); } catch (e) {}

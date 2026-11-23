@@ -707,3 +707,62 @@ body:not(.playing) .ctl.play { animation: breathe 2.6s ease-in-out infinite; }
   .icon-btn { width: 30px; height: 30px; }
   .icon-btn svg { width: 17px; height: 17px; }
 }
+
+/* ===== 第六版：動畫精緻化（Polish: motion） ===== */
+/* 人物：步行時身體左右微傾、上下起伏；靜止時輕輕呼吸；乘船時隨波搖擺 */
+#map .fig-wrap.moving .bob { animation: stride .86s ease-in-out infinite; }
+#map .fig-wrap:not(.moving) .bob { animation: figbreath 3.8s ease-in-out infinite; }
+#map .fig-wrap.m-ship .bob, #map .fig-wrap.m-reed .bob { animation: rock 2.6s ease-in-out infinite alternate; }
+@keyframes stride {
+  0%   { transform: translateY(0) rotate(-2.6deg); }
+  25%  { transform: translateY(-2.6px) rotate(0deg); }
+  50%  { transform: translateY(0) rotate(2.6deg); }
+  75%  { transform: translateY(-2.6px) rotate(0deg); }
+  100% { transform: translateY(0) rotate(-2.6deg); }
+}
+@keyframes figbreath { 0%, 100% { transform: scale(1, 1); } 50% { transform: scale(1.008, 1.018); } }
+@keyframes rock { from { transform: translateY(0) rotate(-1.8deg); } to { transform: translateY(-2px) rotate(1.8deg); } }
+
+/* 到站：三圈墨暈（墨、朱砂、金），標記像蓋章般彈出 */
+#map .bloom.b3 { stroke: var(--gold-2); animation-delay: .5s; }
+#map .stn.current .ring { animation: ringpop .6s cubic-bezier(.3, 1.6, .5, 1); transform-box: fill-box; transform-origin: center; }
+@keyframes ringpop { 0% { transform: scale(.4); } 100% { transform: scale(1); } }
+
+/* 地圖上的薄霧緩緩飄移 */
+body::before {
+  content: ""; position: fixed; inset: -25%; z-index: 1; pointer-events: none;
+  background:
+    radial-gradient(ellipse 28% 14% at 22% 30%, rgba(255, 255, 255, .26), rgba(255, 255, 255, 0) 70%),
+    radial-gradient(ellipse 34% 12% at 70% 62%, rgba(255, 255, 255, .22), rgba(255, 255, 255, 0) 70%),
+    radial-gradient(ellipse 22% 10% at 45% 85%, rgba(255, 255, 255, .2), rgba(255, 255, 255, 0) 70%);
+  animation: mistdrift 80s ease-in-out infinite alternate;
+}
+@keyframes mistdrift { from { transform: translate3d(-4%, 0, 0); } to { transform: translate3d(6%, 2%, 0); } }
+
+/* 故事卡片：插圖像畫軸般從左向右展開，進度圓點有水波 */
+.card-body.in .scene svg { animation: unroll 1.2s var(--ease) .12s both; }
+@keyframes unroll { from { clip-path: inset(0 100% 0 0); opacity: .4; } to { clip-path: inset(0 0 0 0); opacity: 1; } }
+.tl-dot.current::after { content: ""; position: absolute; inset: -5px; border-radius: 50%; border: 1.5px solid var(--vermilion); opacity: 0; animation: ringpulse 2.4s ease-out infinite; pointer-events: none; }
+@keyframes ringpulse { 0% { transform: scale(.7); opacity: .7; } 100% { transform: scale(1.5); opacity: 0; } }
+.timeline .fill { transition: width .3s linear; }
+
+/* 開場：標題字距由鬆到緊、墨色漸顯 */
+.intro-title .v { animation: titlein 2s var(--ease) .2s both; }
+@keyframes titlein { from { opacity: 0; letter-spacing: .5em; filter: blur(8px); } to { opacity: 1; letter-spacing: .2em; filter: none; } }
+.intro-en, .intro-sub, .intro-note { animation: fadein 1.2s var(--ease) 1.1s both; }
+.intro .begin { animation: fadein 1.2s var(--ease) 1.5s both; }
+
+/* 結尾卡：標題與按鈕依序浮現 */
+body.ended.show-finale .finale > * { animation: fadein .9s var(--ease) both; }
+body.ended.show-finale .finale > *:nth-child(2) { animation-delay: .12s; }
+body.ended.show-finale .finale > *:nth-child(3) { animation-delay: .24s; }
+body.ended.show-finale .finale > *:nth-child(4) { animation-delay: .36s; }
+body.ended.show-finale .finale > *:nth-child(5) { animation-delay: .48s; }
+
+/* 系譜節點依序浮現 */
+.lin-node { animation: nodein .6s var(--ease) both; }
+@keyframes nodein { from { opacity: 0; margin-top: 8px; } to { opacity: 1; margin-top: 0; } }
+
+@media (prefers-reduced-motion: reduce) {
+  body::before, .intro-title .v, .intro-inner, .card-body.in .scene svg, .lin-node, .tl-dot.current::after, #map .fig-wrap .bob { animation: none !important; }
+}
