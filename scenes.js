@@ -432,7 +432,7 @@
         FIG(110, 214, 1.2, false, DAO) +
         '<g class="walker" style="animation-duration:1.4s">' + FIG(260, 214, 0.62, true, { robe: '#cfc6b3', band: '#e8e1d0', fold: '#8a8170', staff: false, beard: false }) + '</g>' +
         '<g class="say s1" font-size="19">' + bi('「是佛性」', '“It is Buddha-nature.”', 200, 34, 'text-anchor="middle" fill="' + INK + '"') + '</g>' +
-        '<g class="say s2" font-size="15">' + bi('「性空故無」', '“Nature is empty, so there is none.”', 200, 96, 'text-anchor="middle" fill="' + RED + '"') + '</g>' +
+        '<g class="say s2" font-size="15">' + bi('「性空故」', '“Its nature is empty, therefore.”', 200, 96, 'text-anchor="middle" fill="' + RED + '"') + '</g>' +
         '</svg>';
     },
 
@@ -445,7 +445,7 @@
         '<path d="M96 200 H304 L316 214 H84 Z" fill="#8c7a5a" stroke="' + INK + '" stroke-width="1.2"/>' +
         FIG(150, 206, 1.15, false, DAO) + FIG(246, 206, 1.0, true, HON) +
         '<rect x="188" y="188" width="24" height="16" rx="2" fill="#c9573f" stroke="' + INK + '" stroke-width="1.1"/>' +
-        '<g class="say s1" font-size="17">' + bi('「努力勤坐，坐為根本」', '“Strive to sit — sitting is the root”', 200, 34, 'text-anchor="middle" fill="' + INK + '"') + '</g>' +
+        '<g class="say s1" font-size="17">' + bi('「攝心無寐，脅不至席」', '“Mind gathered, he never lay down to sleep”', 200, 34, 'text-anchor="middle" fill="' + INK + '"') + '</g>' +
         '</svg>';
     },
 
@@ -462,7 +462,7 @@
         '<g class="walker" style="animation-duration:1.8s">' + FIG(310, 206, 0.8, false, HUI) + '</g>' +
         '<path d="M335 176 L352 196" stroke="#4a3526" stroke-width="2.4" stroke-linecap="round"/>' +
         '<g font-size="12" fill="' + INK + '">' + bi('坐禪', 'Sitting', 72, 150, 'text-anchor="middle"') + bi('耕作', 'Working', 322, 132, 'text-anchor="middle"') + '</g>' +
-        '<g class="say s1" font-size="17">' + bi('「守本真心」', '“Guard the original true mind”', 200, 30, 'text-anchor="middle" fill="' + INK + '"') + '</g>' +
+        '<g class="say s1" font-size="17">' + bi('「但持《金剛經》，即自見性」', '“Just hold the Diamond Sutra and see your nature”', 200, 30, 'text-anchor="middle" fill="' + INK + '"') + '</g>' +
         '</svg>';
     },
 

@@ -140,7 +140,7 @@
         id: 'caoxi', short: { zh: '壇經', en: 'Sutra' }, num: '七', at: [113.60, 24.67], zoom: 9, scene: 'platform', side: 1,
         place: { zh: '曹溪・寶林寺', en: 'Baolin Temple, Caoxi' },
         title: { zh: '曹溪開法，《壇經》傳世', en: 'Teaching at Caoxi: the Platform Sutra' },
-        source: { zh: '善知識，菩提自性，本來清淨，但用此心，直了成佛。', en: '“Good friends, the Bodhi nature is originally pure. Just use this mind and you will reach Buddhahood directly.”', ref: { zh: '《六祖壇經・般若品》', en: 'Platform Sutra, “Prajna” chapter' } },
+        source: { zh: '善知識，菩提自性，本來清淨，但用此心，直了成佛。', en: '“Good friends, the Bodhi nature is originally pure. Just use this mind and you will reach Buddhahood directly.”', ref: SUTRA },
         zen: [],
         refs: WIKI(['南華禪寺', '南華禪寺'], ['Nanhua Temple', 'Nanhua_Temple']).concat(WIKI(['六祖壇經', '六祖壇經'], ['Platform Sutra', 'Platform_Sutra'])).concat(WIKI(['南宗', '南宗'], ['Southern Chan', 'Chan_Buddhism'])),
         facts: [
