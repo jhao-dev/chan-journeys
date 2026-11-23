@@ -466,3 +466,46 @@ body[data-lang="bi"] .card .zen-item p .en { display: block; color: var(--ink-2)
 .scene .wheel { animation: wheel 14s linear infinite; }
 @keyframes wheel { to { transform: rotate(360deg); } }
 .finale-btns .begin[hidden] { display: none; }
+
+/* 傳法系譜總覽 */
+.lineage { position: fixed; inset: 0; z-index: 60; background: var(--paper); display: flex; flex-direction: column; }
+.lineage[hidden] { display: none; }
+.lin-head { position: relative; text-align: center; padding: 14px 56px 8px; border-bottom: 1px solid var(--line); }
+.lin-head h2 { margin: 0; font-size: 22px; letter-spacing: .2em; font-weight: 900; }
+.lin-head h2 .en { letter-spacing: .02em; font-size: 20px; }
+body[data-lang="bi"] .lin-head h2 .en, body[data-lang="bi"] .lin-head p .en { display: block; font-size: .72em; color: var(--ink-2); }
+.lin-head p { margin: 4px 0 0; font-size: 12.5px; color: var(--ink-3); }
+.lin-close { position: absolute; right: 14px; top: 12px; }
+.lin-scroll { flex: 1; overflow: auto; padding: 0 12px 36vh; }
+.lin-canvas { position: relative; max-width: 760px; margin: 0 auto; }
+.lin-canvas svg { position: absolute; inset: 0; width: 100%; height: 100%; overflow: visible; }
+.lin-canvas svg path { fill: none; stroke: var(--ink); stroke-width: 2.2; opacity: .6; vector-effect: non-scaling-stroke; stroke-linecap: round; }
+.lin-canvas svg path.dash { stroke-dasharray: 3 7; }
+.lin-node { position: absolute; transform: translate(-50%, -50%); min-width: 84px; max-width: 150px; padding: 7px 10px; background: rgba(247, 240, 222, .98); border: 1.5px solid var(--ink); border-radius: 4px; font-family: var(--serif-zh); color: var(--ink); cursor: pointer; text-align: center; box-shadow: 2px 3px 0 rgba(36, 28, 21, .12); }
+.lin-node .nm { display: block; font-weight: 900; font-size: 15px; line-height: 1.25; }
+.lin-node .nm .en { font-size: 12.5px; font-weight: 600; }
+body[data-lang="bi"] .lin-node .nm .en { display: block; font-size: 10.5px; font-style: italic; }
+.lin-node .tg { display: block; font-size: 10.5px; color: var(--ink-3); margin-top: 2px; line-height: 1.2; }
+body[data-lang="bi"] .lin-node .tg .en { display: block; }
+.lin-node.live { border-color: var(--vermilion); box-shadow: 2px 3px 0 rgba(179, 38, 30, .25); }
+.lin-node .go { position: absolute; right: -9px; top: -9px; width: 18px; height: 18px; line-height: 18px; font-size: 8px; font-style: normal; border-radius: 50%; background: var(--vermilion); color: #f6efdc; }
+.lin-node.soon { border-style: dashed; opacity: .85; }
+.lin-node.skip { max-width: 210px; min-width: 190px; border-style: dotted; background: transparent; box-shadow: none; color: var(--ink-3); }
+.lin-node.leaf { min-width: 64px; padding: 8px 6px; border-color: var(--gold); }
+.lin-node.leaf .nm { font-size: 14px; }
+.lin-node.small { min-width: 64px; padding: 5px 6px; border-width: 1px; }
+.lin-node.small .nm { font-size: 13px; }
+.lin-node.mine { background: rgba(232, 217, 180, .98); }
+.lin-node.final { border-color: var(--vermilion); border-width: 2px; max-width: 190px; }
+.lin-node.cur { outline: 3px solid rgba(179, 38, 30, .35); }
+.lin-flower { position: absolute; left: 50%; transform: translate(-50%, -50%); width: auto; white-space: nowrap; margin: 0; padding: 3px 12px; background: var(--paper); border-radius: 12px; text-align: center; font-weight: 900; color: var(--vermilion); font-size: 12.5px; line-height: 1.35; letter-spacing: .03em; pointer-events: none; }
+.lin-flower small { display: none; font-weight: 400; color: var(--ink-3); font-size: 11px; letter-spacing: .04em; }
+.lin-panel { display: none; border-top: 2px solid var(--ink); background: var(--paper-card); padding: 12px 18px calc(14px + env(safe-area-inset-bottom)); max-height: 38vh; overflow: auto; }
+.lin-panel.on { display: block; }
+.lin-panel h3 { margin: 0 0 6px; font-size: 18px; }
+.lin-panel h3 em { font-style: normal; font-size: 12px; color: var(--vermilion); margin-left: 10px; }
+.lin-panel p { margin: 0 0 8px; line-height: 1.7; font-size: 14px; }
+body[data-lang="bi"] .lin-panel p .en { display: block; color: var(--ink-2); margin-top: 3px; }
+.lin-src a { color: var(--vermilion); font-size: 12.5px; }
+.lin-go { font-size: 14px; padding: 8px 18px; }
+body.lin-open #controls, body.lin-open .card { visibility: hidden; }

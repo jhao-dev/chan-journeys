@@ -17,7 +17,7 @@
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Noto+Serif+TC:wght@400;600;900&family=Cormorant+Garamond:ital,wght@0,500;0,600;1,500&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="style.css?v=11">
+  <link rel="stylesheet" href="style.css?v=16">
 </head>
 <body data-lang="zh">
 
@@ -45,6 +45,9 @@
       </button>
       <button class="icon-btn" id="overviewBtn" title="全圖 / Overview" aria-pressed="false">
         <svg viewBox="0 0 24 24"><path d="M3 6l6-2 6 2 6-2v14l-6 2-6-2-6 2z M9 4v14 M15 6v14" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linejoin="round"/></svg>
+      </button>
+      <button class="icon-btn" id="lineageBtn" title="傳法系譜 / Lineage">
+        <svg viewBox="0 0 24 24"><path d="M12 3v6M12 9c-4 0-6 2-6 6M12 9c4 0 6 2 6 6M12 9v12" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"/><circle cx="12" cy="3.5" r="1.6" fill="currentColor"/><circle cx="6" cy="16" r="1.6" fill="currentColor"/><circle cx="18" cy="16" r="1.6" fill="currentColor"/><circle cx="12" cy="21" r="1.6" fill="currentColor"/></svg>
       </button>
       <button class="icon-btn" id="shareBtn" title="分享這一站 / Share this stop">
         <svg viewBox="0 0 24 24"><path d="M12 3v12M7 8l5-5 5 5M5 13v6a2 2 0 0 0 2 2h10a2 2 0 0 0 2-2v-6" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg>
@@ -89,6 +92,7 @@
       <button class="begin" id="finaleNext" hidden></button>
       <button class="ghost" id="finaleClose"><span class="zh">留在此處</span><span class="en">Stay here</span></button>
     </div>
+    <p class="finale-watch"><a href="#" id="finaleLineage"><span class="zh">🌿 查看傳法系譜總覽</span><span class="en">🌿 View the lineage chart</span></a></p>
     <p class="finale-watch"><a href="https://www.youtube.com/@thebuddhachan" target="_blank" rel="noopener"><span class="zh">▶ 觀看悟覺妙天師父【印心佛法】官方頻道</span><span class="en">▶ Watch Master Miaotian’s official channel</span></a></p>
     <p class="finale-next" id="finaleHint"></p>
   </div>
@@ -106,15 +110,26 @@
     </div>
   </div>
 
+  <section class="lineage" id="lineage" hidden role="dialog" aria-label="傳法系譜 / Lineage">
+    <header class="lin-head">
+      <h2><span class="zh">傳法系譜總覽</span><span class="en">Lineage of the Chan Transmission</span></h2>
+      <p><span class="zh">點人物看簡介；有 ▶ 的可直接前往該篇</span><span class="en">Tap a name for notes; ▶ opens that chapter</span></p>
+      <button class="icon-btn lin-close" aria-label="關閉 Close">✕</button>
+    </header>
+    <div class="lin-scroll"></div>
+    <div class="lin-panel"></div>
+  </section>
+
   <div class="toast" id="toast" role="status"></div>
   <audio id="bgm" src="assets/bgm.mp3" loop preload="none"></audio>
 
   <script src="lib/d3.min.js"></script>
-  <script src="lib/land-asia.js?v=11"></script>
-  <script src="data.js?v=11"></script>
-  <script src="data-buddha.js?v=11"></script>
-  <script src="data-huineng.js?v=11"></script>
-  <script src="scenes.js?v=11"></script>
-  <script src="app.js?v=11"></script>
+  <script src="lib/land-asia.js?v=16"></script>
+  <script src="data.js?v=16"></script>
+  <script src="data-buddha.js?v=16"></script>
+  <script src="data-huineng.js?v=16"></script>
+  <script src="scenes.js?v=16"></script>
+  <script src="app.js?v=16"></script>
+  <script src="lineage.js?v=16"></script>
 </body>
 </html>
