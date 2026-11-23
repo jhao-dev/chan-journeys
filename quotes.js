@@ -28,6 +28,15 @@
       ]
     },
     {
+      id: 'ananda', name: S('阿難', 'Ananda'), tag: S('西天二祖', 'Second Indian Patriarch'),
+      items: [
+        { zh: '入城時見一攢樂人作舞，出城總見無常。', en: 'Going into the city I saw a troupe of dancers; coming out, I saw only impermanence.', src: S('《五燈會元》卷一', 'Wudeng huiyuan, fasc. 1') },
+        { zh: '如是我聞。一時佛住某處說某經教。', en: 'Thus have I heard. At one time the Buddha dwelt in such a place and taught such a sutra.', src: S('《五燈會元》卷一（阿難結集時所宣）', 'Wudeng huiyuan, fasc. 1 (as Ananda recited at the council)') },
+        { zh: '本來付有法，付了言無法。各各須自悟，悟了無無法。', en: 'Originally the Dharma was given; once given, we say there is no Dharma. Each must awaken for themselves; once awake, there is no “no-Dharma” either.', src: S('《五燈會元》卷一（付商那和修偈）', 'Wudeng huiyuan, fasc. 1 (verse to Shanavasa)') },
+        { zh: '我若偏向一國，諸國爭競，無有是處，應以平等度諸有情。', en: 'If I favored one country, the others would quarrel — that cannot be; I should liberate all beings equally.', src: S('《五燈會元》卷一（入滅前）', 'Wudeng huiyuan, fasc. 1 (before his passing)') }
+      ]
+    },
+    {
       id: 'dharma', name: S('菩提達摩', 'Bodhidharma'), tag: S('初祖', 'First Patriarch'),
       items: [
         { zh: '吾本來茲土，傳法救迷情。一花開五葉，結果自然成。', en: 'I came to this land to transmit the Dharma and rescue the deluded. One flower opens five petals; the fruit ripens of itself.', src: S('《景德傳燈錄》卷三（傳法偈）', 'Transmission of the Lamp, fasc. 3 (his transmission verse)') },
@@ -134,7 +143,7 @@
   };
 
   /* A：每篇結尾附的禪師開示（對應章節） */
-  const PICK = { buddha: 'q1', kasyapa: 'q7', dharma: 'q2', huike: 'q8', hongren: 'q6', huineng: 'q5' };
+  const PICK = { buddha: 'q1', kasyapa: 'q7', ananda: 'q4', dharma: 'q2', huike: 'q8', hongren: 'q6', huineng: 'q5' };
 
   window.QUOTES = { masters: MASTERS, miaotian: MIAO, pick: PICK };
   window.quotesBlock = function (chId) {

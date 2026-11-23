@@ -24,8 +24,8 @@
       zh: '迦葉持著衣缽進入雞足山，等待彌勒下生。他傳給阿難的心法，一代一代傳到第二十八祖——達摩。',
       en: 'Kasyapa entered Mount Kukkutapada with the robe to await Maitreya. The teaching he gave Ananda passed from generation to generation to the twenty-eighth, Bodhidharma.'
     },
-    nextChapter: { id: 'dharma', label: { zh: '接續下一篇：達摩東來', en: 'Next chapter: Bodhidharma’s Journey East' } },
-    nextHint: { zh: '下一篇：達摩東來 — 心法傳到中國', en: 'Next: Bodhidharma’s Journey East — the teaching reaches China' },
+    nextChapter: { id: 'ananda', label: { zh: '接續下一篇：阿難', en: 'Next chapter: Ananda' } },
+    nextHint: { zh: '下一篇：阿難 — 多聞第一的二祖', en: 'Next: Ananda, the second patriarch, foremost in hearing' },
     stations: [
       {
         id: 'magadha', short: { zh: '出家', en: 'Leaving' }, num: '一', at: [85.42, 25.03], zoom: 110, scene: 'kasorden', side: 1,

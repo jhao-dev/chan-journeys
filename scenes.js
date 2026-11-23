@@ -74,6 +74,7 @@
   const HK = { robe: '#6f7f6a', band: '#98a890', fold: '#3a4636', staff: false, beard: false };
   const MIA = { robe: '#8a6a4a', band: '#c9a23a', fold: '#4a3526', staff: false, beard: false };
   const KAS = { robe: '#8a5a2b', band: '#b5a37c', fold: '#4a3320', staff: true, beard: false };
+  const ANA = { robe: '#a8864a', band: '#d9c58a', fold: '#5a4220', staff: false, beard: false };
   const SCENES = {
     xiangzhi: function () {
       return '<svg viewBox="0 0 400 240" role="img" aria-label="香至國">' +
@@ -673,6 +674,65 @@
         FIG(200, 214, 0.9, false, KAS) +
         '<g class="say s1" font-size="19">' + bi('持僧伽梨衣入雞足山', 'He enters Mount Kukkutapada with the robe', 200, 30, 'text-anchor="middle" fill="' + INK + '"') + '</g>' +
         '<g class="say s2" font-size="16">' + bi('「俟慈氏下生」', '“to await the coming of Maitreya”', 200, 100, 'text-anchor="middle" fill="' + RED + '"') + '</g>' +
+        '</svg>';
+    },
+
+    /* 阿難尊者篇（Ananda chapter） */
+    anbirth: function () {
+      return '<svg viewBox="0 0 400 240" role="img" aria-label="成道夜生">' +
+        '<rect width="400" height="240" fill="#2d241c" opacity=".16"/>' +
+        '<g fill="#e9b04a" opacity=".9"><circle cx="70" cy="60" r="2.2"/><circle cx="330" cy="50" r="2"/><circle cx="260" cy="80" r="1.6"/><circle cx="130" cy="90" r="1.6"/></g>' +
+        '<circle cx="200" cy="110" r="9" fill="#f0c668" stroke="' + INK + '" stroke-width="1"/>' +
+        hills(170, 0.12, 6) +
+        '<path d="M0 214 Q120 204 240 212 T400 208 V240 H0 Z" fill="#cbbf9f" stroke="' + INK + '" stroke-width="1.2"/>' +
+        '<g transform="translate(110 214)"><rect x="-34" y="-50" width="68" height="50" fill="#efe5cc" stroke="' + INK + '" stroke-width="1.2"/><path d="M-42 -50 L0 -74 L42 -50 Z" fill="#3b3029"/></g>' +
+        FIG(290, 214, 1.1, true, ANA) +
+        '<g class="say s1" font-size="19">' + bi('如來成道夜生', 'Born on the night of the Buddha’s awakening', 200, 30, 'text-anchor="middle" fill="' + INK + '"') + '</g>' +
+        '<g class="say s2" font-size="16">' + bi('阿難陀・慶喜', 'Ananda — “Joy”', 200, 100, 'text-anchor="middle" fill="' + RED + '"') + '</g>' +
+        '</svg>';
+    },
+    anattend: function () {
+      return '<svg viewBox="0 0 400 240" role="img" aria-label="侍者">' +
+        hills(160, 0.1, 6) +
+        '<path d="M0 214 Q120 204 240 212 T400 208 V240 H0 Z" fill="#cbbf9f" stroke="' + INK + '" stroke-width="1.2"/>' +
+        FIG(130, 214, 1.1, false, BUD) + FIG(240, 214, 1.0, true, ANA) +
+        '<g transform="translate(330 214)"><circle cx="0" cy="-30" r="6" fill="' + SKIN + '" stroke="' + INK + '" stroke-width="1"/><path d="M-10 0 Q-8 -22 0 -24 Q8 -22 10 0Z" fill="#c9573f" stroke="' + INK + '" stroke-width="1"/></g>' +
+        '<g class="say s1" font-size="18">' + bi('入城見舞，出城見無常', 'Dancers on the way in; impermanence on the way out', 200, 30, 'text-anchor="middle" fill="' + INK + '"') + '</g>' +
+        '<g class="say s2" font-size="16">' + bi('多聞第一・總持', 'Foremost in hearing; holder of all', 200, 100, 'text-anchor="middle" fill="' + RED + '"') + '</g>' +
+        '</svg>';
+    },
+    ancouncil: function () {
+      let f = '';
+      [60, 110, 290, 340].forEach(function (x, i) { f += FIG(x, 214, 0.75, i > 1, i % 2 ? HUI : KAS); });
+      return '<svg viewBox="0 0 400 240" role="img" aria-label="誦出經藏">' +
+        '<path d="M20 214 Q30 90 200 70 Q370 90 380 214 Z" fill="#2d241c" opacity=".55" stroke="' + INK + '" stroke-width="1.4"/>' +
+        '<path d="M60 214 Q70 118 200 100 Q330 118 340 214 Z" fill="#cbbf9f" stroke="' + INK + '" stroke-width="1.1"/>' +
+        f +
+        '<rect x="170" y="176" width="60" height="38" fill="#a38a52" stroke="' + INK + '" stroke-width="1.2"/>' + FIG(200, 178, 0.8, false, ANA) +
+        '<g class="say s1" font-size="20">' + bi('「如是我聞」', '“Thus have I heard”', 200, 30, 'text-anchor="middle" fill="' + RED + '"') + '</g>' +
+        '<g class="say s2" font-size="15">' + bi('受迦葉付囑正法', 'He receives the Dharma from Kasyapa', 200, 100, 'text-anchor="middle" fill="' + INK + '"') + '</g>' +
+        '</svg>';
+    },
+    anking: function () {
+      return '<svg viewBox="0 0 400 240" role="img" aria-label="辭王">' +
+        hills(170, 0.1, 6) +
+        '<path d="M0 214 Q120 204 240 212 T400 208 V240 H0 Z" fill="#cbbf9f" stroke="' + INK + '" stroke-width="1.2"/>' +
+        '<rect x="250" y="116" width="120" height="98" fill="#efe5cc" stroke="' + INK + '" stroke-width="1.3"/><path d="M240 116 L310 84 L380 116 Z" fill="#3b3029"/><rect x="292" y="160" width="36" height="54" fill="#3b3029"/>' +
+        '<g transform="translate(222 214)"><circle cx="0" cy="-30" r="6" fill="' + SKIN + '" stroke="' + INK + '" stroke-width="1"/><path d="M-10 0 Q-8 -22 0 -24 Q8 -22 10 0Z" fill="#7a5a3a" stroke="' + INK + '" stroke-width="1"/></g>' +
+        FIG(120, 214, 1.1, false, ANA) +
+        '<g class="say s1" font-size="19">' + bi('「吾欲入涅槃，來辭耳」', '“I am about to enter nirvana; I came to take leave.”', 200, 30, 'text-anchor="middle" fill="' + INK + '"') + '</g>' +
+        '<g class="say s2" font-size="15">' + bi('與阿阇世王的約定', 'His promise to King Ajatasatru', 200, 100, 'text-anchor="middle" fill="' + RED + '"') + '</g>' +
+        '</svg>';
+    },
+    anriver: function () {
+      return '<svg viewBox="0 0 400 240" role="img" aria-label="恆河入滅">' +
+        '<rect x="0" y="150" width="400" height="90" fill="#c9cfc2" opacity=".5"/>' + waves(160, 4, 'waves drift') +
+        '<path d="M0 150 Q60 130 110 150 Z M290 150 Q340 128 400 150 Z" fill="#2d241c" opacity=".35"/>' +
+        '<g class="float">' + FIG(200, 168, 0.9, false, ANA) + '</g>' +
+        '<g transform="translate(50 150)"><circle cx="0" cy="-30" r="6" fill="' + SKIN + '" stroke="' + INK + '" stroke-width="1"/><path d="M-10 0 Q-8 -22 0 -24 Q8 -22 10 0Z" fill="#c9573f" stroke="' + INK + '" stroke-width="1"/></g>' +
+        '<g transform="translate(350 150)"><circle cx="0" cy="-30" r="6" fill="' + SKIN + '" stroke="' + INK + '" stroke-width="1"/><path d="M-10 0 Q-8 -22 0 -24 Q8 -22 10 0Z" fill="#6e7d5a" stroke="' + INK + '" stroke-width="1"/></g>' +
+        '<g class="say s1" font-size="17">' + bi('「本來付有法，付了言無法」', '“Originally given, the Dharma; once given, ‘no Dharma.’”', 200, 30, 'text-anchor="middle" fill="' + RED + '"') + '</g>' +
+        '<g class="say s2" font-size="15">' + bi('身分四分，供兩國與天龍', 'His body in four parts, for two kings, devas and nagas', 200, 100, 'text-anchor="middle" fill="' + INK + '"') + '</g>' +
         '</svg>';
     },
 

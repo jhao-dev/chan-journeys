@@ -14,6 +14,11 @@ window.CHAPTERS = [
     role: { zh: '西天初祖・拈花微笑', en: 'First Indian Patriarch · The Smile' }
   },
   {
+    id: 'ananda', ready: false,
+    name: { zh: '阿難', en: 'Ananda' },
+    role: { zh: '西天二祖・多聞第一', en: 'Second Indian Patriarch · Foremost in Hearing' }
+  },
+  {
     id: 'dharma', ready: true,
     name: { zh: '達摩東來', en: "Bodhidharma's Journey East" },
     role: { zh: '初祖・菩提達摩', en: 'First Patriarch · Bodhidharma' },
