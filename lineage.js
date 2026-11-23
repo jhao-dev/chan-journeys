@@ -94,7 +94,8 @@
     panel.innerHTML = `<h3>${bi(n.w, 'span')}${n.tag ? `<em>${bi(n.tag, 'span')}</em>` : ''}</h3>
       <p>${bi(n.d, 'span')}</p>
       ${n.src ? `<p class="lin-src"><a href="${n.src.url}" target="_blank" rel="noopener">${n.src.title} ↗</a></p>` : ''}
-      ${live ? `<button class="begin lin-go" data-ch="${n.ch}">${bi(T('前往這一篇', 'Open this chapter'), 'span')}</button>` : ''}`;
+      ${live ? `<button class="begin lin-go" data-ch="${n.ch}">${bi(T('前往這一篇', 'Open this chapter'), 'span')}</button>` : ''}
+      ${n.id === 'miaotian' ? `<button class="begin lin-miao">${bi(T('看他的事蹟與名言', 'His story and sayings'), 'span')}</button>` : ''}`;
     panel.classList.add('on');
   }
 
@@ -112,6 +113,7 @@
   panel.addEventListener('click', (e) => {
     const g = e.target.closest('.lin-go');
     if (g) { location.hash = '#ch=' + g.dataset.ch; location.reload(); }
+    if (e.target.closest('.lin-miao') && window.openQuotes) { close(); window.openQuotes('miaotian'); }
   });
   root.querySelector('.lin-close').addEventListener('click', close);
   document.addEventListener('keydown', (e) => { if (e.key === 'Escape' && !root.hidden) close(); });
