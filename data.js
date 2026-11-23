@@ -9,6 +9,11 @@ window.CHAPTERS = [
     role: { zh: '佛陀・拈花微笑', en: 'The Buddha · The Flower Sermon' }
   },
   {
+    id: 'kasyapa', ready: false,
+    name: { zh: '摩訶迦葉', en: 'Mahakasyapa' },
+    role: { zh: '西天初祖・拈花微笑', en: 'First Indian Patriarch · The Smile' }
+  },
+  {
     id: 'dharma', ready: true,
     name: { zh: '達摩東來', en: "Bodhidharma's Journey East" },
     role: { zh: '初祖・菩提達摩', en: 'First Patriarch · Bodhidharma' },

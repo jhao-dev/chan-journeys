@@ -9,7 +9,7 @@
   const N = [
     { id: 'buddha', x: 380, y: 60, w: T('釋迦牟尼佛', 'Shakyamuni Buddha'), tag: T('本師', 'The Buddha'), ch: 'buddha',
       d: T('禪宗尊為本師。傳說他在靈山會上拈花示眾，把「正法眼藏」交給摩訶迦葉。', 'Honored by Chan as the original teacher. Tradition says he held up a flower on Vulture Peak and entrusted the “treasury of the true Dharma eye” to Mahakasyapa.') },
-    { id: 'kasyapa', x: 380, y: 150, w: T('摩訶迦葉', 'Mahakasyapa'), tag: T('西天初祖', 'Indian 1st'),
+    { id: 'kasyapa', x: 380, y: 150, w: T('摩訶迦葉', 'Mahakasyapa'), tag: T('西天初祖', 'Indian 1st'), ch: 'kasyapa',
       d: T('靈山會上破顏微笑，受佛陀付囑，禪宗尊為西天第一祖。', 'Smiled at the flower sermon and received the Buddha’s transmission; Chan honors him as the first Indian patriarch.') },
     { id: 'ananda', x: 380, y: 240, w: T('阿難', 'Ananda'), tag: T('西天二祖', 'Indian 2nd'),
       d: T('佛陀的侍者，以多聞著稱，禪宗傳統尊為西天第二祖。', 'The Buddha’s attendant, known for his memory; honored in Chan tradition as the second Indian patriarch.') },

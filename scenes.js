@@ -73,6 +73,7 @@
   const DAO = { robe: '#6e5a46', band: '#8a7a5c', fold: '#3a2d20', staff: true, beard: true };
   const HK = { robe: '#6f7f6a', band: '#98a890', fold: '#3a4636', staff: false, beard: false };
   const MIA = { robe: '#8a6a4a', band: '#c9a23a', fold: '#4a3526', staff: false, beard: false };
+  const KAS = { robe: '#8a5a2b', band: '#b5a37c', fold: '#4a3320', staff: true, beard: false };
   const SCENES = {
     xiangzhi: function () {
       return '<svg viewBox="0 0 400 240" role="img" aria-label="香至國">' +
@@ -618,6 +619,60 @@
         FIG(200, 214, 1.1, false, MIA) +
         '<g class="say s1" font-size="18">' + bi('「地球佛國」', '“A Buddha-land on Earth”', 200, 30, 'text-anchor="middle" fill="' + RED + '"') + '</g>' +
         '<g class="say s2" font-size="15">' + bi('賑災・送米・看守所・海外', 'Relief, rice, prisons, overseas', 200, 100, 'text-anchor="middle" fill="' + INK + '"') + '</g>' +
+        '</svg>';
+    },
+
+    /* 迦葉尊者篇（Mahakasyapa chapter） */
+    kasorden: function () {
+      return '<svg viewBox="0 0 400 240" role="img" aria-label="善來比丘">' +
+        hills(150, 0.1, 6) +
+        '<path d="M0 214 Q120 204 240 212 T400 208 V240 H0 Z" fill="#cbbf9f" stroke="' + INK + '" stroke-width="1.2"/>' +
+        '<path d="M300 214 V120" stroke="#4a3526" stroke-width="5"/><ellipse cx="300" cy="112" rx="42" ry="26" fill="#6e7d5a" opacity=".8" stroke="' + INK + '" stroke-width="1.1"/>' +
+        FIG(100, 214, 1.15, false, KAS) + FIG(230, 214, 1.1, true, BUD) +
+        '<g class="say s1" font-size="19">' + bi('「善來，比丘！」', '“Come, bhikkhu!”', 200, 30, 'text-anchor="middle" fill="' + RED + '"') + '</g>' +
+        '<g class="say s2" font-size="15">' + bi('摩竭陀國的婆羅門子，出家', 'A Brahmin of Magadha, he leaves home', 200, 100, 'text-anchor="middle" fill="' + INK + '"') + '</g>' +
+        '</svg>';
+    },
+    kassmile: function () {
+      return '<svg viewBox="0 0 400 240" role="img" aria-label="破顏微笑">' +
+        hills(160, 0.12, 6) +
+        '<path d="M0 214 Q120 204 240 212 T400 208 V240 H0 Z" fill="#cbbf9f" stroke="' + INK + '" stroke-width="1.2"/>' +
+        FIG(120, 214, 1.1, false, BUD) +
+        '<g transform="translate(168 120)"><circle r="6" fill="#e9b04a" stroke="' + INK + '" stroke-width="1"/><path d="M0 -6 q-7 -10 0 -16 q7 6 0 16 M6 0 q10 -7 16 0 q-6 7 -16 0" fill="#f0c668" stroke="' + INK + '" stroke-width="1"/></g>' +
+        FIG(290, 214, 1.1, true, KAS) +
+        '<path d="M279 160 q6 6 12 0" stroke="' + INK + '" stroke-width="1.6" fill="none" stroke-linecap="round" opacity="0"/>' +
+        '<g class="say s1" font-size="19">' + bi('眾皆默然，迦葉破顏微笑', 'All fell silent; Kasyapa smiled', 200, 30, 'text-anchor="middle" fill="' + INK + '"') + '</g>' +
+        '<g class="say s2" font-size="16">' + bi('「付囑摩訶迦葉」', '“I entrust it to Mahakasyapa.”', 200, 100, 'text-anchor="middle" fill="' + RED + '"') + '</g>' +
+        '</svg>';
+    },
+    kascouncil: function () {
+      let f = '';
+      [70, 130, 270, 330].forEach(function (x, i) { f += FIG(x, 214, 0.8, i > 1, i % 2 ? HUI : KAS); });
+      return '<svg viewBox="0 0 400 240" role="img" aria-label="結集">' +
+        '<path d="M20 214 Q30 90 200 70 Q370 90 380 214 Z" fill="#2d241c" opacity=".55" stroke="' + INK + '" stroke-width="1.4"/>' +
+        '<path d="M60 214 Q70 118 200 100 Q330 118 340 214 Z" fill="#cbbf9f" stroke="' + INK + '" stroke-width="1.1"/>' +
+        f + FIG(200, 214, 0.95, false, KAS) +
+        '<g class="say s1" font-size="17">' + bi('「我等宜當結集法眼」', '“We should now gather and compile the Dharma”', 200, 30, 'text-anchor="middle" fill="' + RED + '"') + '</g>' +
+        '<g class="say s2" font-size="15">' + bi('阿難誦出：如是我聞', 'Ananda recites: “Thus have I heard”', 200, 100, 'text-anchor="middle" fill="' + INK + '"') + '</g>' +
+        '</svg>';
+    },
+    kaspole: function () {
+      return '<svg viewBox="0 0 400 240" role="img" aria-label="倒卻剎竿">' +
+        hills(160, 0.1, 6) +
+        '<path d="M0 214 Q120 204 240 212 T400 208 V240 H0 Z" fill="#cbbf9f" stroke="' + INK + '" stroke-width="1.2"/>' +
+        '<path d="M330 214 V110" stroke="#4a3526" stroke-width="4"/><path d="M332 114 h34 v22 h-34 Z" fill="#c9573f" stroke="' + INK + '" stroke-width="1"/>' +
+        FIG(110, 214, 1.1, false, KAS) + FIG(220, 214, 1.05, true, HUI) +
+        '<g class="say s1" font-size="19">' + bi('「倒卻門前剎竿著！」', '“Knock down the flagpole at the gate!”', 200, 30, 'text-anchor="middle" fill="' + RED + '"') + '</g>' +
+        '<g class="say s2" font-size="15">' + bi('「法法本來法，無法無非法」', '“The Dharma of all dharmas is originally Dharma…”', 200, 100, 'text-anchor="middle" fill="' + INK + '"') + '</g>' +
+        '</svg>';
+    },
+    kascave: function () {
+      return '<svg viewBox="0 0 400 240" role="img" aria-label="雞足山入定">' +
+        '<path d="M0 240 L0 160 L80 90 L150 140 L230 36 L310 130 L360 90 L400 140 L400 240 Z" fill="#2d241c" opacity=".6"/>' +
+        '<path d="M140 214 Q150 150 200 140 Q250 150 260 214 Z" fill="#1a130d" opacity=".85"/>' +
+        FIG(200, 214, 0.9, false, KAS) +
+        '<g class="say s1" font-size="19">' + bi('持僧伽梨衣入雞足山', 'He enters Mount Kukkutapada with the robe', 200, 30, 'text-anchor="middle" fill="' + INK + '"') + '</g>' +
+        '<g class="say s2" font-size="16">' + bi('「俟慈氏下生」', '“to await the coming of Maitreya”', 200, 100, 'text-anchor="middle" fill="' + RED + '"') + '</g>' +
         '</svg>';
     },
 

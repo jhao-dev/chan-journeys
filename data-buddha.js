@@ -23,8 +23,8 @@
       zh: '佛陀入滅，心法由摩訶迦葉承接，一代一代傳到二十八祖——達摩祖師。',
       en: 'The Buddha passed away; the mind-teaching was carried by Mahakasyapa and handed down through twenty-eight patriarchs to Bodhidharma.'
     },
-    nextChapter: { id: 'dharma', label: { zh: '接續下一篇：達摩東來', en: 'Next chapter: Bodhidharma’s Journey East' } },
-    nextHint: { zh: '下一篇：達摩東來 — 心法傳到中國', en: 'Next: Bodhidharma’s Journey East — the teaching reaches China' },
+    nextChapter: { id: 'kasyapa', label: { zh: '接續下一篇：摩訶迦葉', en: 'Next chapter: Mahakasyapa' } },
+    nextHint: { zh: '下一篇：摩訶迦葉 — 心法傳到迦葉手上', en: 'Next: Mahakasyapa — the teaching passes into his hands' },
     stations: [
       {
         id: 'lumbini', short: { zh: '誕生', en: 'Birth' }, num: '一', at: [83.28, 27.47], zoom: 12, scene: 'birth', side: 1,

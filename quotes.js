@@ -19,6 +19,15 @@
       ]
     },
     {
+      id: 'kasyapa', name: S('摩訶迦葉', 'Mahakasyapa'), tag: S('西天初祖', 'First Indian Patriarch'),
+      items: [
+        { zh: '世尊在靈山會上，拈花示眾。是時眾皆默然，唯迦葉尊者破顏微笑。', en: 'On Vulture Peak the World-Honored One held up a flower; all fell silent, and only the venerable Kasyapa broke into a smile.', src: S('《五燈會元》卷一', 'Wudeng huiyuan, fasc. 1') },
+        { zh: '吾以正法眼藏密付於汝，汝當護持，傳付將來。', en: 'I secretly entrust the treasury of the true Dharma eye to you; guard it and hand it on to the future.', src: S('《五燈會元》卷一（世尊於多子塔前對迦葉所說）', 'Wudeng huiyuan, fasc. 1 (the Buddha to Kasyapa at the Bahuputra stupa)') },
+        { zh: '法法本來法，無法無非法。何於一法中，有法有不法？', en: 'The Dharma of all dharmas is originally Dharma; no-Dharma is no non-Dharma. How, within one Dharma, is there Dharma and not-Dharma?', src: S('《五燈會元》卷一（迦葉付法偈）', 'Wudeng huiyuan, fasc. 1 (Kasyapa’s transmission verse)') },
+        { zh: '倒卻門前剎竿著！', en: 'Knock down the flagpole at the gate!', src: S('《五燈會元》卷一（答阿難問）', 'Wudeng huiyuan, fasc. 1 (to Ananda’s question)') }
+      ]
+    },
+    {
       id: 'dharma', name: S('菩提達摩', 'Bodhidharma'), tag: S('初祖', 'First Patriarch'),
       items: [
         { zh: '吾本來茲土，傳法救迷情。一花開五葉，結果自然成。', en: 'I came to this land to transmit the Dharma and rescue the deluded. One flower opens five petals; the fruit ripens of itself.', src: S('《景德傳燈錄》卷三（傳法偈）', 'Transmission of the Lamp, fasc. 3 (his transmission verse)') },
@@ -125,7 +134,7 @@
   };
 
   /* A：每篇結尾附的禪師開示（對應章節） */
-  const PICK = { buddha: 'q1', dharma: 'q2', huike: 'q8', hongren: 'q6', huineng: 'q5' };
+  const PICK = { buddha: 'q1', kasyapa: 'q7', dharma: 'q2', huike: 'q8', hongren: 'q6', huineng: 'q5' };
 
   window.QUOTES = { masters: MASTERS, miaotian: MIAO, pick: PICK };
   window.quotesBlock = function (chId) {
