@@ -72,18 +72,55 @@
     { id: 'q8', zh: '生活中，要做到隨時放下、隨時自在，如果不能自在，表示心裡還有心結，還有事情沒有了結。', en: 'In daily life, be able to let go and be at ease at any moment; if you cannot, some knot remains in the heart, some matter unfinished.', url: WEN + '20240323995310', title: '斷滅四相　自見真心' }
   ];
 
+
+  const TIMELINE = [
+    { h: S('早年與訪道', 'Early years and seeking'), items: [
+      S('1934 年生於臺灣屏東潮州。從小經歷戰爭，母親早逝，因此很早就感受到人生的空苦無常。', 'Born in 1934 in Chaozhou, Pingtung, Taiwan. He knew war as a child and lost his mother early, and so felt the emptiness and impermanence of life from a young age.'),
+      S('畢業於國防管理學院，曾在文化大學政治研究所研究。', 'He graduated from the National Defense Management College and studied at the Graduate Institute of Political Science, Chinese Culture University.'),
+      S('40 歲從軍職退休（約 1974 年），開始遍訪各宗教尋找師父。', 'At forty he retired from military service (around 1974) and began visiting many religions in search of a teacher.'),
+      S('官方資料說，他發願證無上菩提，蒙觀世音菩薩指引，遇到禪宗第 84 代敬哉禪師，拜入門下。', 'Official accounts say that, having vowed to realize supreme bodhi, he was guided by Avalokiteshvara and met the 84th-generation Chan master Jingzai, becoming his student.'),
+      S('官方資料說，他經八年苦修，才得到師父付囑「佛心印」；教團網站記為 1981 年 2 月 19 日。', 'Official accounts say that after eight years of arduous practice he received his teacher’s transmission of the “Buddha mind-seal”; the association’s site dates this to 19 February 1981.')
+    ] },
+    { h: S('傳承與弘法', 'Transmission and teaching'), items: [
+      S('禪師自述，他承接了「釋迦如來一脈相傳」的法脈，成為禪宗第 85 代宗師。', 'By his own account he inherited the lineage “passed down from Shakyamuni Tathagata” and became the 85th Chan master.'),
+      S('1995 年，在桃園縣立體育場舉辦「印心禪法見性成佛」大法會，官方說有 6 萬多人參加。', 'In 1995 he held the “Mind-seal Chan: Seeing Nature and Becoming Buddha” assembly at the Taoyuan County Stadium; official accounts say over 60,000 attended.'),
+      S('1999 年，成立臺灣禪宗佛教會（禪教會）。', 'In 1999 the Taiwan Chan Buddhist Association was founded.'),
+      S('1999 年受邀擔任嵩山少林寺副住持；2004 年少林寺住持釋永信贈「少林鎮山寶劍」，官方稱之為兩岸法脈接軌；2007 年他率領千名弟子到少林寺「歸山拜祖」。', 'In 1999 he was invited to serve as deputy abbot of Shaolin Temple on Mount Song; in 2004 Abbot Shi Yongxin presented him the “Shaolin Sword”, which the association calls the reconnection of the lineage across the Strait; in 2007 he led a thousand disciples to Shaolin to “pay homage to the ancestors”.')
+    ] },
+    { h: S('領袖會', 'The Leaders’ Association'), items: [
+      S('2000 年 6 月 3 日成立「世界領袖教育基金會」（領袖會）；官方介紹的全名是「世界領袖教育和平基金會」，兩個名稱都有出現。', 'On 3 June 2000 the World Leaders Education Foundation was founded; its official introduction gives the full name as the World Leaders Education and Peace Foundation — both names appear.'),
+      S('創立宗旨是培育具有「宗教家慈悲、政治家智慧」的「內聖外王」真領袖，信念是「偉大、完美、博愛、和平」。', 'Its aim is to cultivate true leaders of “inner sage, outer king” with “a religious person’s compassion and a statesman’s wisdom”; its creed is “greatness, perfection, universal love, peace”.'),
+      S('2025 年滿 25 週年，報導說與會者超過五萬人。', 'It marked its 25th anniversary in 2025; reports say more than 50,000 people have taken part.')
+    ] },
+    { h: S('二戰超度法會', 'The World War memorial assembly'), items: [
+      S('1999 年 12 月 12 日，在桃園巨蛋舉辦「迎接二十一世紀世界和平大法會」。', 'On 12 December 1999, the “Welcoming the 21st Century: World Peace Assembly” was held at the Taoyuan Arena.'),
+      S('他在法會中為 921 大地震，以及二十世紀所有因戰爭罹難的亡靈舉行超度儀式。', 'At the assembly he performed a rite of deliverance for the victims of the 921 earthquake and for all who died in the wars of the twentieth century.'),
+      S('出席人數：官方網站寫約兩萬多人，另一個資料寫三萬人，本站未能核實。', 'Attendance: the association’s site says over 20,000, another source says 30,000; this site could not verify either.')
+    ] },
+    { h: S('公益、海外與其他', 'Charity, overseas and more'), items: [
+      S('公益：921 地震賑災並在埔里設大梵寺、八八風災捐款、SARS 期間捐贈口罩、送平安米給偏鄉。', 'Charity: relief after the 921 earthquake, with Dafan Temple founded in Puli; donations after Typhoon Morakot; masks donated during SARS; “peace rice” for remote areas.'),
+      S('到看守所教受刑人禪修。', 'He taught meditation to inmates in detention centres.'),
+      S('海外：1994 年在紐西蘭成立第一個海外道場「印心禪園」，也赴美國、日本、俄羅斯等地交流。', 'Overseas: in 1994 he founded the first overseas centre, the Heart-Seal Chan Garden in New Zealand, and visited the USA, Japan, Russia and elsewhere.'),
+      S('2011 年成立釋迦牟尼佛救世基金會，提出「地球佛國」理念。', 'In 2011 he founded the Shakyamuni Buddha Salvation Foundation and put forward the idea of the “Buddha-land on Earth”.'),
+      S('2012 年在臺北小巨蛋舉辦萬人大法會。', 'In 2012 he held a ten-thousand-person assembly at the Taipei Arena.')
+    ] }
+  ];
+
   const MIAO = {
     id: 'miaotian', name: S('悟覺妙天禪師', 'Master Wujue Miaotian'), tag: S('當代禪師', 'Contemporary Chan master'),
     profile: [
       S('1934 年生於臺灣屏東潮州，依其官方報導，自釋迦牟尼佛算起為禪宗第 85 代宗師；自達摩算起為中華禪宗第 58 代；自六祖惠能門下臨濟宗一脈算起，為臨濟宗第 48 代。', 'Born in 1934 in Chaozhou, Pingtung, Taiwan. By his official reports he is the 85th Chan master counting from Shakyamuni, the 58th in China from Bodhidharma, and the 48th of the Linji line descending from Huineng.'),
       S('他的開示由禪天下雜誌整理，在愛傳媒（蕃新聞）《禪師說禪》專欄長期刊出。主題多圍繞「印心佛法」「印心禪法」：見性要先清淨，清淨要能放下；也常提醒要分辨「佛學」與「佛法」，並談禪定的身定、意定、心定。', 'His talks are edited by Zen Cosmos magazine and run in the “Chan Master Speaks on Chan” column on yam.com. They centre on “mind-seal Dharma” and “mind-seal Chan”: seeing nature requires purity, and purity requires letting go. He also stresses telling Buddhist studies from the Buddha’s Dharma, and teaches the three samadhis of body, thought and mind.')
     ],
-    note: S('以上簡介依其官方報導與《禪師說禪》專欄整理，代數說法為其自述，本站未獨立查證。', 'This profile follows his official reports and column; the generation counts are his own account and have not been independently verified by this site.'),
+    note: S('以上簡介與事蹟依其官方報導、教團網站與《禪師說禪》專欄整理，代數、年份與人數皆為官方或自述說法，本站未獨立查證。', 'This profile and chronology follow his official reports, the association’s websites and his column; generation counts, dates and attendance are official or self-reported figures not independently verified by this site.'),
     links: [
+      { title: '認識悟覺妙天禪師（聖光禪教會，含歷年大事記）', url: 'https://www.zen.org.tw/tlife/aboutmaster/' },
+      { title: '世界領袖教育和平基金會成立 25 週年（禪天下）', url: 'https://www.zencosmos.com.tw/2026/01/hot-topic/special-feature/55964/' },
       { title: '《禪師說禪》專欄（蕃新聞）', url: 'https://n.yam.com/Article/20250721474508' },
       { title: '禪天下雜誌', url: 'https://www.zencosmos.com.tw/' },
       { title: '悟覺妙天師父【印心佛法】官方頻道（YouTube）', url: 'https://www.youtube.com/@thebuddhachan' }
     ],
+    timeline: TIMELINE,
     items: MIAO_QUOTES
   };
 
@@ -121,6 +158,8 @@
     });
     h += '<section class="qt-sec qt-miao" id="qs_miaotian"><h3>' + bi2(MIAO.name, 'span') + '<em>' + bi2(MIAO.tag, 'span') + '</em></h3>' +
       MIAO.profile.map((p) => '<p class="qt-profile">' + bi2(p, 'span') + '</p>').join('') +
+      MIAO.timeline.map((t) => '<h4>' + bi2(t.h, 'span') + '</h4><ul class="qt-tl">' + t.items.map((i) => '<li>' + bi2(i, 'span') + '</li>').join('') + '</ul>').join('') +
+      '<h4>' + bi2(S('禪師說禪・名言', 'Sayings from his column'), 'span') + '</h4>' +
       MIAO.items.map((q) => '<figure class="say-item"><blockquote class="zh">「' + q.zh + '」</blockquote><blockquote class="en">“' + q.en + '”</blockquote>' +
         (q.note ? '<p class="note">' + bi2(q.note, 'span') + '</p>' : '') +
         '<figcaption>— <a href="' + q.url + '" target="_blank" rel="noopener">' + q.title + ' ↗</a> · ' + bi2(MIAO_BY, 'span') + '</figcaption></figure>').join('') +

@@ -535,3 +535,8 @@ body[data-lang="bi"] .say-item figcaption .en { display: block; }
 .say-tag { margin: 0 0 4px; font-size: 11.5px; letter-spacing: .12em; color: var(--vermilion); font-weight: 900; }
 .say-all { margin: 14px 0 4px; font-size: 14px; }
 .card .more.sayings .say-item blockquote { font-size: 17px; }
+.qt-sec h4 { margin: 20px 0 6px; font-size: 16px; color: var(--vermilion); letter-spacing: .08em; }
+.qt-tl { margin: 0; padding-left: 20px; line-height: 1.75; font-size: 14.5px; }
+.qt-tl li { margin-bottom: 7px; }
+body[data-lang="bi"] .qt-tl .en { display: block; color: var(--ink-2); font-size: 13.5px; }
+body[data-lang="bi"] .qt-sec h4 .en { display: block; font-size: .8em; color: var(--ink-3); letter-spacing: 0; }
