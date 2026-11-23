@@ -12,6 +12,14 @@ window.CHAPTERS = [
     id: 'dharma', ready: true,
     name: { zh: '達摩東來', en: "Bodhidharma's Journey East" },
     role: { zh: '初祖・菩提達摩', en: 'First Patriarch · Bodhidharma' },
+    fig: { robe: '#b3261e', band: '#d9573f', fold: '#7a1713' },
+    intro: {
+      v: '達摩東來', seal: '初祖',
+      en: "Bodhidharma's Journey East",
+      sub: { zh: '從南天竺到嵩山少林 · 一段千年流傳的禪宗故事', en: 'From South India to Shaolin — a Chan legend told for fifteen centuries' },
+      note: { zh: '內容依傳統流傳版本，部分情節為後世傳說', en: 'Told as traditionally handed down; some episodes are legend' }
+    },
+    finale: { zh: '達摩傳法慧可，禪宗一脈自此在中國生根。', en: 'Bodhidharma passed the teaching to Huike, and Chan took root in China.' },
     zenChannel: { name: '悟覺妙天師父【印心佛法】', url: 'https://www.youtube.com/@thebuddhachan' },
     nextHint: { zh: '下一篇：二祖慧可（即將推出）', en: 'Next: Huike, the Second Patriarch (coming soon)' },
     stations: [
@@ -62,7 +70,7 @@ window.CHAPTERS = [
         }
       },
       {
-        id: 'yangtze', short: { zh: '渡江', en: 'Yangtze' }, num: '三', at: [118.30, 32.62], zoom: 6.5, scene: 'reed',
+        id: 'yangtze', short: { zh: '渡江', en: 'Yangtze' }, num: '三', at: [118.30, 32.62], zoom: 6.5, scene: 'reed', side: -1,
         place: { zh: '長江', en: 'The Yangtze River' },
         title: { zh: '一葦渡江', en: 'Crossing the River on a Reed' },
         source: { zh: '師知機不契，是月十九日潛回江北。十一月二十三日屆于洛陽。', en: '“Knowing the moment was not ripe, on the nineteenth of that month the master quietly crossed to the north of the river. On the twenty-third of the eleventh month he reached Luoyang.”', ref: { zh: '《景德傳燈錄》卷三', en: 'Jingde Record of the Transmission of the Lamp, vol. 3' }, note: { zh: '原典只說「潛回江北」，踏蘆葦渡江是後世增添的傳說。', en: 'The early text only says he “quietly crossed north”; the reed is a later legend.' } },
@@ -106,7 +114,7 @@ window.CHAPTERS = [
         }
       },
       {
-        id: 'snow', short: { zh: '立雪', en: 'Snow' }, num: '五', at: [112.93, 34.51], zoom: 5.5, scene: 'snow',
+        id: 'snow', short: { zh: '立雪', en: 'Snow' }, num: '五', at: [112.93, 34.51], zoom: 5.5, scene: 'snow', companion: true,
         place: { zh: '嵩山・少林寺', en: 'Shaolin Temple, Mount Song' },
         title: { zh: '立雪斷臂，安心傳法', en: 'Standing in the Snow' },
         source: { zh: '其年十二月九日夜，天大雨雪，光堅立不動，遲明積雪過膝。……光潛取利刀，自斷左臂，置于師前。……光曰：「我心未寧，乞師與安。」師曰：「將心來，與汝安。」曰：「覓心了不可得。」師曰：「我與汝安心竟。」', en: '“On the night of the ninth of the twelfth month heavy snow fell; Guang stood firm and did not move, and by dawn the snow was above his knees… He took a sharp knife, cut off his left arm and laid it before the master… ‘My mind is not at peace; I beg you to pacify it.’ ‘Bring me your mind and I will pacify it.’ ‘I have searched for the mind and cannot find it.’ ‘Then I have pacified it for you.’”', ref: { zh: '《景德傳燈錄》卷三', en: 'Jingde Record of the Transmission of the Lamp, vol. 3' } },
@@ -152,7 +160,7 @@ window.CHAPTERS = [
         caption: { walk: { zh: '渡江之後，達摩進入北魏境內，一路向西北，前往中岳嵩山。', en: 'Across the river lay the Northern Wei. He walked northwest toward Mount Song, the Central Peak.' } }
       },
       {
-        dur: 5000, zoom: 5.5, mode: 'wait', pts: null,
+        dur: 5000, zoom: 5.5, mode: 'wait', pts: null, kicker: { zh: '嵩山', en: 'Mount Song' },
         caption: { wait: { zh: '春去秋來，九年過去了……', en: 'Springs and autumns passed — nine years in all…' } }
       }
     ]
@@ -177,18 +185,18 @@ window.CHAPTERS = [
 /* 地圖上的地名、海名與河流（Map labels & rivers） */
 window.MAP_LABELS = [
   { at: [78.5, 21.5], zh: '天竺', en: 'INDIA', sub: { zh: '印度', en: 'Tianzhu' }, cls: 'realm' },
-  { at: [111.5, 37.6], zh: '北魏', en: 'NORTHERN WEI', cls: 'realm' },
-  { at: [110.0, 26.6], zh: '南朝・梁', en: 'LIANG', cls: 'realm' },
+  { at: [111.5, 37.6], zh: '北魏', en: 'NORTHERN WEI', cls: 'realm', ch: 'dharma' },
+  { at: [110.0, 26.6], zh: '南朝・梁', en: 'LIANG', cls: 'realm', ch: 'dharma' },
   { at: [86.5, 31.2], zh: '喜馬拉雅', en: 'Himalaya', cls: 'mtn' },
-  { at: [112.45, 34.62], zh: '洛陽', en: 'Luoyang', cls: 'city' },
-  { at: [108.94, 34.34], zh: '長安', en: "Chang'an", cls: 'city' },
+  { at: [112.45, 34.62], zh: '洛陽', en: 'Luoyang', cls: 'city', ch: 'dharma' },
+  { at: [108.94, 34.34], zh: '長安', en: "Chang'an", cls: 'city', ch: 'dharma' },
   { at: [66.5, 13.0], zh: '阿拉伯海', en: 'Arabian Sea', cls: 'sea' },
   { at: [88.5, 14.0], zh: '孟加拉灣', en: 'Bay of Bengal', cls: 'sea' },
   { at: [79.0, 2.5], zh: '印度洋', en: 'Indian Ocean', cls: 'sea' },
   { at: [113.5, 13.0], zh: '南海', en: 'South China Sea', cls: 'sea' },
   { at: [125.5, 28.0], zh: '東海', en: 'East China Sea', cls: 'sea' },
-  { at: [108.6, 31.25], zh: '長江', en: 'Yangtze', cls: 'river' },
-  { at: [108.3, 39.2], zh: '黃河', en: 'Yellow River', cls: 'river' }
+  { at: [108.6, 31.25], zh: '長江', en: 'Yangtze', cls: 'river', ch: 'dharma' },
+  { at: [108.3, 39.2], zh: '黃河', en: 'Yellow River', cls: 'river', ch: 'dharma' }
 ];
 
 window.RIVERS = [

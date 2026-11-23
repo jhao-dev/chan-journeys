@@ -461,3 +461,8 @@ body[data-lang="bi"] .card .zen-item p .en { display: block; color: var(--ink-2)
 .finale-watch a { color: var(--ink); font-weight: 600; font-size: 14px; text-underline-offset: 3px; text-decoration-color: var(--vermilion); }
 .card .refs li { font-size: 14px; }
 .card .refs a { color: var(--ink); text-underline-offset: 3px; text-decoration-color: var(--vermilion); word-break: break-word; }
+
+/* 釋迦篇插圖動態與結尾按鈕 */
+.scene .wheel { animation: wheel 14s linear infinite; }
+@keyframes wheel { to { transform: rotate(360deg); } }
+.finale-btns .begin[hidden] { display: none; }

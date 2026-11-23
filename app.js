@@ -17,7 +17,10 @@
   const P = (ll) => proj(ll);
   const geoPath = d3.geoPath(proj);
 
-  const chapter = CHAPTERS.find((c) => c.id === 'dharma');
+  const chHash = () => { const m = /ch=(\w+)/.exec(location.hash); return m ? m[1] : /stop=\d+/.test(location.hash) ? 'dharma' : 'buddha'; };
+  const chapter = CHAPTERS.find((c) => c.id === chHash() && c.ready) || CHAPTERS.find((c) => c.ready);
+  const FIGO = chapter.fig || {};
+  const compIdx = chapter.stations.findIndex((s) => s.companion);
   const stations = chapter.stations;
   const segs = chapter.segments;
   const SP = stations.map((s) => P(s.at));
@@ -93,7 +96,7 @@
   const addFixed = (g, xy) => { fixed.push({ g, x: xy[0], y: xy[1] }); return g; };
   const gLab = svg.append('g');
   const labNodes = [];
-  MAP_LABELS.forEach((l) => {
+  MAP_LABELS.filter((l) => !l.ch || l.ch === chapter.id).forEach((l) => {
     const p = P(l.at);
     const g = addFixed(gLab.append('g').attr('class', 'lab ' + l.cls), p);
     if (l.cls === 'city') g.append('rect').attr('x', -3.5).attr('y', -3.5).attr('width', 7).attr('height', 7).attr('transform', 'rotate(45)');
@@ -121,16 +124,16 @@
     const key = s.at.join(',');
     let m = markers.find((mm) => mm.key === key);
     if (m) { m.idx.push(i); return; }
-    const side = s.id === 'yangtze' ? -1 : 1;
+    const side = s.side || 1;
     const g = addFixed(gStn.append('g').attr('class', 'stn'), SP[i]);
     g.append('circle').attr('class', 'halo').attr('r', 11);
     g.append('circle').attr('class', 'ring').attr('r', 11);
     g.append('circle').attr('class', 'dot').attr('r', 8.5);
     const num = g.append('text').attr('class', 'num').attr('y', 4).text(s.num);
     const anchor = side > 0 ? 'start' : 'end';
-    g.append('text').attr('class', 'zh').attr('x', 17 * side).attr('y', 5).attr('text-anchor', anchor).text(s.place.zh);
-    g.append('text').attr('class', 'en').attr('x', 17 * side).attr('y', 5).attr('text-anchor', anchor).text(s.place.en);
-    m = { key, idx: [i], g, num };
+    const tz = g.append('text').attr('class', 'zh').attr('x', 17 * side).attr('y', 5).attr('text-anchor', anchor).text(s.place.zh);
+    const te = g.append('text').attr('class', 'en').attr('x', 17 * side).attr('y', 5).attr('text-anchor', anchor).text(s.place.en);
+    m = { key, idx: [i], g, num, tz, te };
     g.on('click', () => seek(m.idx[0]));
     markers.push(m);
   });
@@ -145,9 +148,9 @@
   figBob.append('path').attr('class', 'reed')
     .attr('d', 'M-34 1 Q0 -6 36 0 Q0 5 -34 1 Z M36 0 L44 -4')
     .attr('fill', '#6e7a3a').attr('stroke', '#3d4520').attr('stroke-width', 1.2);
-  figBob.append('g').attr('transform', 'translate(-30 -78)').html(INK_FIG.figArt());
+  figBob.append('g').attr('transform', 'translate(-30 -78)').html(INK_FIG.figArt(FIGO));
   const huike = svg.append('g').attr('class', 'huike');
-  huike.append('g').attr('transform', 'scale(-1 1) translate(-30 -78)')
+  if (compIdx >= 0) huike.append('g').attr('transform', 'scale(-1 1) translate(-30 -78)')
     .html(INK_FIG.figArt({ robe: '#cfc6b3', band: '#e8e1d0', fold: '#8a8170', staff: false, beard: false }));
 
   /* ---------- 版面與鏡頭（Layout & camera） ---------- */
@@ -160,7 +163,7 @@
     if (!mobile) vis = { x0: 0, y0: 76, x1: r.left - 16, y1: winH - 96 };
     else vis = { x0: 0, y0: 58, x1: winW, y1: r.top - 64 };
     if (vis.y1 - vis.y0 < 120) vis.y1 = vis.y0 + 120;
-    s0 = Math.min((vis.x1 - vis.x0) / W0, (vis.y1 - vis.y0) / H0) * 0.97;
+    s0 = Math.max(0.05, Math.min((vis.x1 - vis.x0) / W0, (vis.y1 - vis.y0) / H0) * 0.97);
   }
 
   /* ---------- 卡片（Story card） ---------- */
@@ -173,7 +176,7 @@
     let h = `<div class="head"><div class="stn-seal">${s.num}</div><div>
       <p class="place">${bi(s.place, 'span')}</p>
       <h2 class="title">${bi(s.title, 'span')}</h2></div></div>
-      <div class="scene">${SCENES[s.scene]()}</div>
+      <div class="scene">${SCENES[s.scene](FIGO)}</div>
       <div class="story">${bi(s.text, 'p')}</div>`;
     if (s.source) {
       h += `<details class="more src"><summary>${bi({ zh: '典籍原文', en: 'Classical source' }, 'span')}</summary>
@@ -204,14 +207,14 @@
   function travelHTML(i, mode) {
     const sg = segs[i], next = stations[i + 1];
     const cap = sg.caption[mode] || sg.caption[Object.keys(sg.caption)[0]];
-    const title = mode === 'wait'
+    const title = sg.title || (mode === 'wait'
       ? { zh: '時光流轉', en: 'Time Passes' }
-      : { zh: '前往' + next.place.zh, en: 'Toward ' + next.place.en };
-    const kicker = mode === 'ship' ? { zh: '海路', en: 'By sea' } : mode === 'reed' ? { zh: '江畔', en: 'At the river' } : mode === 'wait' ? { zh: '嵩山', en: 'Mount Song' } : { zh: '陸路', en: 'Overland' };
+      : { zh: '前往' + next.place.zh, en: 'Toward ' + next.place.en });
+    const kicker = sg.kicker || (mode === 'ship' ? { zh: '海路', en: 'By sea' } : mode === 'reed' ? { zh: '江畔', en: 'At the river' } : mode === 'wait' ? { zh: '時光', en: 'Time' } : { zh: '陸路', en: 'Overland' });
     return `<div class="head"><div class="stn-seal travel">途</div><div>
       <p class="place">${bi(kicker, 'span')}</p>
       <h2 class="title">${bi(title, 'span')}</h2></div></div>
-      <div class="scene">${SCENES[mode === 'reed' ? 'walk' : mode]()}</div>
+      <div class="scene">${SCENES[sg.scene || (mode === 'reed' ? 'walk' : mode)](FIGO)}</div>
       <div>${bi(cap, 'p', 'caption')}</div>
       <p class="hint">${bi({ zh: '下一站：' + next.num + '・' + next.title.zh, en: 'Next: ' + next.title.en }, 'span')}</p>`;
   }
@@ -332,7 +335,13 @@
     menu.hidden = !menu.hidden;
     chBtn.setAttribute('aria-expanded', String(!menu.hidden));
   });
-  menu.addEventListener('click', (e) => { const b = e.target.closest('button'); if (b && !b.disabled) menu.hidden = true; });
+  menu.addEventListener('click', (e) => {
+    const b = e.target.closest('button');
+    if (!b || b.disabled) return;
+    menu.hidden = true;
+    if (b.dataset.id !== chapter.id) goChapter(b.dataset.id);
+  });
+  function goChapter(id) { location.hash = '#ch=' + id; location.reload(); }
   document.addEventListener('click', (e) => { if (!menu.hidden && !menu.contains(e.target)) { menu.hidden = true; chBtn.setAttribute('aria-expanded', 'false'); } });
 
   /* 手機抽屜（Mobile sheet） */
@@ -380,7 +389,7 @@
         moving = p > 0 && p < 1;
       } else { pos = SP[st.i + 1]; mode = 'wait'; }
     }
-    if (st.type === 'stay' && st.i === 4) facing = 1;
+    if (st.type === 'stay' && st.i === compIdx) facing = 1;
     disp = pos.slice();
     if (seekFrom) {
       const k = clamp01((now - seekStart) / 1400);
@@ -424,12 +433,12 @@
 
     /* 人物（Figure） */
     const fs = (winW <= 860 ? 0.5 : 0.62) * inv;
-    const fx = disp[0] + (st.type === 'stay' && st.i === 4 ? -10 * inv : 0);
+    const fx = disp[0] + (st.type === 'stay' && st.i === compIdx ? -10 * inv : 0);
     figWrap.attr('transform', `translate(${fx} ${disp[1] - (moving ? 0 : 9 * inv)}) scale(${fs})`)
       .attr('class', 'fig-wrap' + (moving ? ' moving' : '') + ' m-' + mode);
     figFlip.attr('transform', facing < 0 ? 'scale(-1 1)' : null);
-    huike.attr('transform', `translate(${SP[4][0] + 22 * inv} ${SP[4][1]}) scale(${fs * 0.9})`)
-      .classed('on', started && st.type === 'stay' && st.i === 4);
+    if (compIdx >= 0) huike.attr('transform', `translate(${SP[compIdx][0] + 22 * inv} ${SP[compIdx][1]}) scale(${fs * 0.9})`)
+      .classed('on', started && st.type === 'stay' && st.i === compIdx);
 
     /* 站點狀態（Marker state） */
     const curI = st.type === 'stay' ? st.i : -1;
@@ -439,6 +448,7 @@
       m.g.classed('visited', started && visited).classed('current', started && current);
       const shown = current ? curI : m.idx[0];
       m.num.text(stations[shown].num);
+      m.tz.text(stations[shown].place.zh); m.te.text(stations[shown].place.en);
     });
 
     segs.forEach((sg, j) => { if (sg.viaG) sg.viaG.classed('visited', started && (st.i > j || (st.type === 'move' && st.i === j && modeAt(sg, q * sg.L) !== 'ship'))); });
@@ -484,7 +494,7 @@
 
   /* 分享與網址定位（Share link & #stop deep link） */
   const stopFromHash = () => { const m = /stop=(\d+)/.exec(location.hash); const n = m ? +m[1] - 1 : -1; return n >= 0 && n < stations.length ? n : -1; };
-  const linkFor = (i) => location.origin + location.pathname + '#stop=' + (i + 1);
+  const linkFor = (i) => location.origin + location.pathname + '#ch=' + chapter.id + '&stop=' + (i + 1);
   $('shareBtn').addEventListener('click', async () => {
     const i = steps[stepIdx].i;
     const url = linkFor(started ? i : 0);
@@ -495,7 +505,7 @@
       toast('已複製這一站的連結', 'Link to this stop copied');
     } catch (e) { toast('複製失敗，請手動複製網址列', 'Could not copy — please copy the address bar'); }
   });
-  window.addEventListener('hashchange', () => { const n = stopFromHash(); if (n >= 0 && n !== steps[stepIdx].i) seek(n); });
+  window.addEventListener('hashchange', () => { if (chHash() !== chapter.id && CHAPTERS.some((c) => c.id === chHash() && c.ready)) { location.reload(); return; } const n = stopFromHash(); if (n >= 0 && n !== steps[stepIdx].i) seek(n); });
 
   /* 到站鐘聲（Arrival bell, synthesized — 不需音檔） */
   let actx = null, soundOn = false;
@@ -523,7 +533,7 @@
     g.append('circle').attr('class', 'bloom b2').attr('r', 14);
     setTimeout(() => { g.remove(); const k = fixed.findIndex((f) => f.g === g); if (k >= 0) fixed.splice(k, 1); }, 2400);
     bell();
-    try { history.replaceState(null, '', '#stop=' + (i + 1)); } catch (e) {}
+    try { history.replaceState(null, '', '#ch=' + chapter.id + '&stop=' + (i + 1)); } catch (e) {}
   }
 
   /* 結尾（Finale） */
@@ -534,6 +544,25 @@
   if (/[?&]debug/.test(location.search)) {
     window.__chan = { go(idx, frac) { begin(); stepIdx = idx; stepT = durOf(steps[idx]) * (frac || 0); setPlaying(false); } };
   }
+
+  /* 篇章開場與結尾文字（Per-chapter intro & finale） */
+  const I = chapter.intro;
+  if (I) {
+    document.querySelector('.intro-title .v').textContent = I.v;
+    document.querySelector('.intro-title .seal').textContent = I.seal;
+    $('introEn').textContent = I.en;
+    $('introSub').innerHTML = bi(I.sub, 'span');
+    $('introNote').innerHTML = bi(I.note, 'span');
+  }
+  if (chapter.finale) $('finaleText').innerHTML = bi(chapter.finale, 'span');
+  const nextHint = $('finaleNext');
+  if (chapter.nextChapter) {
+    nextHint.hidden = false;
+    nextHint.innerHTML = bi(chapter.nextChapter.label, 'span');
+    nextHint.addEventListener('click', () => goChapter(chapter.nextChapter.id));
+  } else nextHint.hidden = true;
+  $('finaleHint').innerHTML = chapter.nextHint ? bi(chapter.nextHint, 'span') : '';
+  document.title = chapter.name.zh + ' · 禪宗祖師行旅圖 · Journeys of the Chan Patriarchs';
 
   setLang(lang);
   layout();

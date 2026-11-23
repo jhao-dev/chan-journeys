@@ -17,7 +17,7 @@
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Noto+Serif+TC:wght@400;600;900&family=Cormorant+Garamond:ital,wght@0,500;0,600;1,500&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="style.css?v=7">
+  <link rel="stylesheet" href="style.css?v=9">
 </head>
 <body data-lang="zh">
 
@@ -83,13 +83,14 @@
   <div class="finale" id="finale" role="dialog" aria-label="本篇完 / The End">
     <span class="seal big">圓滿</span>
     <h2><span class="zh">本篇完</span><span class="en">The End of This Chapter</span></h2>
-    <p><span class="zh">達摩傳法慧可，禪宗一脈自此在中國生根。</span><span class="en">Bodhidharma passed the teaching to Huike, and Chan took root in China.</span></p>
+    <p id="finaleText"></p>
     <div class="finale-btns">
       <button class="begin" id="replayBtn"><span class="zh">重新觀看</span><span class="en">Watch again</span></button>
+      <button class="begin" id="finaleNext" hidden></button>
       <button class="ghost" id="finaleClose"><span class="zh">留在此處</span><span class="en">Stay here</span></button>
     </div>
     <p class="finale-watch"><a href="https://www.youtube.com/@thebuddhachan" target="_blank" rel="noopener"><span class="zh">▶ 觀看悟覺妙天師父【印心佛法】官方頻道</span><span class="en">▶ Watch Master Miaotian’s official channel</span></a></p>
-    <p class="finale-next"><span class="zh">下一篇：二祖慧可（即將推出）</span><span class="en">Next: Huike (coming soon)</span></p>
+    <p class="finale-next" id="finaleHint"></p>
   </div>
 
   <div class="intro" id="intro">
@@ -98,10 +99,10 @@
         <span class="v">達摩東來</span>
         <span class="seal big">初祖</span>
       </div>
-      <p class="intro-en">Bodhidharma's Journey East</p>
-      <p class="intro-sub"><span class="zh">從南天竺到嵩山少林 · 一段千年流傳的禪宗故事</span><span class="en">From South India to Shaolin — a Chan legend told for fifteen centuries</span></p>
+      <p class="intro-en" id="introEn"></p>
+      <p class="intro-sub" id="introSub"></p>
       <button class="begin" id="beginBtn"><span class="zh">開始旅程</span><span class="en">Begin</span></button>
-      <p class="intro-note"><span class="zh">內容依傳統流傳版本，部分情節為後世傳說</span><span class="en">Told as traditionally handed down; some episodes are legend</span></p>
+      <p class="intro-note" id="introNote"></p>
     </div>
   </div>
 
@@ -109,9 +110,10 @@
   <audio id="bgm" src="assets/bgm.mp3" loop preload="none"></audio>
 
   <script src="lib/d3.min.js"></script>
-  <script src="lib/land-asia.js?v=7"></script>
-  <script src="data.js?v=7"></script>
-  <script src="scenes.js?v=7"></script>
-  <script src="app.js?v=7"></script>
+  <script src="lib/land-asia.js?v=9"></script>
+  <script src="data.js?v=9"></script>
+  <script src="data-buddha.js?v=9"></script>
+  <script src="scenes.js?v=9"></script>
+  <script src="app.js?v=9"></script>
 </body>
 </html>

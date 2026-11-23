@@ -67,6 +67,7 @@
     return s + '</g>';
   }
 
+  const BUD = { robe: '#d9a441', band: '#ecc766', fold: '#8a6618', staff: false, beard: false };
   const SCENES = {
     xiangzhi: function () {
       return '<svg viewBox="0 0 400 240" role="img" aria-label="香至國">' +
@@ -170,8 +171,146 @@
         '</svg>';
     },
 
+    /* ===== 釋迦牟尼佛篇（Shakyamuni chapter） ===== */
+    birth: function () {
+      let lot = '';
+      for (let i = 0; i < 7; i++) lot += '<ellipse cx="' + (92 + i * 21) + '" cy="206" rx="9" ry="3.6" fill="#f3c9c4" stroke="' + INK + '" stroke-width=".8"/>';
+      return '<svg viewBox="0 0 400 240" role="img" aria-label="藍毗尼誕生">' +
+        '<circle class="pulse" cx="300" cy="64" r="22" fill="#e8c867" opacity=".8"/>' + hills(170, 0.1, 6) +
+        '<path d="M300 212 C296 170 304 140 286 108" stroke="' + INK + '" stroke-width="5" fill="none" stroke-linecap="round"/>' +
+        '<g class="sway" fill="' + INK + '" opacity=".7" style="transform-origin:290px 200px"><ellipse cx="262" cy="96" rx="40" ry="20"/><ellipse cx="318" cy="104" rx="34" ry="18"/><ellipse cx="236" cy="118" rx="22" ry="12"/></g>' +
+        '<g fill="#f3a8a0" opacity=".9"><circle cx="250" cy="100" r="3"/><circle cx="296" cy="92" r="3"/><circle cx="322" cy="108" r="3"/></g>' +
+        '<path d="M286 112 Q268 128 262 150" stroke="#cfc6b3" stroke-width="6" fill="none" stroke-linecap="round"/>' +
+        '<path d="M242 208 Q236 158 262 146 Q288 158 282 208 Z" fill="#e9dcbc" stroke="' + INK + '" stroke-width="1.3"/>' +
+        '<circle cx="264" cy="134" r="10" fill="' + SKIN + '" stroke="' + INK + '" stroke-width="1.2"/><path d="M254 130 q10 -10 20 0" stroke="' + INK + '" stroke-width="3" fill="none"/>' +
+        lot +
+        '<g transform="translate(205 206)"><ellipse cx="0" cy="0" rx="16" ry="5" fill="#f3c9c4" stroke="' + INK + '" stroke-width="1"/>' +
+        '<path d="M-7 -4 Q-9 -24 0 -26 Q9 -24 7 -4 Z" fill="#d9a441" stroke="' + INK + '" stroke-width="1"/><circle cx="0" cy="-34" r="8" fill="' + SKIN + '" stroke="' + INK + '" stroke-width="1"/>' +
+        '<path d="M6 -22 Q16 -34 14 -46" stroke="' + SKIN + '" stroke-width="3.4" fill="none" stroke-linecap="round"/><path d="M-6 -20 Q-16 -14 -18 -8" stroke="' + SKIN + '" stroke-width="3.4" fill="none" stroke-linecap="round"/></g>' +
+        '<g class="say s1" font-size="20">' + bi('「天上天下，唯我獨尊」', '“Above and below, I am the one who awakens”', 190, 44, 'text-anchor="middle" fill="' + INK + '"') + '</g>' +
+        '</svg>';
+    },
+
+    palace: function () {
+      return '<svg viewBox="0 0 400 240" role="img" aria-label="夜半出家">' +
+        '<rect width="400" height="240" fill="#2b2a33" opacity=".12"/>' +
+        '<circle class="pulse" cx="300" cy="54" r="26" fill="#f6efdc" stroke="' + INK + '" stroke-width=".8" style="transform-origin:300px 54px"/>' +
+        hills(176, 0.14, 6) +
+        '<path d="M16 96 Q40 92 60 78 L180 78 Q200 92 224 96 L214 104 L26 104 Z" fill="#3b3029" stroke="' + INK + '" stroke-width="1"/>' +
+        '<rect x="30" y="104" width="180" height="8" fill="#8c2a1f"/><path d="M44 112 V204 M96 112 V204 M144 112 V204 M196 112 V204" stroke="#8c2a1f" stroke-width="7"/>' +
+        '<path d="M120 204 V150 Q120 138 134 138 Q148 138 148 150 V204" fill="#241c15" opacity=".8"/>' +
+        '<path d="M0 206 H400" stroke="' + INK + '" stroke-width="2" opacity=".6"/>' +
+        '<g class="float" style="animation-duration:1.4s"><g transform="translate(284 206)">' +
+        '<path d="M-44 -16 Q-44 -40 -20 -42 L26 -42 Q44 -44 52 -64 L58 -62 Q56 -40 46 -34 L44 0 L36 0 L34 -18 L-20 -18 L-24 0 L-32 0 L-34 -18 Z" fill="#f4efe6" stroke="' + INK + '" stroke-width="1.3" stroke-linejoin="round"/>' +
+        '<g transform="translate(-6 -42) scale(.55)">' + figArt({ robe: '#cfc6b3', band: '#e8e1d0', fold: '#8a8170', staff: false, beard: false }).replace('<ellipse', '<ellipse opacity="0"') + '</g></g></g>' +
+        '<g class="drift" opacity=".35"><ellipse cx="220" cy="204" rx="26" ry="3"/><ellipse cx="170" cy="208" rx="18" ry="2.4"/></g>' +
+        '<g class="say s1" font-size="20">' + bi('「不證菩提，不再回來」', '“Not until I awaken will I return”', 214, 30, 'text-anchor="middle" fill="' + INK + '"') + '</g>' +
+        '</svg>';
+    },
+
+    teachers: function () {
+      function sit(x, y, c) {
+        return '<g transform="translate(' + x + ' ' + y + ')"><path d="M-22 0 Q-20 -26 0 -32 Q20 -26 22 0 Z" fill="' + c + '" stroke="' + INK + '" stroke-width="1.2"/>' +
+          '<circle cx="0" cy="-42" r="10" fill="' + SKIN + '" stroke="' + INK + '" stroke-width="1.2"/><path d="M-9 -44 q9 -8 18 0" stroke="' + INK + '" stroke-width="2.4" fill="none"/></g>';
+      }
+      return '<svg viewBox="0 0 400 240" role="img" aria-label="早期修行">' +
+        hills(120, 0.1, 6) + '<path d="M120 240 L170 70 L210 120 L250 56 L330 240 Z" fill="#7c6e5c" opacity=".55" stroke="' + INK + '" stroke-width="1"/>' +
+        '<path d="M0 206 Q120 196 240 204 T400 202" stroke="' + INK + '" stroke-width="2" fill="none" opacity=".6"/>' +
+        sit(70, 206, '#cfc6b3') + sit(330, 206, '#cfc6b3') +
+        '<g class="pulse" style="transform-origin:70px 160px"><circle cx="70" cy="164" r="38" fill="none" stroke="#7a6a8a" stroke-width="1" stroke-dasharray="3 5" opacity=".6"/></g>' +
+        '<g class="pulse" style="transform-origin:330px 160px"><circle cx="330" cy="164" r="38" fill="none" stroke="#7a6a8a" stroke-width="1" stroke-dasharray="3 5" opacity=".6"/></g>' +
+        FIG(200, 206, 1.25, false, BUD) +
+        '<g class="say s1" font-size="17">' + bi('「這還不是究竟」', '“This is not the final answer.”', 200, 32, 'text-anchor="middle" fill="' + RED + '"') + '</g>' +
+        '</svg>';
+    },
+
+    river: function () {
+      return '<svg viewBox="0 0 400 240" role="img" aria-label="尼連禪河">' +
+        hills(104, 0.08, 6) + '<rect x="0" y="116" width="400" height="124" fill="#c9cfc2" opacity=".5"/>' + waves(132, 6, 'waves drift') +
+        '<path d="M0 186 Q100 170 220 184 T400 176 V240 H0 Z" fill="#e6dcc0" stroke="' + INK + '" stroke-width="1.2"/>' +
+        '<g transform="translate(120 200)"><path d="M-26 0 Q-24 -24 0 -30 Q24 -24 26 0 Z" fill="#cfc6b3" stroke="' + INK + '" stroke-width="1.2"/>' +
+        '<circle cx="0" cy="-40" r="10" fill="' + SKIN + '" stroke="' + INK + '" stroke-width="1.2"/><path d="M-5 -37 v6 M0 -36 v6 M5 -37 v6" stroke="' + INK + '" stroke-width=".8"/>' +
+        '<path d="M-18 -22 Q-8 -14 0 -22 Q8 -14 18 -22" stroke="' + INK + '" stroke-width=".9" fill="none"/></g>' +
+        '<g transform="translate(250 204)"><path d="M-14 0 Q-14 -26 0 -34 Q14 -26 14 0 Z" fill="#c9573f" stroke="' + INK + '" stroke-width="1.2"/><circle cx="0" cy="-42" r="8" fill="' + SKIN + '" stroke="' + INK + '" stroke-width="1.2"/>' +
+        '<path d="M-6 -42 q-10 -4 -8 6" stroke="' + INK + '" stroke-width="2.2" fill="none"/>' +
+        '<path d="M-14 -20 Q-26 -18 -34 -22" stroke="#c9573f" stroke-width="5" fill="none" stroke-linecap="round"/>' +
+        '<ellipse cx="-38" cy="-22" rx="10" ry="4" fill="#f4efe6" stroke="' + INK + '" stroke-width="1"/><path d="M-46 -23 Q-38 -32 -30 -23" fill="#fffaf0" opacity=".8"/></g>' +
+        '<g class="drift" opacity=".4"><path d="M-20 70 q16 -8 32 0 t32 0" stroke="' + INK + '" fill="none"/></g>' +
+        '<g class="say s1" font-size="22">' + bi('「中道」', '“The Middle Way”', 200, 40, 'text-anchor="middle" fill="' + INK + '"') + '</g>' +
+        '</svg>';
+    },
+
+    bodhi: function () {
+      let petals = '';
+      for (let i = 0; i < 22; i++) petals += '<circle cx="' + ((i * 61) % 400) + '" cy="-6" r="' + (1.6 + (i % 3) * 0.6) + '" style="animation-delay:-' + ((i * 0.5) % 6).toFixed(1) + 's;animation-duration:' + (6 + (i % 4)) + 's"/>';
+      return '<svg viewBox="0 0 400 240" role="img" aria-label="菩提樹下">' +
+        '<rect width="400" height="240" fill="#2b2a33" opacity=".16"/>' +
+        '<g class="pulse" style="transform-origin:330px 40px"><path d="M330 28 l3 9 9 3 -9 3 -3 9 -3 -9 -9 -3 9 -3 z" fill="#f6efdc" stroke="' + INK + '" stroke-width=".6"/></g>' +
+        '<path d="M200 212 C196 170 204 140 196 104" stroke="' + INK + '" stroke-width="9" fill="none" stroke-linecap="round"/>' +
+        '<g class="sway" fill="' + INK + '" opacity=".78" style="transform-origin:200px 200px"><ellipse cx="200" cy="70" rx="86" ry="36"/><ellipse cx="124" cy="100" rx="42" ry="20"/><ellipse cx="278" cy="102" rx="42" ry="20"/></g>' +
+        '<g fill="#6e7a3a" opacity=".5"><path d="M150 80 q6 -10 12 0 q-6 6 -12 0Z M250 84 q6 -10 12 0 q-6 6 -12 0Z M200 56 q6 -10 12 0 q-6 6 -12 0Z"/></g>' +
+        '<path d="M0 214 Q100 206 200 214 T400 212 V240 H0 Z" fill="#cbbf9f" stroke="' + INK + '" stroke-width="1.2"/>' +
+        '<g transform="translate(200 214)"><circle class="pulse" cx="0" cy="-70" r="40" fill="#e8c867" opacity=".4" style="transform-origin:200px 144px"/>' +
+        '<path d="M-34 0 Q-32 -14 -20 -22 Q-26 -44 0 -52 Q26 -44 20 -22 Q32 -14 34 0 Z" fill="#d9a441" stroke="' + INK + '" stroke-width="1.4"/>' +
+        '<circle cx="0" cy="-64" r="12" fill="' + SKIN + '" stroke="' + INK + '" stroke-width="1.3"/><path d="M-3 -77 q3 -4 6 0" stroke="' + INK + '" stroke-width="2" fill="none"/><path d="M-5 -63 q3 1 6 0" stroke="' + INK + '" stroke-width="1" fill="none"/>' +
+        '<path d="M-20 -30 Q-26 -10 -16 -2" stroke="#d9a441" stroke-width="6" fill="none" stroke-linecap="round"/><circle cx="-14" cy="0" r="3" fill="' + SKIN + '" stroke="' + INK + '" stroke-width=".8"/></g>' +
+        '<g stroke="' + INK + '" stroke-width="1.2" opacity=".7"><path d="M24 170 l30 14 M16 196 l28 -6 M370 160 l-30 18 M382 196 l-28 -4"/></g>' +
+        '<g class="snow" fill="#f3a8a0">' + petals + '</g>' +
+        '<g class="say s1" font-size="15">' + bi('「奇哉！眾生皆具如來智慧」', '“How wondrous — all beings hold the Buddha’s wisdom”', 200, 20, 'text-anchor="middle" fill="' + RED + '"') + '</g>' +
+        '</svg>';
+    },
+
+    deer: function () {
+      function monk(x) { return '<g transform="translate(' + x + ' 206)"><path d="M-14 0 Q-12 -18 0 -22 Q12 -18 14 0 Z" fill="#cfc6b3" stroke="' + INK + '" stroke-width="1.1"/><circle cx="0" cy="-30" r="7" fill="' + SKIN + '" stroke="' + INK + '" stroke-width="1.1"/></g>'; }
+      function deer(x, f) { return '<g transform="translate(' + x + ' 150) scale(' + f + ' 1)"><path d="M-16 0 Q-16 -14 0 -14 Q16 -14 18 -6 L26 -26 L30 -24 L24 -2 L22 14 L18 14 L16 2 L-8 2 L-10 14 L-14 14 L-14 2 Z" fill="#a98a5e" stroke="' + INK + '" stroke-width="1"/><path d="M26 -26 l-4 -10 M28 -28 l4 -8" stroke="' + INK + '" stroke-width="1.2"/></g>'; }
+      return '<svg viewBox="0 0 400 240" role="img" aria-label="鹿野苑">' +
+        hills(150, 0.1, 6) + '<path d="M0 214 Q120 204 240 212 T400 208 V240 H0 Z" fill="#d8ccad" stroke="' + INK + '" stroke-width="1.2"/>' +
+        '<g transform="translate(200 82)"><g class="wheel"><circle r="34" fill="#e8c867" stroke="' + INK + '" stroke-width="2"/><circle r="8" fill="' + RED + '"/>' +
+        '<path d="M0 -34 V34 M-34 0 H34 M-24 -24 L24 24 M24 -24 L-24 24" stroke="' + INK + '" stroke-width="1.6"/><circle r="26" fill="none" stroke="' + INK + '" stroke-width="1"/></g></g>' +
+        '<path d="M176 128 H224 L230 142 H170 Z" fill="#8c2a1f" stroke="' + INK + '" stroke-width="1"/>' +
+        deer(116, 1) + deer(284, -1) +
+        monk(70) + monk(110) + monk(290) + monk(330) + monk(200) +
+        '<g transform="translate(200 206)"><path d="M-22 0 Q-20 -22 0 -28 Q20 -22 22 0 Z" fill="#d9a441" stroke="' + INK + '" stroke-width="1.2"/><circle cx="0" cy="-38" r="9" fill="' + SKIN + '" stroke="' + INK + '" stroke-width="1.2"/></g>' +
+        '<g class="say s1" font-size="19">' + bi('「初轉法輪」', '“Turning the Wheel”', 200, 32, 'text-anchor="middle" fill="' + INK + '"') + '</g>' +
+        '</svg>';
+    },
+
+    flower: function () {
+      return '<svg viewBox="0 0 400 240" role="img" aria-label="拈花微笑">' +
+        '<circle cx="300" cy="56" r="24" fill="#f6efdc" stroke="' + INK + '" stroke-width=".8" opacity=".9"/>' +
+        '<path d="M0 240 L60 110 L120 150 L190 60 L260 140 L320 90 L400 240 Z" fill="#2d241c" opacity=".7"/>' +
+        '<path d="M70 240 L130 150 L190 110 L250 160 L300 240 Z" fill="#7c6e5c" opacity=".6"/>' +
+        '<path d="M0 218 Q140 206 260 216 T400 212 V240 H0 Z" fill="#d8ccad" stroke="' + INK + '" stroke-width="1.2"/>' +
+        '<g transform="translate(130 214)"><circle class="pulse" cx="0" cy="-60" r="42" fill="#e8c867" opacity=".35" style="transform-origin:130px 154px"/>' +
+        '<path d="M-34 0 Q-32 -14 -20 -22 Q-26 -44 0 -52 Q26 -44 20 -22 Q32 -14 34 0 Z" fill="#d9a441" stroke="' + INK + '" stroke-width="1.4"/>' +
+        '<circle cx="0" cy="-64" r="12" fill="' + SKIN + '" stroke="' + INK + '" stroke-width="1.3"/><path d="M-5 -63 q4 2 8 0" stroke="' + INK + '" stroke-width="1" fill="none"/>' +
+        '<path d="M14 -34 Q30 -44 34 -62" stroke="#d9a441" stroke-width="6" fill="none" stroke-linecap="round"/>' +
+        '<g class="sway" style="transform-origin:34px -62px"><path d="M34 -64 q-8 -10 0 -18 q8 8 0 18 M34 -64 q-12 -2 -14 -12 q10 -2 14 12 M34 -64 q12 -2 14 -12 q-10 -2 -14 12" fill="#f3d36a" stroke="' + INK + '" stroke-width="1"/></g></g>' +
+        '<g transform="translate(284 214)"><path d="M-18 0 Q-16 -22 0 -28 Q16 -22 18 0 Z" fill="#c9573f" stroke="' + INK + '" stroke-width="1.2"/>' +
+        '<circle cx="0" cy="-38" r="9.5" fill="' + SKIN + '" stroke="' + INK + '" stroke-width="1.2"/><path d="M-5 -36 q5 5 10 0" stroke="' + INK + '" stroke-width="1.4" fill="none"/><path d="M-6 -41 h3 M3 -41 h3" stroke="' + INK + '" stroke-width="1.2"/></g>' +
+        '<g class="say s1" font-size="22">' + bi('「拈花微笑」', '“A flower, and a smile”', 200, 36, 'text-anchor="middle" fill="' + INK + '"') + '</g>' +
+        '</svg>';
+    },
+
+    nirvana: function () {
+      return '<svg viewBox="0 0 400 240" role="img" aria-label="拘尸那羅">' +
+        '<circle cx="310" cy="54" r="24" fill="#f6efdc" stroke="' + INK + '" stroke-width=".8" opacity=".9"/>' + hills(160, 0.1, 6) +
+        '<path d="M60 214 C58 160 66 110 54 70 M340 214 C342 160 334 110 346 70" stroke="' + INK + '" stroke-width="8" fill="none" stroke-linecap="round"/>' +
+        '<g class="sway" fill="' + INK + '" opacity=".72" style="transform-origin:200px 200px"><ellipse cx="56" cy="62" rx="52" ry="26"/><ellipse cx="344" cy="62" rx="52" ry="26"/><ellipse cx="200" cy="50" rx="60" ry="14"/></g>' +
+        '<g class="snow" fill="#f6efdc">' + [0, 1, 2, 3, 4, 5, 6, 7, 8, 9].map(function (i) { return '<circle cx="' + (80 + i * 26) + '" cy="-6" r="2.2" style="animation-delay:-' + i * 0.6 + 's;animation-duration:7s"/>'; }).join('') + '</g>' +
+        '<path d="M0 214 Q100 206 200 214 T400 212 V240 H0 Z" fill="#cbbf9f" stroke="' + INK + '" stroke-width="1.2"/>' +
+        '<path d="M96 204 H304 L296 192 H104 Z" fill="#8c2a1f" stroke="' + INK + '" stroke-width="1"/>' +
+        '<path d="M118 192 Q122 176 150 174 L270 174 Q290 176 290 192 Z" fill="#d9a441" stroke="' + INK + '" stroke-width="1.3"/>' +
+        '<circle cx="128" cy="170" r="11" fill="' + SKIN + '" stroke="' + INK + '" stroke-width="1.2"/><path d="M118 174 q10 -14 22 -2" stroke="' + INK + '" stroke-width="2" fill="none"/>' +
+        '<g transform="translate(86 206)"><path d="M-12 0 Q-10 -16 0 -20 Q10 -16 12 0Z" fill="#cfc6b3" stroke="' + INK + '" stroke-width="1"/><circle cx="0" cy="-27" r="6.5" fill="' + SKIN + '" stroke="' + INK + '" stroke-width="1"/></g>' +
+        '<g transform="translate(320 206)"><path d="M-12 0 Q-10 -16 0 -20 Q10 -16 12 0Z" fill="#cfc6b3" stroke="' + INK + '" stroke-width="1"/><circle cx="0" cy="-27" r="6.5" fill="' + SKIN + '" stroke="' + INK + '" stroke-width="1"/></g>' +
+        '<g transform="translate(200 160)"><path class="pulse" d="M0 0 q-9 -14 0 -28 q9 14 0 28Z" fill="#f0a830" stroke="' + RED + '" stroke-width="1" style="transform-origin:200px 160px"/><path d="M-8 2 h16" stroke="' + INK + '" stroke-width="2"/></g>' +
+        '<g class="say s1" font-size="20">' + bi('「自燃燈，法燃燈」', '“Be a lamp unto yourselves”', 200, 30, 'text-anchor="middle" fill="' + INK + '"') + '</g>' +
+        '</svg>';
+    },
+
     /* 旅途小插圖（Travel vignettes） */
-    ship: function () {
+    ship: function (o) {
       return '<svg viewBox="0 0 400 140" role="img" aria-label="航海">' +
         '<rect x="0" y="80" width="400" height="60" fill="#c9cfc2" opacity=".45"/>' +
         waves(92, 4, 'waves drift') +
@@ -179,14 +318,14 @@
         '<path d="M140 96 L260 96 L246 112 L156 112 Z" fill="#5a4334" stroke="' + INK + '" stroke-width="1.2"/>' +
         '<path d="M200 96 V30" stroke="' + INK + '" stroke-width="2"/>' +
         '<path d="M202 34 Q236 54 230 90 L202 90 Z" fill="#e9dcbc" stroke="' + INK + '" stroke-width="1.2"/>' +
-        FIG(176, 98, 0.78, false) +
+        FIG(176, 98, 0.78, false, o) +
         '</g></svg>';
     },
-    walk: function () {
+    walk: function (o) {
       return '<svg viewBox="0 0 400 140" role="img" aria-label="步行">' +
         hills(100, 0.1, 5) +
         '<path d="M0 120 Q120 108 220 118 T400 112" stroke="' + INK + '" stroke-width="1.6" fill="none" opacity=".6"/>' +
-        '<g class="walker">' + FIG(200, 120, 0.95, false) + '</g>' +
+        '<g class="walker">' + FIG(200, 120, 0.95, false, o) + '</g>' +
         '</svg>';
     },
     wait: function () {
@@ -197,6 +336,6 @@
   };
   SCENES['reed-travel'] = SCENES.reed;
 
-  window.INK_FIG = { figArt: figArt, FIG: FIG };
+  window.INK_FIG = { BUD: BUD, figArt: figArt, FIG: FIG };
   window.SCENES = SCENES;
 })();
