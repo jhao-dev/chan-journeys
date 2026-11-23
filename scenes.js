@@ -69,6 +69,8 @@
 
   const BUD = { robe: '#d9a441', band: '#ecc766', fold: '#8a6618', staff: false, beard: false };
   const HUI = { robe: '#8a7a5c', band: '#b5a37c', fold: '#4f4430', staff: false, beard: false };
+  const HON = { robe: '#d98a2b', band: '#ecc766', fold: '#8a5a18', staff: false, beard: true };
+  const DAO = { robe: '#6e5a46', band: '#8a7a5c', fold: '#3a2d20', staff: true, beard: true };
   const SCENES = {
     xiangzhi: function () {
       return '<svg viewBox="0 0 400 240" role="img" aria-label="香至國">' +
@@ -419,6 +421,76 @@
         '</svg>';
     },
 
+
+    /* ===== 五祖弘忍篇（Hongren chapter） ===== */
+    child: function () {
+      return '<svg viewBox="0 0 400 240" role="img" aria-label="路遇童子">' +
+        '<circle cx="320" cy="58" r="22" fill="#f6efdc" stroke="' + INK + '" stroke-width=".8" opacity=".9"/>' + hills(150, 0.12, 6) +
+        '<path d="M0 214 Q120 204 240 212 T400 208 V240 H0 Z" fill="#d8ccad" stroke="' + INK + '" stroke-width="1.2"/>' +
+        '<path d="M360 214 L360 110" stroke="' + INK + '" stroke-width="5"/><ellipse cx="360" cy="100" rx="34" ry="22" fill="' + INK + '" opacity=".6"/><ellipse cx="344" cy="124" rx="22" ry="12" fill="' + INK + '" opacity=".5"/>' +
+        FIG(110, 214, 1.2, false, DAO) +
+        '<g class="walker" style="animation-duration:1.4s">' + FIG(260, 214, 0.62, true, { robe: '#cfc6b3', band: '#e8e1d0', fold: '#8a8170', staff: false, beard: false }) + '</g>' +
+        '<g class="say s1" font-size="19">' + bi('「是佛性」', '“It is Buddha-nature.”', 200, 34, 'text-anchor="middle" fill="' + INK + '"') + '</g>' +
+        '<g class="say s2" font-size="15">' + bi('「性空故無」', '“Nature is empty, so there is none.”', 200, 96, 'text-anchor="middle" fill="' + RED + '"') + '</g>' +
+        '</svg>';
+    },
+
+    twinpeaks: function () {
+      return '<svg viewBox="0 0 400 240" role="img" aria-label="雙峰山侍師">' +
+        '<rect width="400" height="240" fill="#6b6a66" opacity=".08"/>' +
+        '<path d="M0 240 L0 150 L60 90 L110 130 L170 50 L230 120 L290 70 L340 110 L400 90 L400 240 Z" fill="#2d241c" opacity=".7"/>' +
+        '<path d="M0 240 L0 190 L80 150 L150 185 L230 140 L320 180 L400 160 L400 240 Z" fill="#7c6e5c" opacity=".65"/>' +
+        '<path d="M20 120 q40 -10 80 0 M250 90 q50 -12 100 0" stroke="#d9d3c3" stroke-width="5" fill="none" opacity=".55" class="drift" style="animation-duration:6s"/>' +
+        '<path d="M96 200 H304 L316 214 H84 Z" fill="#8c7a5a" stroke="' + INK + '" stroke-width="1.2"/>' +
+        FIG(150, 206, 1.15, false, DAO) + FIG(246, 206, 1.0, true, HON) +
+        '<rect x="188" y="188" width="24" height="16" rx="2" fill="#c9573f" stroke="' + INK + '" stroke-width="1.1"/>' +
+        '<g class="say s1" font-size="17">' + bi('「努力勤坐，坐為根本」', '“Strive to sit — sitting is the root”', 200, 34, 'text-anchor="middle" fill="' + INK + '"') + '</g>' +
+        '</svg>';
+    },
+
+    eastmtn: function () {
+      let heads = '';
+      for (let i = 0; i < 5; i++) heads += '<g transform="translate(' + (36 + i * 34) + ' 196)"><path d="M-10 0 Q-9 -13 0 -15 Q9 -13 10 0Z" fill="' + (i % 2 ? '#cfc6b3' : '#8a7a5c') + '" stroke="' + INK + '" stroke-width="1"/><circle cx="0" cy="-20" r="6" fill="' + SKIN + '" stroke="' + INK + '" stroke-width="1"/></g>';
+      let furrows = '';
+      for (let i = 0; i < 4; i++) furrows += '<path d="M220 ' + (176 + i * 12) + ' Q300 ' + (170 + i * 12) + ' 390 ' + (178 + i * 12) + '" stroke="#7c6a48" stroke-width="1.6" fill="none"/>';
+      return '<svg viewBox="0 0 400 240" role="img" aria-label="東山寺">' +
+        hills(130, 0.1, 6) +
+        '<path d="M0 240 L0 170 Q100 120 200 150 Q300 120 400 170 L400 240 Z" fill="#d8ccad" stroke="' + INK + '" stroke-width="1.2"/>' +
+        '<path d="M130 120 Q200 90 270 120 L262 128 L138 128 Z" fill="#3b3029" stroke="' + INK + '" stroke-width="1"/><rect x="146" y="128" width="108" height="40" fill="#efe5cc" stroke="' + INK + '" stroke-width="1.2"/>' +
+        heads + furrows +
+        '<g class="walker" style="animation-duration:1.8s">' + FIG(310, 206, 0.8, false, HUI) + '</g>' +
+        '<path d="M335 176 L352 196" stroke="#4a3526" stroke-width="2.4" stroke-linecap="round"/>' +
+        '<g font-size="12" fill="' + INK + '">' + bi('坐禪', 'Sitting', 72, 150, 'text-anchor="middle"') + bi('耕作', 'Working', 322, 132, 'text-anchor="middle"') + '</g>' +
+        '<g class="say s1" font-size="17">' + bi('「守本真心」', '“Guard the original true mind”', 200, 30, 'text-anchor="middle" fill="' + INK + '"') + '</g>' +
+        '</svg>';
+    },
+
+    choose: function () {
+      return '<svg viewBox="0 0 400 240" role="img" aria-label="三更叩碓">' +
+        '<rect width="400" height="240" fill="#2b2a33" opacity=".22"/>' +
+        '<circle class="pulse" cx="330" cy="54" r="22" fill="#f6efdc" stroke="' + INK + '" stroke-width=".8" style="transform-origin:330px 54px"/>' + hills(150, 0.12, 6) +
+        '<path d="M0 214 Q120 204 240 212 T400 208 V240 H0 Z" fill="#cbbf9f" stroke="' + INK + '" stroke-width="1.2"/>' +
+        '<path d="M150 214 L158 176 H214 L222 214 Z" fill="#8c7a5a" stroke="' + INK + '" stroke-width="1.3"/><ellipse cx="186" cy="176" rx="28" ry="5" fill="#6e5e44" stroke="' + INK + '" stroke-width="1.1"/>' +
+        FIG(100, 214, 1.1, false, HUI) + FIG(280, 214, 1.15, true, HON) +
+        '<path d="M262 120 L196 170" stroke="#4a3526" stroke-width="3" stroke-linecap="round"/>' +
+        '<g class="pulse" fill="none" stroke="' + RED + '" stroke-width="1.6" stroke-linecap="round" style="transform-origin:190px 168px"><path d="M170 160 q-6 -6 0 -14"/><path d="M158 164 q-8 -10 0 -22"/><path d="M206 160 q6 -6 0 -14"/></g>' +
+        '<g class="say s1" font-size="17">' + bi('以杖擊碓三下', 'Three taps of the staff on the mortar', 200, 30, 'text-anchor="middle" fill="' + INK + '"') + '</g>' +
+        '<g class="say s2" font-size="15">' + bi('「三更入室」', '“Come to my room at the third watch”', 200, 94, 'text-anchor="middle" fill="' + RED + '"') + '</g>' +
+        '</svg>';
+    },
+
+    lineages: function () {
+      return '<svg viewBox="0 0 400 240" role="img" aria-label="南北兩宗">' +
+        hills(150, 0.08, 6) +
+        '<path d="M200 112 Q190 160 96 190 M200 112 Q210 160 304 190" stroke="' + INK + '" stroke-width="2.4" fill="none" stroke-linecap="round" opacity=".7"/>' +
+        '<path d="M160 112 H240 L248 124 H152 Z" fill="#8c2a1f" stroke="' + INK + '" stroke-width="1.2"/>' +
+        FIG(200, 112, 0.8, false, HON) +
+        FIG(96, 196, 0.95, false, { robe: '#6b7a8a', band: '#98a6b4', fold: '#3b4650', staff: false, beard: true }) + FIG(304, 196, 0.95, true, HUI) +
+        '<g font-size="13">' + bi('北宗・神秀', 'Northern · Shenxiu', 96, 211, 'text-anchor="middle" fill="' + INK + '" font-weight="900"') + bi('南宗・惠能', 'Southern · Huineng', 304, 211, 'text-anchor="middle" fill="' + RED + '" font-weight="900"') + '</g>' +
+        '<g class="say s1" font-size="16">' + bi('「能者得之」', '“Let the one who can, receive it.”', 200, 26, 'text-anchor="middle" fill="' + INK + '"') + '</g>' +
+        '</svg>';
+    },
+
     /* 旅途小插圖（Travel vignettes） */
     ship: function (o) {
       return '<svg viewBox="0 0 400 140" role="img" aria-label="航海">' +
@@ -446,6 +518,6 @@
   };
   SCENES['reed-travel'] = SCENES.reed;
 
-  window.INK_FIG = { BUD: BUD, figArt: figArt, FIG: FIG };
+  window.INK_FIG = { BUD: BUD, HON: HON, figArt: figArt, FIG: FIG };
   window.SCENES = SCENES;
 })();
