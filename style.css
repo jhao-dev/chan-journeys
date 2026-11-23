@@ -509,3 +509,29 @@ body[data-lang="bi"] .lin-panel p .en { display: block; color: var(--ink-2); mar
 .lin-src a { color: var(--vermilion); font-size: 12.5px; }
 .lin-go { font-size: 14px; padding: 8px 18px; }
 body.lin-open #controls, body.lin-open .card { visibility: hidden; }
+
+/* 名言集 */
+.quotes .qt-close { position: absolute; right: 14px; top: 12px; }
+.qt-nav { display: flex; gap: 8px; overflow-x: auto; padding: 8px 12px; border-bottom: 1px solid var(--line); scrollbar-width: none; }
+.qt-nav button { flex: none; font: inherit; font-size: 13px; padding: 5px 12px; border: 1px solid var(--ink); border-radius: 14px; background: transparent; color: var(--ink); cursor: pointer; }
+.qt-nav button .en { font-size: 11px; }
+body[data-lang="bi"] .qt-nav button .en { display: block; font-style: italic; }
+.qt-scroll { flex: 1; overflow: auto; padding: 8px 18px 40px; }
+.qt-sec { max-width: 720px; margin: 0 auto 26px; }
+.qt-sec h3 { margin: 18px 0 8px; font-size: 21px; font-weight: 900; border-bottom: 2px solid var(--ink); padding-bottom: 6px; }
+.qt-sec h3 em { font-style: normal; font-size: 12px; font-weight: 400; color: var(--vermilion); margin-left: 10px; }
+.qt-miao h3 { border-bottom-color: var(--vermilion); }
+.qt-profile { margin: 8px 0; line-height: 1.75; font-size: 14.5px; }
+body[data-lang="bi"] .qt-profile .en { display: block; color: var(--ink-2); margin-top: 3px; }
+.qt-links { margin: 14px 0 6px; padding-left: 18px; font-size: 13.5px; line-height: 1.9; }
+.qt-links a, .say-item a, .say-all a { color: var(--vermilion); }
+.say-item { margin: 14px 0; padding: 4px 0 4px 14px; border-left: 3px solid var(--gold); }
+.say-item blockquote { margin: 0; font-family: var(--serif-zh); font-size: 18px; line-height: 1.7; font-weight: 700; letter-spacing: .04em; }
+.say-item blockquote.en { font-size: 15.5px; font-weight: 400; font-style: italic; line-height: 1.55; letter-spacing: 0; color: var(--ink-2); }
+body[data-lang="bi"] .say-item blockquote.en { margin-top: 3px; }
+.say-item figcaption { margin-top: 5px; font-size: 12.5px; color: var(--ink-3); }
+body[data-lang="bi"] .say-item figcaption .en { display: block; }
+.say-miao { border-left-color: var(--vermilion); }
+.say-tag { margin: 0 0 4px; font-size: 11.5px; letter-spacing: .12em; color: var(--vermilion); font-weight: 900; }
+.say-all { margin: 14px 0 4px; font-size: 14px; }
+.card .more.sayings .say-item blockquote { font-size: 17px; }

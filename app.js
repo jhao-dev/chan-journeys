@@ -200,6 +200,7 @@
       h += `<details class="more refs"><summary>${bi({ zh: '參考資料', en: 'References' }, 'span')}</summary>
         <ul>${s.refs.map((r) => `<li><a href="${r.url}" target="_blank" rel="noopener">${r.title} ↗</a></li>`).join('')}</ul></details>`;
     }
+    if (i === stations.length - 1 && window.quotesBlock) h += window.quotesBlock(chapter.id);
     if (i < stations.length - 1) h += `<p class="read-hint">${bi({ zh: '閱讀模式：讀完請按「下一站」 ›', en: 'Reading mode: press Next when ready ›' }, 'span')}</p>`;
     if (i === stations.length - 1 && chapter.nextHint) h += `<div class="next">${bi(chapter.nextHint, 'span')}</div>`;
     return h;
