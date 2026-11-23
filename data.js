@@ -187,6 +187,11 @@ window.CHAPTERS = [
     role: { zh: '三祖・信心銘', en: 'Third Patriarch · Faith in Mind' }
   },
   {
+    id: 'daoxin', ready: false,
+    name: { zh: '四祖道信', en: 'Daoxin' },
+    role: { zh: '四祖・東山法門之始', en: 'Fourth Patriarch · Before East Mountain' }
+  },
+  {
     id: 'hongren', ready: false,
     name: { zh: '五祖弘忍', en: 'Hongren' },
     role: { zh: '五祖・東山法門', en: 'Fifth Patriarch · East Mountain Teaching' }

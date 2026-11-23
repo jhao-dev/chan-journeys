@@ -64,6 +64,15 @@
       ]
     },
     {
+      id: 'daoxin', name: S('道信', 'Daoxin'), tag: S('四祖', 'Fourth Patriarch'),
+      items: [
+        { zh: '夫百千法門同歸方寸，河沙妙德總在心源。', en: 'A hundred thousand gates of the Dharma return to this one inch of mind; the countless virtues, like the sands of the Ganges, all lie in the source of the mind.', src: S('《景德傳燈錄》卷四（四祖對牛頭法融說）', 'Transmission of the Lamp, fasc. 4 (to Niutou Farong)') },
+        { zh: '境緣無好醜，好醜起於心。心若不強名，妄情從何起？', en: 'Circumstances are neither fair nor foul; fair and foul arise in the mind. If the mind does not force names, where would false feeling arise?', src: S('《景德傳燈錄》卷四（四祖對牛頭法融說）', 'Transmission of the Lamp, fasc. 4 (to Niutou Farong)') },
+        { zh: '華種有生性，因地華生生。大緣與性合，當生生不生。', en: 'Flower seeds have the nature to live; on the ground the flowers keep growing. When great conditions join the nature, there is growth that does not grow.', src: S('《五燈會元》卷一（付弘忍偈）', 'Wudeng huiyuan, fasc. 1 (verse to Hongren)') },
+        { zh: '一切諸法，悉皆解脫。汝等各自護念，流化未來。', en: 'All dharmas are, without exception, liberated. Each of you, protect and spread it into the future.', src: S('《五燈會元》卷一（臨終遺誡）', 'Wudeng huiyuan, fasc. 1 (last instruction)') }
+      ]
+    },
+    {
       id: 'hongren', name: S('五祖弘忍', 'Hongren'), tag: S('五祖', 'Fifth Patriarch'),
       items: [
         { zh: '守心第一。此守心者，乃是涅槃之根本，入道之要門，十二部經之宗，三世諸佛之祖。', en: 'Guarding the mind comes first. This guarding is the root of nirvana, the gateway into the Way, the source of the twelve divisions of scripture, and the ancestor of all Buddhas of the three times.', src: S('《最上乘論》（傳為弘忍所作）', 'Treatise on the Supreme Vehicle (attributed to Hongren)') },
@@ -152,7 +161,7 @@
   };
 
   /* A：每篇結尾附的禪師開示（對應章節） */
-  const PICK = { buddha: 'q1', kasyapa: 'q7', ananda: 'q4', sengcan: 'q8', dharma: 'q2', huike: 'q8', hongren: 'q6', huineng: 'q5' };
+  const PICK = { buddha: 'q1', kasyapa: 'q7', ananda: 'q4', sengcan: 'q8', daoxin: 'q3', dharma: 'q2', huike: 'q8', hongren: 'q6', huineng: 'q5' };
 
   window.QUOTES = { masters: MASTERS, miaotian: MIAO, pick: PICK };
   window.quotesBlock = function (chId) {

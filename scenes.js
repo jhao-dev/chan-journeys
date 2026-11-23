@@ -788,6 +788,66 @@
         '</svg>';
     },
 
+    /* 四祖道信篇（Daoxin chapter） */
+    dxsit: function () {
+      return '<svg viewBox="0 0 400 240" role="img" aria-label="攝心無寐">' +
+        '<rect width="400" height="240" fill="#2d241c" opacity=".14"/>' +
+        '<circle cx="320" cy="60" r="16" fill="#f0e6c8" stroke="' + INK + '" stroke-width="1"/>' +
+        hills(170, 0.12, 6) +
+        '<path d="M0 214 Q120 204 240 212 T400 208 V240 H0 Z" fill="#cbbf9f" stroke="' + INK + '" stroke-width="1.2"/>' +
+        '<g transform="translate(200 214)"><rect x="-44" y="-8" width="88" height="8" fill="#a38a52" stroke="' + INK + '" stroke-width="1.1"/></g>' +
+        FIG(200, 206, 1.0, false, DAO) +
+        '<g class="say s1" font-size="19">' + bi('攝心無寐，脅不至席', 'Gathering the mind, never lying down to sleep', 200, 30, 'text-anchor="middle" fill="' + INK + '"') + '</g>' +
+        '<g class="say s2" font-size="15">' + bi('僅六十年', 'For some sixty years', 200, 100, 'text-anchor="middle" fill="' + RED + '"') + '</g>' +
+        '</svg>';
+    },
+    dxcity: function () {
+      let sol = '';
+      for (let i = 0; i < 6; i++) sol += '<g transform="translate(' + (46 + i * 26) + ' 214)"><path d="M-6 0 L-5 -14 L5 -14 L6 0Z" fill="#3b3029"/><circle cx="0" cy="-18" r="4.5" fill="' + SKIN + '" stroke="' + INK + '" stroke-width=".8"/></g>';
+      return '<svg viewBox="0 0 400 240" role="img" aria-label="吉州解圍">' +
+        hills(170, 0.1, 6) +
+        '<path d="M0 214 Q120 204 240 212 T400 208 V240 H0 Z" fill="#cbbf9f" stroke="' + INK + '" stroke-width="1.2"/>' +
+        '<rect x="230" y="130" width="160" height="84" fill="#d9cfb3" stroke="' + INK + '" stroke-width="1.3"/>' +
+        '<path d="M230 130 h12 v-10 h14 v10 h14 v-10 h14 v10 h14 v-10 h14 v10 h14 v-10 h14 v10 h14 v-10 h14 v10 h12" stroke="' + INK + '" stroke-width="1.2" fill="none"/>' +
+        '<g class="drift" style="animation-duration:4s" opacity=".55"><circle cx="300" cy="150" r="16" fill="#e9b04a"/><circle cx="340" cy="150" r="16" fill="#e9b04a"/></g>' +
+        sol + FIG(205, 214, 0.9, true, DAO) +
+        '<g class="say s1" font-size="19">' + bi('教令念「摩訶般若」', 'He taught them to recite “Mahaprajna”', 200, 30, 'text-anchor="middle" fill="' + RED + '"') + '</g>' +
+        '<g class="say s2" font-size="15">' + bi('「城內必有異人，不可攻矣」', '“There must be a remarkable person in the city; do not attack.”', 200, 100, 'text-anchor="middle" fill="' + INK + '"') + '</g>' +
+        '</svg>';
+    },
+    dxmount: function () {
+      let m = '';
+      [60, 110, 290, 340].forEach(function (x, i) { m += FIG(x, 214, 0.7, i > 1, i % 2 ? HUI : HK); });
+      return '<svg viewBox="0 0 400 240" role="img" aria-label="破頭山">' +
+        '<path d="M0 240 L0 150 L70 80 L130 130 L210 36 L290 120 L350 80 L400 130 L400 240 Z" fill="#2d241c" opacity=".55"/>' +
+        '<path d="M0 214 Q120 204 240 212 T400 208 V240 H0 Z" fill="#cbbf9f" stroke="' + INK + '" stroke-width="1.2"/>' + m +
+        FIG(200, 214, 1.0, false, DAO) +
+        '<g class="say s1" font-size="19">' + bi('住破頭山，學侶雲臻', 'At Potou Mountain, students gather like clouds', 200, 30, 'text-anchor="middle" fill="' + INK + '"') + '</g>' +
+        '<g class="say s2" font-size="15">' + bi('「莫是和尚他後橫出一枝佛法否？」', '“Might a new branch of the Dharma sprout from you?”', 200, 100, 'text-anchor="middle" fill="' + RED + '"') + '</g>' +
+        '</svg>';
+    },
+    dxchild: function () {
+      return '<svg viewBox="0 0 400 240" role="img" aria-label="是佛性">' +
+        hills(160, 0.1, 6) +
+        '<path d="M0 214 Q120 204 240 212 T400 208 V240 H0 Z" fill="#cbbf9f" stroke="' + INK + '" stroke-width="1.2"/>' +
+        FIG(260, 214, 1.15, true, DAO) +
+        '<g transform="translate(110 214)"><path d="M-12 0 Q-10 -20 0 -22 Q10 -20 12 0Z" fill="#a38a52" stroke="' + INK + '" stroke-width="1.1"/><circle cx="0" cy="-30" r="7.5" fill="' + SKIN + '" stroke="' + INK + '" stroke-width="1.1"/></g>' +
+        '<g class="say s1" font-size="21">' + bi('「是佛性。」「性空，故無。」', '“It is Buddha-nature.” “Nature is empty — so there is none.”', 200, 30, 'text-anchor="middle" fill="' + RED + '"') + '</g>' +
+        '<g class="say s2" font-size="15">' + bi('路逢一小兒，骨相奇秀', 'On the road, a remarkable child', 200, 100, 'text-anchor="middle" fill="' + INK + '"') + '</g>' +
+        '</svg>';
+    },
+    dxend: function () {
+      return '<svg viewBox="0 0 400 240" role="img" aria-label="安坐而逝">' +
+        hills(170, 0.1, 6) +
+        '<path d="M0 214 Q120 204 240 212 T400 208 V240 H0 Z" fill="#cbbf9f" stroke="' + INK + '" stroke-width="1.2"/>' +
+        '<g transform="translate(320 214)"><path d="M-18 0 L-14 -40 L0 -52 L14 -40 L18 0Z" fill="#e9e2cc" stroke="' + INK + '" stroke-width="1.2"/><rect x="-6" y="-24" width="12" height="24" fill="#3b3029"/></g>' +
+        '<g transform="translate(110 214)"><rect x="-44" y="-8" width="88" height="8" fill="#a38a52" stroke="' + INK + '" stroke-width="1.1"/></g>' +
+        FIG(110, 206, 1.0, false, DAO) +
+        '<g class="say s1" font-size="18">' + bi('「一切諸法，悉皆解脫」', '“All dharmas are, without exception, liberated.”', 200, 30, 'text-anchor="middle" fill="' + RED + '"') + '</g>' +
+        '<g class="say s2" font-size="15">' + bi('汝等各自護念，流化未來', 'Each of you, protect and spread it to the future', 200, 100, 'text-anchor="middle" fill="' + INK + '"') + '</g>' +
+        '</svg>';
+    },
+
     /* 旅途小插圖（Travel vignettes） */
     ship: function (o) {
       return '<svg viewBox="0 0 400 140" role="img" aria-label="航海">' +

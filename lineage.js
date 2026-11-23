@@ -23,7 +23,7 @@
       d: T('立雪斷臂求法，向達摩求「安心」，得傳衣缽。', 'Stood in the snow and asked Bodhidharma to pacify his mind; received the robe.') },
     { id: 'sengcan', x: 380, y: 660, w: T('僧璨', 'Sengcan'), tag: T('三祖', '3rd'), ch: 'sengcan',
       d: T('二祖之後的傳人，相傳作《信心銘》。', 'Huike’s successor; the poem “Xinxin ming” is traditionally ascribed to him.') },
-    { id: 'daoxin', x: 380, y: 740, w: T('道信', 'Daoxin'), tag: T('四祖', '4th'),
+    { id: 'daoxin', x: 380, y: 740, w: T('道信', 'Daoxin'), tag: T('四祖', '4th'), ch: 'daoxin',
       d: T('住在黃梅雙峰山，聚集弟子，使禪門有了固定的修行團體。', 'Settled on Twin Peaks at Huangmei and gathered a lasting community of practitioners.') },
     { id: 'hongren', x: 380, y: 820, w: T('弘忍', 'Hongren'), tag: T('五祖', '5th'), ch: 'hongren',
       d: T('黃梅東山寺，把衣缽傳給不識字的惠能。', 'At East Mountain Temple, Huangmei, he passed the robe to the illiterate Huineng.') },

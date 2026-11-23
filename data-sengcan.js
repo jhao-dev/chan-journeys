@@ -25,7 +25,8 @@
       zh: '僧璨在大樹下合掌立終。他傳給道信的衣法，讓禪從隱居的山林走向黃梅，後來開出東山法門。',
       en: 'Sengcan passed away standing under a great tree. The robe and Dharma he gave Daoxin carried Chan out of hidden mountains to Huangmei, where the East Mountain teaching later bloomed.'
     },
-    nextHint: { zh: '下一篇：四祖道信（即將推出）', en: 'Next: Daoxin, the Fourth Patriarch (coming soon)' },
+    nextChapter: { id: 'daoxin', label: { zh: '接續下一篇：四祖道信', en: 'Next chapter: Daoxin, the Fourth Patriarch' } },
+    nextHint: { zh: '下一篇：四祖道信，十四歲來求解脫的少年', en: 'Next: Daoxin, the fourteen-year-old who asked for liberation' },
     stations: [
       {
         id: 'ye', short: { zh: '受法', en: 'Heir' }, num: '一', at: [114.62, 36.33], zoom: 20, scene: 'sncome', side: 1,
