@@ -182,6 +182,11 @@ window.CHAPTERS = [
     role: { zh: '二祖・安心法門', en: 'Second Patriarch · Pacifying the Mind' }
   },
   {
+    id: 'sengcan', ready: false,
+    name: { zh: '三祖僧璨', en: 'Sengcan' },
+    role: { zh: '三祖・信心銘', en: 'Third Patriarch · Faith in Mind' }
+  },
+  {
     id: 'hongren', ready: false,
     name: { zh: '五祖弘忍', en: 'Hongren' },
     role: { zh: '五祖・東山法門', en: 'Fifth Patriarch · East Mountain Teaching' }

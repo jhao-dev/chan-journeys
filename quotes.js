@@ -55,6 +55,15 @@
       ]
     },
     {
+      id: 'sengcan', name: S('僧璨', 'Sengcan'), tag: S('三祖', 'Third Patriarch'),
+      items: [
+        { zh: '至道無難，唯嫌揀擇。但莫憎愛，洞然明白。', en: 'The Great Way is not difficult; only avoid picking and choosing. Without hate or love, all is clear and bright.', src: S('《信心銘》（傳為僧璨作）', 'Xinxin ming (traditionally ascribed to Sengcan)') },
+        { zh: '毫釐有差，天地懸隔。', en: 'A hair’s breadth of difference, and heaven and earth are set apart.', src: S('《信心銘》（傳為僧璨作）', 'Xinxin ming (traditionally ascribed to Sengcan)') },
+        { zh: '誰縛汝？', en: 'Who binds you?', src: S('《五燈會元》卷一（問道信）', 'Wudeng huiyuan, fasc. 1 (to Daoxin)') },
+        { zh: '信心不二，不二信心。言語道斷，非去來今。', en: 'Faith and mind are not two; not-two is faith and mind. The path of words is cut off — not past, not future, not present.', src: S('《信心銘》（傳為僧璨作）', 'Xinxin ming (traditionally ascribed to Sengcan)') }
+      ]
+    },
+    {
       id: 'hongren', name: S('五祖弘忍', 'Hongren'), tag: S('五祖', 'Fifth Patriarch'),
       items: [
         { zh: '守心第一。此守心者，乃是涅槃之根本，入道之要門，十二部經之宗，三世諸佛之祖。', en: 'Guarding the mind comes first. This guarding is the root of nirvana, the gateway into the Way, the source of the twelve divisions of scripture, and the ancestor of all Buddhas of the three times.', src: S('《最上乘論》（傳為弘忍所作）', 'Treatise on the Supreme Vehicle (attributed to Hongren)') },
@@ -143,7 +152,7 @@
   };
 
   /* A：每篇結尾附的禪師開示（對應章節） */
-  const PICK = { buddha: 'q1', kasyapa: 'q7', ananda: 'q4', dharma: 'q2', huike: 'q8', hongren: 'q6', huineng: 'q5' };
+  const PICK = { buddha: 'q1', kasyapa: 'q7', ananda: 'q4', sengcan: 'q8', dharma: 'q2', huike: 'q8', hongren: 'q6', huineng: 'q5' };
 
   window.QUOTES = { masters: MASTERS, miaotian: MIAO, pick: PICK };
   window.quotesBlock = function (chId) {

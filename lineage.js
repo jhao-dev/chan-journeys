@@ -21,7 +21,7 @@
       d: T('由南天竺東來中國，少林面壁九年，成為中國禪宗初祖。相傳他留下傳法偈：「一花開五葉，結果自然成。」', 'Came east from South India and sat nine years at Shaolin, becoming first patriarch in China. He is said to have left the verse: “One flower opens five petals; the fruit ripens of itself.”') },
     { id: 'huike', x: 380, y: 580, w: T('慧可', 'Huike'), tag: T('二祖', '2nd'), ch: 'huike',
       d: T('立雪斷臂求法，向達摩求「安心」，得傳衣缽。', 'Stood in the snow and asked Bodhidharma to pacify his mind; received the robe.') },
-    { id: 'sengcan', x: 380, y: 660, w: T('僧璨', 'Sengcan'), tag: T('三祖', '3rd'),
+    { id: 'sengcan', x: 380, y: 660, w: T('僧璨', 'Sengcan'), tag: T('三祖', '3rd'), ch: 'sengcan',
       d: T('二祖之後的傳人，相傳作《信心銘》。', 'Huike’s successor; the poem “Xinxin ming” is traditionally ascribed to him.') },
     { id: 'daoxin', x: 380, y: 740, w: T('道信', 'Daoxin'), tag: T('四祖', '4th'),
       d: T('住在黃梅雙峰山，聚集弟子，使禪門有了固定的修行團體。', 'Settled on Twin Peaks at Huangmei and gathered a lasting community of practitioners.') },

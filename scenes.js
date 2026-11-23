@@ -736,6 +736,58 @@
         '</svg>';
     },
 
+    /* 三祖僧璨篇（Sengcan chapter） */
+    sncome: function () {
+      return '<svg viewBox="0 0 400 240" role="img" aria-label="白衣謁二祖">' +
+        hills(160, 0.1, 6) +
+        '<path d="M0 214 Q120 204 240 212 T400 208 V240 H0 Z" fill="#cbbf9f" stroke="' + INK + '" stroke-width="1.2"/>' +
+        FIG(120, 214, 1.15, false, HK) +
+        '<g transform="translate(270 214)"><path d="M-16 0 Q-14 -24 0 -28 Q14 -24 16 0Z" fill="#e9e2cc" stroke="' + INK + '" stroke-width="1.2"/><circle cx="0" cy="-38" r="9" fill="' + SKIN + '" stroke="' + INK + '" stroke-width="1.2"/><path d="M-9 -42 q9 -9 18 0" stroke="' + INK + '" stroke-width="2.4" fill="none"/></g>' +
+        '<g class="say s1" font-size="19">' + bi('以白衣謁二祖', 'A layman comes to the Second Patriarch', 200, 30, 'text-anchor="middle" fill="' + INK + '"') + '</g>' +
+        '<g class="say s2" font-size="15">' + bi('受度，傳法', 'Ordained, and given the Dharma', 200, 100, 'text-anchor="middle" fill="' + RED + '"') + '</g>' +
+        '</svg>';
+    },
+    snhide: function () {
+      return '<svg viewBox="0 0 400 240" role="img" aria-label="隱居">' +
+        '<path d="M0 240 L0 150 L70 70 L130 120 L210 30 L290 110 L350 70 L400 120 L400 240 Z" fill="#2d241c" opacity=".6"/>' +
+        '<path d="M0 214 Q120 204 240 212 T400 208 V240 H0 Z" fill="#cbbf9f" stroke="' + INK + '" stroke-width="1.2"/>' +
+        '<g transform="translate(300 214)"><rect x="-26" y="-34" width="52" height="34" fill="#efe5cc" stroke="' + INK + '" stroke-width="1.2"/><path d="M-32 -34 L0 -54 L32 -34 Z" fill="#3b3029"/></g>' +
+        FIG(130, 214, 1.1, false, HK) +
+        '<g class="say s1" font-size="18">' + bi('周武帝滅佛，居無常處', 'Wu of Zhou suppresses Buddhism; no fixed abode', 200, 30, 'text-anchor="middle" fill="' + INK + '"') + '</g>' +
+        '<g class="say s2" font-size="15">' + bi('隱於皖公山、司空山十餘載', 'A decade or more hidden in the mountains', 200, 100, 'text-anchor="middle" fill="' + RED + '"') + '</g>' +
+        '</svg>';
+    },
+    snbind: function () {
+      return '<svg viewBox="0 0 400 240" role="img" aria-label="誰縛汝">' +
+        hills(160, 0.1, 6) +
+        '<path d="M0 214 Q120 204 240 212 T400 208 V240 H0 Z" fill="#cbbf9f" stroke="' + INK + '" stroke-width="1.2"/>' +
+        FIG(260, 214, 1.15, true, HK) +
+        '<g transform="translate(110 214)"><path d="M-12 0 Q-10 -20 0 -22 Q10 -20 12 0Z" fill="#a38a52" stroke="' + INK + '" stroke-width="1.1"/><circle cx="0" cy="-30" r="7.5" fill="' + SKIN + '" stroke="' + INK + '" stroke-width="1.1"/><path d="M-7.5 -33 q7.5 -8 15 0" stroke="' + INK + '" stroke-width="2" fill="none"/></g>' +
+        '<g class="say s1" font-size="22">' + bi('「誰縛汝？」', '“Who binds you?”', 200, 30, 'text-anchor="middle" fill="' + RED + '"') + '</g>' +
+        '<g class="say s2" font-size="17">' + bi('「無人縛。」「何更求解脫乎？」', '“No one.” “Then why seek liberation?”', 200, 100, 'text-anchor="middle" fill="' + INK + '"') + '</g>' +
+        '</svg>';
+    },
+    snluofu: function () {
+      return '<svg viewBox="0 0 400 240" role="img" aria-label="羅浮山">' +
+        '<path d="M0 240 L0 170 L60 120 L110 150 L190 50 L260 120 L320 80 L400 150 L400 240 Z" fill="#2d241c" opacity=".55"/>' +
+        '<path d="M0 240 L0 195 L90 160 L170 190 L260 150 L400 190 L400 240 Z" fill="#2d241c" opacity=".3"/>' +
+        '<path d="M0 214 Q120 204 240 212 T400 208 V240 H0 Z" fill="#cbbf9f" stroke="' + INK + '" stroke-width="1.2"/>' +
+        FIG(200, 214, 1.1, false, HK) +
+        '<g class="say s1" font-size="19">' + bi('「今吾得汝，何滯此乎？」', '“Now I have you — why linger here?”', 200, 30, 'text-anchor="middle" fill="' + INK + '"') + '</g>' +
+        '<g class="say s2" font-size="15">' + bi('往羅浮山，優遊二載', 'To Mount Luofu, two years at ease', 200, 100, 'text-anchor="middle" fill="' + RED + '"') + '</g>' +
+        '</svg>';
+    },
+    sntree: function () {
+      return '<svg viewBox="0 0 400 240" role="img" aria-label="立化">' +
+        hills(170, 0.1, 6) +
+        '<path d="M0 214 Q120 204 240 212 T400 208 V240 H0 Z" fill="#cbbf9f" stroke="' + INK + '" stroke-width="1.2"/>' +
+        '<path d="M300 214 V120" stroke="#4a3526" stroke-width="7"/><ellipse cx="300" cy="100" rx="70" ry="38" fill="#6e7d5a" opacity=".8" stroke="' + INK + '" stroke-width="1.1"/>' +
+        FIG(200, 214, 1.1, false, HK) +
+        '<g class="say s1" font-size="19">' + bi('「至道無難，唯嫌揀擇」', '“The Great Way is not difficult; only avoid picking and choosing.”', 200, 30, 'text-anchor="middle" fill="' + RED + '"') + '</g>' +
+        '<g class="say s2" font-size="15">' + bi('於法會大樹下合掌立終', 'He passed away standing, palms joined, beneath a great tree', 200, 100, 'text-anchor="middle" fill="' + INK + '"') + '</g>' +
+        '</svg>';
+    },
+
     /* 旅途小插圖（Travel vignettes） */
     ship: function (o) {
       return '<svg viewBox="0 0 400 140" role="img" aria-label="航海">' +

@@ -23,7 +23,8 @@
       zh: '慧可晚年隱入市井，一百零七歲圓寂（傳說）。他傳給僧璨的衣缽，讓禪不再靠一個人，而是一代一代傳了下去。',
       en: 'In old age Huike hid among the common people and passed away at 107 (tradition). The robe he gave Sengcan meant Chan no longer rested on one man but passed down generation to generation.'
     },
-    nextHint: { zh: '下一篇：三祖僧璨（即將推出）', en: 'Next: Sengcan, the Third Patriarch (coming soon)' },
+    nextChapter: { id: 'sengcan', label: { zh: '接續下一篇：三祖僧璨', en: 'Next chapter: Sengcan, the Third Patriarch' } },
+    nextHint: { zh: '下一篇：三祖僧璨，覓罪不可得之後', en: 'Next: Sengcan, after the sin that could not be found' },
     stations: [
       {
         id: 'luoyang', short: { zh: '求道', en: 'Seeker' }, num: '一', at: [112.45, 34.62], zoom: 90, scene: 'luoyang', side: -1,
