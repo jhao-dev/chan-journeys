@@ -180,6 +180,11 @@ window.CHAPTERS = [
     id: 'huineng', ready: false,
     name: { zh: '六祖惠能', en: 'Huineng' },
     role: { zh: '六祖・本來無一物', en: 'Sixth Patriarch · Originally Nothing' }
+  },
+  {
+    id: 'miaotian', ready: false,
+    name: { zh: '第85代 悟覺妙天禪師', en: '85th: Master Wujue Miaotian' },
+    role: { zh: '當代禪師・印心禪法', en: 'Contemporary Master · Mind-seal Chan' }
   }
 ];
 

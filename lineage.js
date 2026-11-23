@@ -49,7 +49,7 @@
       d: T('臨濟宗下的一支，與黃龍派並稱，合五家為「五家七宗」。', 'A branch of Linji; together with Huanglong it completes the “five houses, seven schools.”') },
     { id: 'skip2', x: 225, y: 1330, w: T('歷代祖師（此處省略）', 'Successive masters (omitted)'), skip: true,
       d: T('臨濟之後歷代傳承的名單很長，這裡不一一列出，也不替他們編造資料。', 'The list of masters after Linji is long; it is not reproduced here, and nothing is invented to fill it.') },
-    { id: 'miaotian', x: 225, y: 1430, w: T('悟覺妙天禪師', 'Master Wujue Miaotian'), tag: T('第 85 代（依其官方報導自述）', '85th (per his official reports)'), mine: true, final: true,
+    { id: 'miaotian', x: 225, y: 1430, w: T('悟覺妙天禪師', 'Master Wujue Miaotian'), tag: T('第 85 代（依其官方報導自述）', '85th (per his official reports)'), mine: true, final: true, ch: 'miaotian',
       d: T('依官方報導的說法：自釋迦牟尼佛傳法給迦葉算起，是禪宗第 85 代宗師；自達摩東來算起，是中華禪宗第 58 代；自六祖下臨濟一脈算起，是臨濟宗第 48 代。這是其自述的傳承，並非獨立考證。', 'According to his official reports: counting from the Buddha’s transmission to Kasyapa he is the 85th Chan patriarch; from Bodhidharma’s arrival, the 58th in China; within the Linji line below Huineng, the 48th. This is his own account, not independently verified.'), src: OFFICIAL }
   ];
   const EDGES = [
@@ -94,8 +94,7 @@
     panel.innerHTML = `<h3>${bi(n.w, 'span')}${n.tag ? `<em>${bi(n.tag, 'span')}</em>` : ''}</h3>
       <p>${bi(n.d, 'span')}</p>
       ${n.src ? `<p class="lin-src"><a href="${n.src.url}" target="_blank" rel="noopener">${n.src.title} ↗</a></p>` : ''}
-      ${live ? `<button class="begin lin-go" data-ch="${n.ch}">${bi(T('前往這一篇', 'Open this chapter'), 'span')}</button>` : ''}
-      ${n.id === 'miaotian' ? `<button class="begin lin-miao">${bi(T('看他的事蹟與名言', 'His story and sayings'), 'span')}</button>` : ''}`;
+      ${live ? `<button class="begin lin-go" data-ch="${n.ch}">${bi(T('前往這一篇', 'Open this chapter'), 'span')}</button>` : ''}`;
     panel.classList.add('on');
   }
 
@@ -113,7 +112,6 @@
   panel.addEventListener('click', (e) => {
     const g = e.target.closest('.lin-go');
     if (g) { location.hash = '#ch=' + g.dataset.ch; location.reload(); }
-    if (e.target.closest('.lin-miao') && window.openQuotes) { close(); window.openQuotes('miaotian'); }
   });
   root.querySelector('.lin-close').addEventListener('click', close);
   document.addEventListener('keydown', (e) => { if (e.key === 'Escape' && !root.hidden) close(); });

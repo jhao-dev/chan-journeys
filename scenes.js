@@ -72,6 +72,7 @@
   const HON = { robe: '#d98a2b', band: '#ecc766', fold: '#8a5a18', staff: false, beard: true };
   const DAO = { robe: '#6e5a46', band: '#8a7a5c', fold: '#3a2d20', staff: true, beard: true };
   const HK = { robe: '#6f7f6a', band: '#98a890', fold: '#3a4636', staff: false, beard: false };
+  const MIA = { robe: '#8a6a4a', band: '#c9a23a', fold: '#4a3526', staff: false, beard: false };
   const SCENES = {
     xiangzhi: function () {
       return '<svg viewBox="0 0 400 240" role="img" aria-label="香至國">' +
@@ -558,6 +559,65 @@
         '<g transform="translate(278 214)"><path d="M-16 0 Q-14 -24 0 -28 Q14 -24 16 0Z" fill="#a38a52" stroke="' + INK + '" stroke-width="1.2"/><circle cx="0" cy="-38" r="9" fill="' + SKIN + '" stroke="' + INK + '" stroke-width="1.2"/><path d="M-9 -42 q9 -9 18 0" stroke="' + INK + '" stroke-width="2.4" fill="none"/>' + dots + '</g>' +
         '<g class="say s1" font-size="20">' + bi('「覓罪不可得」', '“The sin cannot be found.”', 200, 34, 'text-anchor="middle" fill="' + RED + '"') + '</g>' +
         '<g class="say s2" font-size="16">' + bi('「是心是佛，是心是法」', '“This mind is Buddha; this mind is Dharma.”', 200, 94, 'text-anchor="middle" fill="' + INK + '"') + '</g>' +
+        '</svg>';
+    },
+
+    /* 悟覺妙天禪師篇（Miaotian chapter） */
+    miaoseek: function () {
+      return '<svg viewBox="0 0 400 240" role="img" aria-label="訪道">' +
+        hills(150, 0.12, 6) +
+        '<path d="M0 214 Q120 204 240 212 T400 208 V240 H0 Z" fill="#cbbf9f" stroke="' + INK + '" stroke-width="1.2"/>' +
+        '<path d="M250 212 Q290 170 330 150 T390 120" stroke="' + INK + '" stroke-width="1.6" fill="none" stroke-dasharray="5 6" opacity=".6"/>' +
+        '<g transform="translate(60 214)"><rect x="-26" y="-46" width="52" height="46" fill="#efe5cc" stroke="' + INK + '" stroke-width="1.2"/><path d="M-32 -46 L0 -66 L32 -46 Z" fill="#3b3029"/></g>' +
+        '<g transform="translate(160 214)"><rect x="-22" y="-40" width="44" height="40" fill="#efe5cc" stroke="' + INK + '" stroke-width="1.2"/><path d="M-27 -40 L0 -58 L27 -40 Z" fill="#8c2a1f"/></g>' +
+        FIG(260, 214, 1.1, false, MIA) +
+        '<g class="say s1" font-size="17">' + bi('「遍訪各宗教，尋找明師」', 'Visiting many faiths in search of a teacher', 200, 30, 'text-anchor="middle" fill="' + INK + '"') + '</g>' +
+        '<g class="say s2" font-size="15">' + bi('1934 年生・潮州', 'Born 1934, Chaozhou', 200, 100, 'text-anchor="middle" fill="' + RED + '"') + '</g>' +
+        '</svg>';
+    },
+    miaocrowd: function () {
+      let d = '';
+      for (let r = 0; r < 3; r++) for (let i = 0; i < 17; i++) d += '<circle cx="' + (32 + i * 21 + (r % 2) * 10) + '" cy="' + (200 + r * 12) + '" r="5" fill="' + INK + '" opacity="' + (0.7 - r * 0.15) + '"/>';
+      return '<svg viewBox="0 0 400 240" role="img" aria-label="大法會">' +
+        hills(140, 0.1, 6) +
+        '<rect x="110" y="140" width="180" height="26" fill="#a38a52" stroke="' + INK + '" stroke-width="1.2"/>' +
+        '<path d="M96 140 H304" stroke="' + INK + '" stroke-width="2"/>' +
+        FIG(200, 140, 0.9, false, MIA) + d +
+        '<g class="say s1" font-size="19">' + bi('「見性成佛」', '“Seeing nature, becoming Buddha”', 200, 30, 'text-anchor="middle" fill="' + RED + '"') + '</g>' +
+        '<g class="say s2" font-size="15">' + bi('桃園大法會', 'The Taoyuan assembly', 200, 100, 'text-anchor="middle" fill="' + INK + '"') + '</g>' +
+        '</svg>';
+    },
+    miaoleaders: function () {
+      const c = ['#6f7f6a', '#8a7a5c', '#7a5a3a', '#6e5a46'];
+      let f = '';
+      [90, 160, 240, 310].forEach(function (x, i) { f += FIG(x, 190, 0.7, i > 1, { robe: c[i], band: '#b5a37c', fold: '#3a2d20', staff: false, beard: false }); });
+      return '<svg viewBox="0 0 400 240" role="img" aria-label="領袖會">' +
+        hills(150, 0.1, 6) +
+        '<ellipse cx="200" cy="200" rx="150" ry="22" fill="#cbbf9f" stroke="' + INK + '" stroke-width="1.2"/>' + f +
+        '<g class="say s1" font-size="17">' + bi('「宗教家慈悲，政治家智慧」', '“A religious person’s compassion, a statesman’s wisdom”', 200, 30, 'text-anchor="middle" fill="' + INK + '"') + '</g>' +
+        '<g class="say s2" font-size="15">' + bi('偉大・完美・博愛・和平', 'Greatness · Perfection · Love · Peace', 200, 100, 'text-anchor="middle" fill="' + RED + '"') + '</g>' +
+        '</svg>';
+    },
+    miaopeace: function () {
+      let l = '';
+      for (let i = 0; i < 9; i++) l += '<g class="drift" style="animation-duration:' + (3 + i % 3) + 's"><ellipse cx="' + (40 + i * 40) + '" cy="' + (120 + (i % 3) * 14) + '" rx="8" ry="11" fill="#e9b04a" stroke="' + INK + '" stroke-width="1"/></g>';
+      return '<svg viewBox="0 0 400 240" role="img" aria-label="超度法會">' +
+        '<rect width="400" height="240" fill="#2d241c" opacity=".12"/>' + hills(170, 0.12, 6) + l +
+        '<path d="M0 214 Q120 204 240 212 T400 208 V240 H0 Z" fill="#cbbf9f" stroke="' + INK + '" stroke-width="1.2"/>' +
+        FIG(200, 214, 1.1, false, MIA) +
+        '<g class="say s1" font-size="18">' + bi('為戰亂亡靈超度', 'A rite of deliverance for the war dead', 200, 30, 'text-anchor="middle" fill="' + INK + '"') + '</g>' +
+        '<g class="say s2" font-size="15">' + bi('迎接二十一世紀世界和平大法會', 'World Peace Assembly, 1999', 200, 100, 'text-anchor="middle" fill="' + RED + '"') + '</g>' +
+        '</svg>';
+    },
+    miaocare: function () {
+      return '<svg viewBox="0 0 400 240" role="img" aria-label="公益">' +
+        hills(150, 0.1, 6) +
+        '<path d="M0 214 Q120 204 240 212 T400 208 V240 H0 Z" fill="#cbbf9f" stroke="' + INK + '" stroke-width="1.2"/>' +
+        '<g transform="translate(290 214)"><path d="M-22 0 L-18 -34 L18 -34 L22 0Z" fill="#e9dcbc" stroke="' + INK + '" stroke-width="1.2"/><path d="M-10 -22 h20" stroke="' + INK + '" stroke-width="1"/></g>' +
+        '<g transform="translate(335 214)"><path d="M-22 0 L-18 -34 L18 -34 L22 0Z" fill="#e9dcbc" stroke="' + INK + '" stroke-width="1.2"/></g>' +
+        FIG(200, 214, 1.1, false, MIA) +
+        '<g class="say s1" font-size="18">' + bi('「地球佛國」', '“A Buddha-land on Earth”', 200, 30, 'text-anchor="middle" fill="' + RED + '"') + '</g>' +
+        '<g class="say s2" font-size="15">' + bi('賑災・送米・看守所・海外', 'Relief, rice, prisons, overseas', 200, 100, 'text-anchor="middle" fill="' + INK + '"') + '</g>' +
         '</svg>';
     },
 

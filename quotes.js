@@ -157,8 +157,7 @@
         m.items.map((q) => '<figure class="say-item"><blockquote class="zh">「' + q.zh + '」</blockquote><blockquote class="en">“' + q.en + '”</blockquote><figcaption>— ' + bi2(q.src, 'span') + '</figcaption></figure>').join('') + '</section>';
     });
     h += '<section class="qt-sec qt-miao" id="qs_miaotian"><h3>' + bi2(MIAO.name, 'span') + '<em>' + bi2(MIAO.tag, 'span') + '</em></h3>' +
-      MIAO.profile.map((p) => '<p class="qt-profile">' + bi2(p, 'span') + '</p>').join('') +
-      MIAO.timeline.map((t) => '<h4>' + bi2(t.h, 'span') + '</h4><ul class="qt-tl">' + t.items.map((i) => '<li>' + bi2(i, 'span') + '</li>').join('') + '</ul>').join('') +
+      '<p class="qt-profile"><a href="#" data-open-ch="miaotian">' + bi2(S('📜 他的事蹟與介紹，請看篇章「第85代 悟覺妙天禪師」', 'His story is in the chapter “85th: Master Wujue Miaotian”'), 'span') + '</a></p>' +
       '<h4>' + bi2(S('禪師說禪・名言', 'Sayings from his column'), 'span') + '</h4>' +
       MIAO.items.map((q) => '<figure class="say-item"><blockquote class="zh">「' + q.zh + '」</blockquote><blockquote class="en">“' + q.en + '”</blockquote>' +
         (q.note ? '<p class="note">' + bi2(q.note, 'span') + '</p>' : '') +
@@ -179,7 +178,7 @@
   root.querySelector('.qt-close').addEventListener('click', close);
   document.addEventListener('keydown', (e) => { if (e.key === 'Escape' && !root.hidden) close(); });
   ['quotesBtn', 'finaleQuotes'].forEach((id) => { const b = document.getElementById(id); if (b) b.addEventListener('click', (e) => { e.preventDefault(); open(); }); });
-  document.addEventListener('click', (e) => { const a = e.target.closest('[data-open-quotes]'); if (a) { e.preventDefault(); open(); } });
+  document.addEventListener('click', (e) => { const g = e.target.closest('[data-open-ch]'); if (g) { e.preventDefault(); location.hash = '#ch=' + g.dataset.openCh; location.reload(); return; } const a = e.target.closest('[data-open-quotes]'); if (a) { e.preventDefault(); open(); } });
   window.openQuotes = open;
   if (/[?&]quotes/.test(location.search)) open(/[?&]quotes=(\w+)/.test(location.search) ? RegExp.$1 : null);
 })();

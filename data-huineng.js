@@ -23,6 +23,7 @@
       zh: '惠能在曹溪弘法三十餘年，南宗禪從此傳遍天下，他的說法被弟子記成《六祖壇經》。',
       en: 'Huineng taught at Caoxi for over thirty years; Southern Chan spread across the land, and his talks were recorded as the Platform Sutra.'
     },
+    nextChapter: { id: 'miaotian', label: { zh: '接續下一篇：第85代 悟覺妙天禪師', en: 'Next chapter: Master Wujue Miaotian, 85th' } },
     nextHint: { zh: '《壇經》流傳至今，禪宗五家七宗皆由此而出', en: 'The Platform Sutra lives on; the later houses of Chan all trace back to it' },
     stations: [
       {
