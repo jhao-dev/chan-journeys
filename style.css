@@ -766,3 +766,16 @@ body.ended.show-finale .finale > *:nth-child(5) { animation-delay: .48s; }
 @media (prefers-reduced-motion: reduce) {
   body::before, .intro-title .v, .intro-inner, .card-body.in .scene svg, .lin-node, .tl-dot.current::after, #map .fig-wrap .bob { animation: none !important; }
 }
+
+/* 地名防重疊：被讓位的地名淡出 */
+#map .stn text.zh, #map .stn text.en, #map .via text, #map .lab text { transition: opacity .35s; }
+#map .stn.cull-lab text.zh, #map .stn.cull-lab text.en, #map .via.cull-lab text, #map .lab.cull-lab text { opacity: 0 !important; }
+#map .lab.cull-lab rect { opacity: 0; }
+
+/* 開場：背景完全不透明，不再透出後面的地圖與卡片 */
+.intro {
+  background:
+    url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 1200 300' preserveAspectRatio='none'><path d='M0 300 V210 L90 150 L160 190 L260 90 L350 170 L450 120 L560 200 L680 70 L790 160 L900 110 L1010 190 L1110 130 L1200 180 V300Z' fill='%23243a35' opacity='.12'/><path d='M0 300 V245 L120 200 L220 235 L330 170 L450 225 L580 160 L700 230 L820 180 L950 235 L1080 190 L1200 230 V300Z' fill='%231f2f2b' opacity='.16'/><path d='M0 300 V275 L150 250 L300 272 L470 245 L640 275 L820 252 L1000 276 L1200 258 V300Z' fill='%23161f1c' opacity='.2'/></svg>") bottom / 100% 42% no-repeat,
+    radial-gradient(ellipse 70% 50% at 50% 38%, rgba(255, 251, 238, .9), rgba(255, 251, 238, 0) 70%),
+    radial-gradient(ellipse at center, #f5ecd5 0%, #efe3c4 58%, #d9c49b 100%);
+}

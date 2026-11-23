@@ -466,7 +466,45 @@
     if (st.type === 'stay') setCard('s' + st.i, stationHTML(st.i));
     else setCard('m' + st.i + mode, travelHTML(st.i, mode));
 
+    if (now - lastDecl > 260) { lastDecl = now; declutter(curI); }
     requestAnimationFrame(frame);
+  }
+
+  /* 地名防重疊（Label declutter：依優先順序，重疊的較不重要地名先隱藏） */
+  let lastDecl = 0;
+  const PRI = { city: 40, mtn: 30, realm: 20, sea: 10, river: 10 };
+  function declutter(curI) {
+    const vis = (t) => t && getComputedStyle(t).display !== 'none';
+    const rectOf = (nodes) => {
+      let r = null;
+      nodes.forEach((t) => {
+        if (!vis(t)) return;
+        const b = t.getBoundingClientRect();
+        if (!b.width) return;
+        r = r ? { l: Math.min(r.l, b.left), t: Math.min(r.t, b.top), r: Math.max(r.r, b.right), b: Math.max(r.b, b.bottom) }
+              : { l: b.left, t: b.top, r: b.right, b: b.bottom };
+      });
+      return r && { l: r.l - 3, t: r.t - 2, r: r.r + 3, b: r.b + 2 };
+    };
+    const hit = (a, b) => a.l < b.r && a.r > b.l && a.t < b.b && a.b > b.t;
+    const items = [];
+    markers.forEach((m) => {
+      const cur = m.idx.includes(curI);
+      const visited = m.g.classed('visited');
+      items.push({ g: m.g, cls: 'cull-lab', pri: cur ? 100 : visited ? 60 : 50, nodes: m.g.selectAll('text.zh, text.en').nodes(), own: m.g.node() });
+    });
+    segs.forEach((sg) => { if (sg.viaG) items.push({ g: sg.viaG, cls: 'cull-lab', pri: 45, nodes: sg.viaG.selectAll('text').nodes() }); });
+    labNodes.forEach((l) => { if (!l.g.classed('dim')) items.push({ g: l.g, cls: 'cull-lab', pri: PRI[l.cls] || 5, nodes: l.g.selectAll('text').nodes() }); });
+    const rings = markers.map((m) => ({ own: m.g.node(), r: (() => { const b = m.g.select('.ring').node().getBoundingClientRect(); return { l: b.left - 2, t: b.top - 2, r: b.right + 2, b: b.bottom + 2 }; })() }));
+    items.sort((a, b) => b.pri - a.pri);
+    const placed = [];
+    items.forEach((it) => {
+      const r = rectOf(it.nodes);
+      if (!r) return;
+      const clash = it.pri < 100 && (placed.some((p) => hit(r, p)) || rings.some((k) => k.own !== it.own && hit(r, k.r)));
+      it.g.classed(it.cls, clash);
+      if (!clash) placed.push(r);
+    });
   }
 
   /* 閱讀模式（Reading mode：每站停住，按下一站才繼續） */
