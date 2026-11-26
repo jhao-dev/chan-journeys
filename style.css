@@ -858,3 +858,6 @@ body[data-lang="en"] .inscribe .en { display: inline !important; }
   .painting img, .inscribe .line { animation: none !important; }
   .fall, .haze { display: none; }
 }
+
+/* 沒有插圖的站點：只留一點間距 */
+.no-painting { height: 18px; }

@@ -1,4 +1,4 @@
-/* 古畫場景（Painting scenes）：目前只有達摩篇。圖片皆為公開授權，來自維基共享資源（Wikimedia Commons）。 */
+/* 古畫場景（Painting scenes）：目前有達摩篇與六祖篇。圖片皆為公開授權，來自維基共享資源（Wikimedia Commons）。 */
 (function () {
   const P = 'assets/paintings/';
   const c = (zh, en) => ({ zh, en });
@@ -16,6 +16,23 @@
     road: { img: 'land', from: '100% 50%', to: '55% 50%', origin: '50% 60%', fx: 'mist', travel: true,
       credit: c('宋・夏圭《溪山清遠圖》（局部）', 'Xia Gui, Pure and Remote View of Streams and Mountains (detail)') }
   };
+  const HN = {
+    firewood: { img: 'hn-firewood', from: '50% 8%', to: '50% 65%', origin: '52% 50%', quote: [c('應無所住', 'Dwelling nowhere,'), c('而生其心', 'let the mind arise')],
+      credit: c('南宋・直翁《六祖挾擔圖》', 'Zhiweng, The Sixth Patriarch Carrying a Pole, 13th c.') },
+    walls: { img: 'hn-bamboo', from: '50% 20%', to: '50% 92%', origin: '55% 60%', fx: 'leaves', quote: [c('本來無一物', 'Originally not one thing —'), c('何處惹塵埃', 'where could dust alight?')],
+      credit: c('南宋・梁楷《六祖斫竹圖》', 'Liang Kai, The Sixth Patriarch Cutting Bamboo, 13th c.') },
+    robe: { img: 'hn-goso', from: '50% 8%', to: '50% 75%', origin: '45% 50%', quote: [c('何期自性', 'Who would have thought'), c('本自清淨', 'self-nature is originally pure')],
+      credit: c('元《五祖荷鋤圖》，福岡市美術館藏', 'The Fifth Patriarch with a Hoe, Yuan · Fukuoka Art Museum') },
+    ridge: { img: 'hn-mountain', from: '50% 10%', to: '50% 80%', origin: '45% 70%', fx: 'mist', quote: [c('不思善', 'Think not of good,'), c('不思惡', 'think not of evil')],
+      credit: c('元・陳汝言《羅浮山樵圖》，克利夫蘭藝術博物館藏', 'Chen Ruyan, The Woodcutter of Luofu, 1366 · Cleveland Museum of Art') },
+    hunters: { img: 'hn-hunt', from: '15% 50%', to: '56% 50%', origin: '52% 55%', fx: 'leaves', quote: [c('隱遯十五年', 'Fifteen years in hiding')],
+      credit: c('傳五代・胡瓌《出獵圖》', 'Attributed to Hu Gui, Setting Out to Hunt') },
+    flag: null,
+    platform: { img: 'hn-platform', from: '50% 5%', to: '50% 58%', origin: '55% 52%', fx: 'mist', quote: [c('但用此心', 'Just use this mind'), c('直了成佛', 'and directly become Buddha')],
+      credit: c('大理國・張勝溫《梵像卷》慧能大師（局部）', 'Zhang Shengwen, Buddhist Images of Dali: Master Huineng (detail), 12th c.') },
+    road: ART.road
+  };
+  const SETS = { dharma: ART, huineng: HN };
   const bi = (o) => `<span class="zh">${o.zh}</span><span class="en">${o.en}</span>`;
 
   function particles(kind) {
@@ -29,8 +46,10 @@
   }
 
   window.paintingScene = function (chapterId, key) {
-    const a = chapterId === 'dharma' && ART[key];
-    if (!a) return '';
+    const set = SETS[chapterId];
+    if (!set || !(key in set)) return '';
+    const a = set[key];
+    if (!a) return '<div class="no-painting"></div>'; // 這一站不放圖
     const fx = a.fx === 'mist' ? '<div class="haze" aria-hidden="true"></div>' : a.fx ? particles(a.fx) : '';
     const quote = a.quote ? `<p class="inscribe">${a.quote.map((q) => `<span class="line">${bi(q)}</span>`).join('')}</p>` : '';
     return `<figure class="painting${a.travel ? ' wide' : ''}" style="--from:${a.from};--to:${a.to};--origin:${a.origin}">
