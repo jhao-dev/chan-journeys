@@ -779,3 +779,82 @@ body.ended.show-finale .finale > *:nth-child(5) { animation-delay: .48s; }
     radial-gradient(ellipse 70% 50% at 50% 38%, rgba(255, 251, 238, .9), rgba(255, 251, 238, 0) 70%),
     radial-gradient(ellipse at center, #f5ecd5 0%, #efe3c4 58%, #d9c49b 100%);
 }
+
+/* ===== 第七版：宋畫水墨・絹本舊色（Song ink on old silk） ===== */
+:root {
+  --paper: #e6d8b6; --paper-2: #d8c7a2; --paper-card: rgba(230, 216, 182, .98);
+  --sea: #cdbd97; --land: #eadcb8; --ink: #2b2418; --ink-2: #4c402b; --ink-3: #6a5a3e;
+  --vermilion: #8e2f22; --vermilion-2: #a8442f; --gold: #8f7438; --gold-2: #b89a58;
+  --line: rgba(60, 45, 20, .24);
+  --card-w: min(480px, 38vw);
+}
+#map .land-halo2 { stroke: #a8966c; stroke-opacity: .3; }
+#map .land-halo { stroke: #8d7c55; stroke-opacity: .32; }
+#map .land { stroke: #4c3f2a; }
+#map .river { stroke: #6f6a52; }
+#map .wave { stroke: #7a6c4c; }
+#map .lab.sea text, #map .lab.river text { fill: #4f4a36; }
+
+/* 地圖下方的山水長卷 */
+.shanshui {
+  position: fixed; z-index: 1; left: 0; right: var(--card-w); bottom: 0; height: 36vh; pointer-events: none;
+  background: url("assets/paintings/land.jpg") right bottom / cover no-repeat;
+  mix-blend-mode: multiply; opacity: .5;
+  -webkit-mask-image: linear-gradient(transparent, #000 60%); mask-image: linear-gradient(transparent, #000 60%);
+}
+.chapter-btn, .lang, .icon-btn { background: rgba(236, 224, 192, .85); }
+.controls { background: rgba(232, 219, 186, .93); }
+.lineage { background: var(--paper); }
+.lin-head, .lin-panel, .finale { background: var(--paper); }
+.lin-node { background: linear-gradient(180deg, #eee1bf, #e3d2a8); }
+.intro { background: var(--paper); }
+.intro::before { content: ""; position: absolute; left: 0; right: 0; bottom: 0; height: 40%; background: url("assets/paintings/land.jpg") center bottom / cover no-repeat; mix-blend-mode: multiply; opacity: .7; -webkit-mask-image: linear-gradient(transparent, #000 55%); mask-image: linear-gradient(transparent, #000 55%); pointer-events: none; }
+.intro-inner { position: relative; }
+
+/* 故事畫面：古畫活起來 */
+.painting { margin: 18px 0 20px; }
+.painting .frame { position: relative; aspect-ratio: 1; overflow: hidden; cursor: zoom-in; background: #cdbb92; box-shadow: 0 0 0 1px rgba(43, 36, 24, .35), 0 0 0 6px #d8c7a2, 0 0 0 7px rgba(43, 36, 24, .22); margin: 0 7px; }
+.painting.wide .frame { aspect-ratio: 4 / 3; }
+.painting img { display: block; width: 100%; height: 100%; object-fit: cover; object-position: var(--to); transform-origin: var(--origin); transform: scale(1.1); animation: paintmove 16s cubic-bezier(.4, 0, .3, 1) both; }
+@keyframes paintmove { 0% { object-position: var(--from); transform: scale(1); } 15% { object-position: var(--from); } 100% { object-position: var(--to); transform: scale(1.1); } }
+.painting.full .frame { cursor: zoom-out; }
+.painting.full img { object-fit: contain; animation: none; transform: none; object-position: center; }
+.painting.full .inscribe, .painting.full .fall, .painting.full .haze { display: none; }
+.painting figcaption { margin: 14px 7px 0; font-size: 12px; line-height: 1.6; color: var(--ink-3); text-align: right; }
+body[data-lang="bi"] .painting figcaption span { display: block; }
+.inscribe { position: absolute; top: 14px; right: 14px; margin: 0; padding: 10px 7px; display: flex; flex-direction: row-reverse; gap: 8px; background: rgba(234, 220, 186, .86); border: 1px solid rgba(43, 36, 24, .3); pointer-events: none; }
+.inscribe .line { writing-mode: vertical-rl; font-size: 19px; font-weight: 900; letter-spacing: .22em; animation: inscribe 1.8s ease 2s both; }
+.inscribe .line + .line { animation-delay: 3.8s; margin-top: 1.6em; color: var(--vermilion); }
+.inscribe .en { display: none; }
+body[data-lang="en"] .inscribe { flex-direction: column; left: 14px; padding: 8px 12px; text-align: center; }
+body[data-lang="en"] .inscribe .line { writing-mode: horizontal-tb; letter-spacing: 0; margin: 0; font-style: italic; }
+body[data-lang="en"] .inscribe .en { display: inline !important; }
+@keyframes inscribe { from { opacity: 0; clip-path: inset(0 0 100% 0); filter: blur(3px); } to { opacity: 1; clip-path: inset(0 0 0 0); filter: none; } }
+.haze { position: absolute; left: -40%; bottom: 8%; width: 110%; height: 26%; border-radius: 50%; background: rgba(240, 230, 200, .75); filter: blur(26px); animation: haze 14s ease-in-out infinite alternate; pointer-events: none; }
+@keyframes haze { from { transform: translateX(0); opacity: .9; } to { transform: translateX(65%); opacity: .45; } }
+.fall { position: absolute; inset: 0; pointer-events: none; overflow: hidden; }
+.fall i { position: absolute; top: -12px; border-radius: 50%; background: #fffdf4; box-shadow: 0 0 3px rgba(255, 255, 255, .8); animation: fall linear infinite; }
+.fall.leaves i { border-radius: 100% 0; background: #7d4f24; box-shadow: none; opacity: .75; }
+@keyframes fall { from { top: -12px; transform: translateX(0) rotate(0); } to { top: 104%; transform: translateX(-46px) rotate(300deg); } }
+
+/* 左圖右文：故事欄貼齊右側整面 */
+@media (min-width: 861px) {
+  .card { top: 0; right: 0; bottom: 0; border-radius: 0; border: 0; border-left: 1px solid rgba(43, 36, 24, .4); background: var(--paper); box-shadow: -10px 0 30px rgba(50, 32, 12, .18); }
+  .card::before, .card::after { display: none; }
+  .topbar { right: var(--card-w); }
+  .controls { right: calc(var(--card-w) + 20px); }
+}
+@media (max-width: 860px) {
+  .card { background: var(--paper); }
+  .shanshui { right: 0; bottom: var(--sheet-h); height: 20vh; }
+  body.sheet-min .shanshui { bottom: 64px; }
+  .painting { margin-top: 12px; }
+  .painting .frame { aspect-ratio: 4 / 3; }
+}
+@media (max-width: 1150px) and (min-width: 861px) {
+  .topbar { flex-wrap: wrap; row-gap: 8px; }
+}
+@media (prefers-reduced-motion: reduce) {
+  .painting img, .inscribe .line { animation: none !important; }
+  .fall, .haze { display: none; }
+}

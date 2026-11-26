@@ -160,7 +160,7 @@
     winW = window.innerWidth; winH = window.innerHeight;
     const mobile = winW <= 860;
     const r = cardEl.getBoundingClientRect();
-    if (!mobile) vis = { x0: 0, y0: 76, x1: r.left - 16, y1: winH - 96 };
+    if (!mobile) vis = { x0: 0, y0: 76, x1: r.left - 12, y1: winH - 96 };
     else vis = { x0: 0, y0: 58, x1: winW, y1: r.top - 64 };
     if (vis.y1 - vis.y0 < 120) vis.y1 = vis.y0 + 120;
     s0 = Math.max(0.05, Math.min((vis.x1 - vis.x0) / W0, (vis.y1 - vis.y0) / H0) * 0.97);
@@ -176,7 +176,7 @@
     let h = `<div class="head"><div class="stn-seal">${s.num}</div><div>
       <p class="place">${bi(s.place, 'span')}</p>
       <h2 class="title">${bi(s.title, 'span')}</h2></div></div>
-      <div class="scene">${SCENES[s.scene](FIGO)}</div>
+      ${window.paintingScene(chapter.id, s.scene) || `<div class="scene">${SCENES[s.scene](FIGO)}</div>`}
       <div class="story">${bi(s.text, 'p')}</div>`;
     if (s.source) {
       h += `<details class="more src"><summary>${bi({ zh: '典籍原文', en: 'Classical source' }, 'span')}</summary>
@@ -215,7 +215,7 @@
     return `<div class="head"><div class="stn-seal travel">途</div><div>
       <p class="place">${bi(kicker, 'span')}</p>
       <h2 class="title">${bi(title, 'span')}</h2></div></div>
-      <div class="scene">${SCENES[sg.scene || (mode === 'reed' ? 'walk' : mode)](FIGO)}</div>
+      ${window.paintingScene(chapter.id, 'road') || `<div class="scene">${SCENES[sg.scene || (mode === 'reed' ? 'walk' : mode)](FIGO)}</div>`}
       <div>${bi(cap, 'p', 'caption')}</div>
       <p class="hint">${bi({ zh: '下一站：' + next.num + '・' + next.title.zh, en: 'Next: ' + next.title.en }, 'span')}</p>`;
   }
@@ -516,6 +516,7 @@
     try { localStorage.setItem('chan-read', v ? '1' : '0'); } catch (e) {}
   }
   setRead(readMode);
+  cardBody.addEventListener('click', (e) => { const f = e.target.closest('.painting .frame'); if (f) f.parentNode.classList.toggle('full'); });
   cardBody.addEventListener('click', (e) => { if (e.target.closest('.read-hint')) $('nextBtn').click(); });
   $('readBtn').addEventListener('click', () => {
     setRead(!readMode);
