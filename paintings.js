@@ -1,4 +1,4 @@
-/* 古畫場景（Painting scenes）：目前有達摩篇與六祖篇。圖片皆為公開授權，來自維基共享資源（Wikimedia Commons）。 */
+/* 古畫場景（Painting scenes）：目前有達摩篇、六祖篇與釋迦篇。圖片皆為公開授權，來自維基共享資源（Wikimedia Commons）。 */
 (function () {
   const P = 'assets/paintings/';
   const c = (zh, en) => ({ zh, en });
@@ -32,7 +32,21 @@
       credit: c('大理國・張勝溫《梵像卷》慧能大師（局部）', 'Zhang Shengwen, Buddhist Images of Dali: Master Huineng (detail), 12th c.') },
     road: ART.road
   };
-  const SETS = { dharma: ART, huineng: HN };
+  const BD = {
+    birth: null, palace: null, teachers: null,
+    river: { img: 'bd-river', from: '50% 8%', to: '50% 58%', origin: '50% 40%', fx: 'mist', quote: [c('走向中道', 'The Middle Way')],
+      credit: c('南宋《出山釋迦圖》，1244 年，克利夫蘭藝術博物館藏', 'Shakyamuni Emerging from the Mountains, 1244 · Cleveland Museum of Art') },
+    bodhi: { img: 'bd-bodhi', from: '50% 12%', to: '50% 74%', origin: '50% 60%', fx: 'leaves', quote: [c('不悟道', 'Until I awaken'), c('不起座', 'I will not rise')],
+      credit: c('明《菩提樹下釋迦圖》，克利夫蘭藝術博物館藏', 'Shakyamuni under the Bodhi Tree, Ming · Cleveland Museum of Art') },
+    deer: { img: 'bd-deer', from: '90% 50%', to: '35% 50%', origin: '50% 55%', fx: 'mist', travel: true, quote: [c('初轉法輪', 'First turning of the wheel')],
+      credit: c('元・李升《佛陀度化五比丘》（局部），克利夫蘭藝術博物館藏', 'Li Sheng, Buddha’s Conversion of Five Bhiksu (detail), 14th c. · Cleveland Museum of Art') },
+    flower: { img: 'bd-flower', from: '25% 50%', to: '82% 50%', origin: '60% 50%', travel: true, quote: [c('正法眼藏', 'The true Dharma eye,'), c('涅槃妙心', 'the wondrous mind of nirvana')],
+      credit: c('日本・菱田春草《拈花微笑》，1897 年', 'Hishida Shunsō, Mahakasyapa Smiling at the Lotus Flower, 1897') },
+    nirvana: { img: 'bd-nirvana', from: '50% 8%', to: '50% 36%', origin: '50% 45%', fx: 'leaves', quote: [c('以己為燈', 'Be a lamp to yourselves,'), c('以法為燈', 'let the Dharma be your lamp')],
+      credit: c('日本《涅槃圖》版畫，約 1710 年代，克利夫蘭藝術博物館藏', 'The Parinirvana of the Buddha, Japan, c. 1710s · Cleveland Museum of Art') },
+    road: ART.road
+  };
+  const SETS = { dharma: ART, huineng: HN, buddha: BD };
   const bi = (o) => `<span class="zh">${o.zh}</span><span class="en">${o.en}</span>`;
 
   function particles(kind) {
