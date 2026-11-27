@@ -1,4 +1,4 @@
-/* 古畫場景（Painting scenes）：目前有達摩篇、六祖篇與釋迦篇。圖片皆為公開授權，來自維基共享資源（Wikimedia Commons）。 */
+/* 古畫場景（Painting scenes）：目前有達摩篇、六祖篇、釋迦篇與慧可篇。圖片皆為公開授權，來自維基共享資源、克利夫蘭藝術博物館與日本國立博物館（ColBase）。 */
 (function () {
   const P = 'assets/paintings/';
   const c = (zh, en) => ({ zh, en });
@@ -46,7 +46,17 @@
       credit: c('日本《涅槃圖》版畫，約 1710 年代，克利夫蘭藝術博物館藏', 'The Parinirvana of the Buddha, Japan, c. 1710s · Cleveland Museum of Art') },
     road: ART.road
   };
-  const SETS = { dharma: ART, huineng: HN, buddha: BD };
+  const HK = {
+    luoyang: null, lanka: null,
+    marrow: { img: 'hk-cliff', from: '50% 30%', to: '50% 94%', origin: '40% 80%', fx: 'mist', quote: [c('汝得吾髓', 'You have my marrow')],
+      credit: c('南宋《達摩面壁圖》，克利夫蘭藝術博物館藏', 'Bodhidharma Meditating Facing a Cliff, Song, late 13th c. · Cleveland Museum of Art') },
+    sin: { img: 'hk-patriarchs', from: '50% 0%', to: '50% 85%', origin: '50% 55%', quote: [c('覓罪不可得', 'The sin cannot be found')],
+      credit: c('大理國・張勝溫《梵像卷》慧可、僧璨大師（局部）', 'Zhang Shengwen, Buddhist Images of Dali: Masters Huike and Sengcan (detail), 12th c.') },
+    tavern: { img: 'hk-tiger', from: '40% 50%', to: '90% 50%', origin: '50% 55%', travel: true, quote: [c('我自調心', 'I am tuning'), c('何關汝事', 'my own mind')],
+      credit: c('傳五代・石恪《二祖調心圖》，東京國立博物館藏（出處：ColBase）', 'Attributed to Shi Ke, Two Patriarchs Harmonizing Their Minds · Tokyo National Museum (ColBase)') },
+    road: ART.road
+  };
+  const SETS = { dharma: ART, huineng: HN, buddha: BD, huike: HK };
   const bi = (o) => `<span class="zh">${o.zh}</span><span class="en">${o.en}</span>`;
 
   function particles(kind) {
