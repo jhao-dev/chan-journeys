@@ -829,6 +829,9 @@ body[data-lang="bi"] .painting figcaption span { display: block; }
 body[data-lang="en"] .inscribe { flex-direction: column; left: 14px; padding: 8px 12px; text-align: center; }
 body[data-lang="en"] .inscribe .line { writing-mode: horizontal-tb; letter-spacing: 0; margin: 0; font-style: italic; }
 body[data-lang="en"] .inscribe .en { display: inline !important; }
+/* 題字放在兩位人物中間；英文版改放底部，避免遮住臉 */
+.inscribe.mid { right: auto; left: 50%; transform: translateX(-50%); }
+body[data-lang="en"] .inscribe.mid { top: auto; bottom: 14px; left: 14px; right: 14px; transform: none; }
 @keyframes inscribe { from { opacity: 0; clip-path: inset(0 0 100% 0); filter: blur(3px); } to { opacity: 1; clip-path: inset(0 0 0 0); filter: none; } }
 .haze { position: absolute; left: -40%; bottom: 8%; width: 110%; height: 26%; border-radius: 50%; background: rgba(240, 230, 200, .75); filter: blur(26px); animation: haze 14s ease-in-out infinite alternate; pointer-events: none; }
 @keyframes haze { from { transform: translateX(0); opacity: .9; } to { transform: translateX(65%); opacity: .45; } }

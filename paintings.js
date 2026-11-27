@@ -1,4 +1,4 @@
-/* 古畫場景（Painting scenes）：目前有達摩篇、六祖篇、釋迦篇與慧可篇。圖片皆為公開授權，來自維基共享資源、克利夫蘭藝術博物館與日本國立博物館（ColBase）。 */
+/* 古畫場景（Painting scenes）：目前有達摩篇、六祖篇、釋迦篇、慧可篇與迦葉篇。圖片皆為公開授權，來自維基共享資源、克利夫蘭藝術博物館與日本國立博物館（ColBase）。 */
 (function () {
   const P = 'assets/paintings/';
   const c = (zh, en) => ({ zh, en });
@@ -56,7 +56,16 @@
       credit: c('傳五代・石恪《二祖調心圖》，東京國立博物館藏（出處：ColBase）', 'Attributed to Shi Ke, Two Patriarchs Harmonizing Their Minds · Tokyo National Museum (ColBase)') },
     road: ART.road
   };
-  const SETS = { dharma: ART, huineng: HN, buddha: BD, huike: HK };
+  const KS = {
+    kasorden: null,
+    kassmile: BD.flower,
+    kascouncil: null,
+    kaspole: { img: 'ks-transmit', mid: true, from: '50% 0%', to: '50% 72%', origin: '50% 60%', quote: [c('倒卻門前', 'Knock down the flagpole'), c('剎竿著', 'at the gate!')],
+      credit: c('大理國・張勝溫《梵像卷》尊者迦葉、尊者阿難（局部），國立故宮博物院藏', 'Zhang Shengwen, Buddhist Images of Dali: Kasyapa and Ananda (detail), 12th c. · National Palace Museum') },
+    kascave: null,
+    road: null
+  };
+  const SETS = { dharma: ART, huineng: HN, buddha: BD, huike: HK, kasyapa: KS };
   const bi = (o) => `<span class="zh">${o.zh}</span><span class="en">${o.en}</span>`;
 
   function particles(kind) {
@@ -75,7 +84,7 @@
     const a = set[key];
     if (!a) return '<div class="no-painting"></div>'; // 這一站不放圖
     const fx = a.fx === 'mist' ? '<div class="haze" aria-hidden="true"></div>' : a.fx ? particles(a.fx) : '';
-    const quote = a.quote ? `<p class="inscribe">${a.quote.map((q) => `<span class="line">${bi(q)}</span>`).join('')}</p>` : '';
+    const quote = a.quote ? `<p class="inscribe${a.mid ? ' mid' : ''}">${a.quote.map((q) => `<span class="line">${bi(q)}</span>`).join('')}</p>` : '';
     return `<figure class="painting${a.travel ? ' wide' : ''}" style="--from:${a.from};--to:${a.to};--origin:${a.origin}">
       <div class="frame" title="點一下看整幅畫 / Tap to see the whole painting">
         <img src="${P}${a.img}.jpg" alt="${a.credit.zh}">${fx}${quote}
